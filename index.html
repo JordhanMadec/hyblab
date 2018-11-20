@@ -39,31 +39,6 @@
         </div>
     </header>
 
-    <section id="one" class="carto">
-        <div class="container">
-            <h2>Cartographie</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, impedit amet minima iste autem cumque et maiores
-                blanditiis doloribus aut dolorum quaerat non est voluptatum, tempore ut dolorem voluptas quod quae accusantium,
-                ex inventore ducimus. Beatae mollitia exercitationem, quam similique, consectetur ratione reprehenderit delectus
-                neque eligendi facere soluta dolor ducimus!</p>
-        </div>
-    </section>
-
-    <section id="second" class="blabla">
-        <div class="container">
-            <h2>Blabla</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, impedit amet minima iste autem cumque et maiores
-                blanditiis doloribus aut dolorum quaerat non est voluptatum, tempore ut dolorem voluptas quod quae accusantium,
-                ex inventore ducimus. Beatae mollitia exercitationem, quam similique, consectetur ratione reprehenderit delectus
-                neque eligendi facere soluta dolor ducimus!</p>
-        </div>
-
-        <!--<a href="https://twitter.com/intent/tweet?button_hashtag=OnDenonce&ref_src=twsrc%5Etfw&text=Donnez nous le prix" class="twitter-hashtag-button" data-show-count="false">
-            Tweet
-        </a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
-    </section>
-
     <!-- Scripts here -->
     <!-- Libs first, your sourcecode after -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -73,9 +48,16 @@
 
 
     <section id="map-section">
-        <div id="map">
 
-        </div>
+        <h1 class="section-title">Le patrimoine pour les nuls</h1>
+
+        <div id="map"></div>
+
+        <input type="text" class="browser-default map-searchbar" placeholder="Code postal">
+
+        <div class="filters-container"></div>
+
+        <div class="diagonal-splitter"></div>
 
         <script src="scripts/map.js"></script>
     </section>

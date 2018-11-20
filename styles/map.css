@@ -3,22 +3,37 @@
 }
 
 #map {
-    width: 100%;
-    height: 500px;
+    width: 800px;
+    height: 800px;
+    border-radius: 100%;
+    margin: auto;
     position: relative;
     z-index: 10;
 }
 
 .map-searchbar {
-    background: white !important;
-    border: none !important;
-    border-radius: 5px !important;
-    margin: 0 !important;
-    width: 400px !important;
+    background: white;
+    border-radius: 5px;
+    width: 400px;
+    height: 60px;
     margin: auto;
-    position: absolute;
-    top: 20px;
+    position: relative;
+    top: -60px;
     left: 0;
     right: 0;
+    border-radius: 30px;
     z-index: 100;
+    border: none!important;
+    outline: none !important;
+    padding: 20px;
+    display: flex;
+}
+
+.filters-container {
+    padding: 20px 0;
+}
+
+.diagonal-splitter {
+    background: linear-gradient(to bottom right, #000 0%, #000 50%, var(--main-yellow) 50%, var(--main-yellow) 100%);
+    height: 200px;
 }
