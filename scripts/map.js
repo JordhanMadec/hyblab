@@ -6,16 +6,20 @@ var map = new mapboxgl.Map({
     center: [2.467531, 46.725433],
     maxZoom: 15,
     maxBounds: [
-        [-7.647085, 40.345829],
-        [13.074766, 52.595366]
+        [-7.467531, 39.725433],
+        [11.467531, 52.725433]
     ]
 });
+
+
 
 map.on('load', function() {
     // Set language to french
     map.addControl(new MapboxLanguage({
         defaultLanguage: 'fr'
     }));
+    // Set water color
+    map.setPaintProperty('water', 'fill-color', '#000');
     // Add a new source from our GeoJSON data and set the
     // 'cluster' option to true. GL-JS will add the point_count property to your source data.
     map.addSource("earthquakes", {
