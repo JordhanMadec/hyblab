@@ -92,3 +92,11 @@ section .section-title {
         padding-left:3rem;
     }
 }
+
+.btn-funfact.btn-floating{
+    background-color: var(--main-yellow) !important;
+}
+
+.tap-target-wrapper.open .tap-target {
+    opacity: 1 !important;
+}
