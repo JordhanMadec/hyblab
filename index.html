@@ -21,21 +21,33 @@
 </head>
 
 <body>
-    <header class="v-header container">
+
+
+
+
+    <!---------- MOTION DESIGN ---------->
+
+    <header class="v-header">
         <div class="fullscreen-video-wrap">
-            <video src="https://production.cdmycdn.com/assets/marketing-pages/intensives/bws/coding-scenes-9a2031e8142b40bdb5d936d5eef33dfa.mp4"
-                autoplay="" loop="">
+            <video autoplay loop>
+                <source type="video/mp4" src="https://production.cdmycdn.com/assets/marketing-pages/intensives/bws/coding-scenes-9a2031e8142b40bdb5d936d5eef33dfa.mp4">
             </video>
         </div>
         <div class="header-overlay"></div>
-        <div class="header-content text-md-center">
+        <div class="header-content container text-md-center">
             <h1>L'état est-il un bon agent immobilier ?</h1>
-            <a class="btn-floating btn-large waves-effect waves-light yellow" href="#map-section">
+            <a class="btn-floating btn-large waves-effect waves-light" href="#map-section">
                 <i class="large material-icons">arrow_downward</i>
             </a>
         </div>
     </header>
 
+
+
+
+
+
+    <!---------- CARTE ---------->
 
     <section id="map-section">
 
@@ -49,14 +61,121 @@
             <div class="map-search-button"><i class="material-icons">search</i></div>
         </div>
 
-        <div class="filters-container"></div>
+        <div class="filters-container container">
+            <div class="row">
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Bâtiment agricole</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Bâtiment culturel</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Bâtiment d'enseignement/sport</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Bâtiment sanitaire</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Bâtiment technique</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Bureau</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Commerce</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Edifice de culte</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Espace aménagé</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Esapce naturel</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Logement</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Monument ou mémorial</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Réseaux et voiries</span>
+                    </label>
+                </div>
+
+                <div class="col s4">
+                    <label>
+                        <input type="checkbox" class="filled-in" />
+                        <span>Support de parcelle</span>
+                    </label>
+                </div>
+            </div>
+        </div>
 
         <div class="diagonal-splitter"></div>
 
         <script src="scripts/map.js"></script>
     </section>
 
-    <!-- Fun Fact Discovery-->
+
+
+
+
+
+
+    <!---------- FUN FACTS ---------->
+
     <div class="container">
         <!-- Element Showed -->
         <div class="fixed-action-btn" style="bottom: 45px; right: 24px;" onclick="$('.tap-target').tapTarget('open')">
@@ -73,7 +192,13 @@
         <!-- End Tap Target Structure -->
     </div>
 
-    <!-- Scripts here -->
+
+
+
+
+
+    <!---------- SCRIPTS ---------->
+
     <!-- Libs first, your sourcecode after -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

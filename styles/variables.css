@@ -1,6 +1,7 @@
 :root {
 /*    --main-black: rgb(25, 26, 26);*/
     --main-black: #000;
+    --main-dark-gray: rgb(26, 25, 25);
     --main-white: #FFF;
     --main-yellow: #FFEB3B;
     --main-gray: #DDD;
