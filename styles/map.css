@@ -7,6 +7,7 @@
 #map {
     width: 800px;
     height: 800px;
+    max-width: 100%;
     border-radius: 100%;
     margin: auto;
     position: relative;
@@ -63,4 +64,9 @@
 .diagonal-splitter {
     background: linear-gradient(to bottom right, #000 0%, #000 50%, var(--main-yellow) 50%, var(--main-yellow) 100%);
     height: 200px;
+}
+
+.filters-container .col {
+    text-align: left;
+    margin-top: 10px;
 }

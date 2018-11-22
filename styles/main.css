@@ -61,9 +61,10 @@ h1, h2, h3, h4, h5, h6 {
     z-index:2;
 }
 
-.header-content h1{
+.header-content h1 {
     font-size:50px;
-    margin-bottom:0;
+    text-shadow: 1px 1px 1px #000;
+    color: var(--main-white);
 }
 
 .header-content p{
@@ -93,7 +94,7 @@ section .section-title {
     }
 }
 
-.btn-funfact.btn-floating{
+.btn-floating{
     background-color: var(--main-yellow) !important;
 }
 
