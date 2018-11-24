@@ -58,9 +58,9 @@
         <div id="map"></div>
 
         <div class="map-searchbar-container">
-            <input type="text" class="browser-default map-searchbar" placeholder="Code postal" maxlength="5">
+            <input type="text" id="map-zipcode-input" class="browser-default map-searchbar" placeholder="Code postal" maxlength="5">
 
-            <div class="map-search-button"><i class="material-icons">search</i></div>
+            <div id="map-search-button" class="map-search-button"><i class="material-icons">search</i></div>
         </div>
 
         <div class="filters-container container">
@@ -164,7 +164,6 @@
                 </div>
             </div>
         </div>
-        <script src="scripts/map.js"></script>
     </section>
 
     <div class="diagonal-splitter"></div>
@@ -193,6 +192,10 @@
         </div>
         <!-- End Tap Target Structure -->
     </div>
+
+
+
+
 
 
     <!---------- FOOTER ---------->
@@ -234,12 +237,16 @@
       </footer>
 
 
+
+
+
     <!---------- SCRIPTS ---------->
 
-    <!-- Libs first, your sourcecode after -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="scripts/skel.min.js"></script>
+    <script src="scripts/map.js"></script>
+
     <script src="scripts/main.js"></script>
 </body>
 

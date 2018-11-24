@@ -1,5 +1,8 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoiam9yZGhhbiIsImEiOiJjaW4xZ3lxYzkwMG5qdzhseTN4eWViMWlxIn0.IjKwIeh3FBxZQmul2JPcew';
 
+
+//---------- CREATE MAP ----------
+
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
@@ -13,6 +16,57 @@ var map = new mapboxgl.Map({
 
 
 
+
+
+
+
+
+//---------- ZOOM ON ZIPCODE ----------
+
+var zoomZipcode = function() {
+    var zipcode = $("#map-zipcode-input").val();
+
+    if (zipcode.length == 0) {
+        return;
+    }
+
+    $.get("https://geo.api.gouv.fr/communes?codePostal=" + zipcode + "&fields=centre&format=json&geometry=centre", function (data) {
+        map.flyTo({
+            zoom: 11,
+            center: data[0].centre.coordinates
+        });
+    });
+}
+
+$("#map-search-button").click(function() {
+    zoomZipcode();
+});
+
+$("#map-zipcode-input").on('keypress', function (e) {
+    if(e.which === 13) { // Press enter key
+
+        //Disable textbox to prevent multiple submit
+        $(this).attr("disabled", "disabled");
+
+        zoomZipcode();
+
+        //Enable the textbox again if needed.
+        $(this).removeAttr("disabled");
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+//---------- MAP LAYERS ----------
+
 map.on('load', function() {
     // Set language to french
     map.addControl(new MapboxLanguage({
@@ -24,9 +78,7 @@ map.on('load', function() {
     // 'cluster' option to true. GL-JS will add the point_count property to your source data.
     map.addSource("patrimony", {
         type: "geojson",
-        // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
-        // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
-        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/mapbox/data.geojson",
+        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
         cluster: true,
         clusterMaxZoom: 15, // Max zoom to cluster points on
         clusterRadius: 35 // Radius of each cluster when clustering points (defaults to 50)
@@ -47,9 +99,9 @@ map.on('load', function() {
                 "step",
                 ["get", "point_count"],
                 "#51bbd6",
-                100,
+                50,
                 "#f1f075",
-                750,
+                300,
                 "#f28cb1"
             ],
             "circle-radius": [
@@ -89,6 +141,17 @@ map.on('load', function() {
         }
     });
 
+
+
+
+
+
+
+
+
+
+    //---------- MAP CLICK LISTENER ----------
+
     // inspect a cluster on click
     map.on('click', 'clusters', function (e) {
         var features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
@@ -104,10 +167,40 @@ map.on('load', function() {
         });
     });
 
+    // Affiche la fiche du patrimoine
+    map.on('click', 'unclustered-point', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var patrimony = e.features[0].properties;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        console.log(patrimony);
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(
+                "<h4>" + patrimony.address + "</h4>" +
+                "<h5>" + patrimony.zipcode + ", " + patrimony.city + "</h5>"
+            )
+            .addTo(map);
+    });
+
     map.on('mouseenter', 'clusters', function () {
         map.getCanvas().style.cursor = 'pointer';
     });
     map.on('mouseleave', 'clusters', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter', 'unclustered-point', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'unclustered-point', function () {
         map.getCanvas().style.cursor = '';
     });
 });
