@@ -3,11 +3,11 @@
 }
 
 body {
-    margin:0;
+    margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size:1rem;
-    font-weight:normal;
-    line-height:1.5;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
     background-color: var(--main-black);
     overflow-x: hidden;
     color: var(--main-white);
@@ -16,66 +16,54 @@ body {
 h1, h2, h3, h4, h5, h6 {
     color: var(--main-yellow);
 }
-.v-header{
-    height:100vh;
-    display:flex;
-    align-items:center;
-    color:#fff;
+.v-header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
 }
 
-.container{
-    max-width:960px;
-    padding-left:1rem;
-    padding-right:1rem;
-    margin:auto;
-    text-align:center;
+.container {
+    max-width: 960px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: auto;
+    text-align: center;
 }
 
-.fullscreen-video-wrap{
+.fullscreen-video-wrap {
     position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    overflow:hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
     z-index: -1;
 }
 
-.fullscreen-video-wrap video{
-    min-height:100%;
-    min-width:100%;
+.fullscreen-video-wrap video {
+    min-height: 100%;
+    min-width: 100%;
 }
 
-/*
-.header-overlay{
-  height:100vh;
-  position: absolute;
-  top:0;
-  left:0;
-  width:100vw;
-  z-index:1;
-  background:#225470;
-  opacity:0.85;
-}*/
-
-.header-content{
-    z-index:2;
+.header-content {
+    z-index: 2;
 }
 
 .header-content h1 {
-    font-size:50px;
+    font-size: 50px;
     text-shadow: 1px 1px 1px #000;
     color: var(--main-white);
 }
 
-.header-content p{
-    font-size:1.5rem;
-    display:block;
-    padding-bottom:2rem;
+.header-content p {
+    font-size: 1.5rem;
+    display: block;
+    padding-bottom: 2rem;
 }
 
-section{
-    padding:20px 0;
+section {
+    padding: 20px 0;
 }
 
 section .section-title {
@@ -83,19 +71,19 @@ section .section-title {
     margin: 60px 0;
 }
 
-.section-b{
-    background:#333;
-    color:#fff;
+.section-b {
+    background: #333;
+    color: #fff;
 }
 
-@media(max-width:960px){
-    .container{
-        padding-right:3rem;
-        padding-left:3rem;
+@media(max-width:960px) {
+    .container {
+        padding-right: 3rem;
+        padding-left: 3rem;
     }
 }
 
-.btn-floating{
+.btn-floating {
     background-color: var(--main-yellow) !important;
 }
 

@@ -203,4 +203,45 @@ map.on('load', function() {
     map.on('mouseleave', 'unclustered-point', function () {
         map.getCanvas().style.cursor = '';
     });
+
+
+
+
+    
+    //---------- MAP FILTERS ----------
+
+    var selectedItems = ['all-filters'];
+
+    var selectFilters = function () {
+        $('.map-filter').removeClass('selected');
+        selectedItems.forEach(filter => {
+            $('#' + filter).addClass('selected');
+        });
+    }
+
+    $('.map-filter').on('click', function (event) {
+        if ($(this).attr('id') == 'all-filters') {
+            if ($(this).hasClass('selected')) {
+                return;
+            }
+
+            selectedItems = ['all-filters'];
+            selectFilters();
+            return;
+        }
+
+
+        if ($(this).hasClass('selected')) {
+            selectedItems = selectedItems.filter(e => e != $(this).attr('id'));
+        } else {
+            selectedItems = selectedItems.filter(e => e != 'all-filters');
+            selectedItems.push($(this).attr('id'));
+        }
+
+        if (selectedItems.length == 0) {
+            selectedItems = ['all-filters'];
+        }
+
+        selectFilters();
+    })
 });
