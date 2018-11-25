@@ -72,6 +72,12 @@
     height: 200px;
 }
 
+
+
+
+
+/* FILTERS */
+
 .map-filter {
     display: flex;
     justify-content: start;
@@ -109,9 +115,6 @@
 .map-filter.selected > .map-filter-button > div {
     opacity: 1;
 }
-
-
-
 
 
 #batiment-agricole .map-filter-button {
@@ -246,4 +249,50 @@
 
 #support-parcelle .map-filter-button > div {
     background-color: var(--green3);
+}
+
+
+
+
+
+
+
+
+/* PATRIMONY ID CARD (ON MAP)*/
+.patrimony-id {
+    color: var(--main-black);
+    width: 300px;
+}
+
+.patrimony-id-title {
+    font-weight: bold;
+    font-size: 17px;
+    font-family: 'Cabin';
+    color: var(--main-black);
+}
+
+.patrimony-id-subtitle {
+    font-size: 12px;
+    color: var(--main-gray);
+}
+
+.patrimony-id-details {
+    margin-top: 10px;
+}
+
+.patrimony-id-details > div {
+    display: flex;
+    align-items: center;
+}
+
+.patrimony-id-details .value {
+    display: inline-block;
+    width: 200px;
+}
+
+.patrimony-id-details .label {
+    font-weight: bold;
+    width: 100px;
+    padding-right: 10px;
+    display: inline-block;
 }

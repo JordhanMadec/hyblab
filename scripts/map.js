@@ -134,8 +134,8 @@ map.on('load', function() {
         source: "patrimony",
         filter: ["!", ["has", "point_count"]],
         paint: {
-            "circle-color": "#11b4da",
-            "circle-radius": 4,
+            "circle-color": "#FFEB3B",
+            "circle-radius": 10,
             "circle-stroke-width": 1,
             "circle-stroke-color": "#fff"
         }
@@ -179,13 +179,28 @@ map.on('load', function() {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
 
-        console.log(patrimony);
+        title = patrimony.address.toLowerCase() != "null" ? patrimony.address : "Pas d'adresse";
+        subtitle = patrimony.zipcode + ", " + patrimony.city
+        description = patrimony.description.toLowerCase() != "null" ? patrimony.description : "Pas de description";
 
         new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(
-                "<h4>" + patrimony.address + "</h4>" +
-                "<h5>" + patrimony.zipcode + ", " + patrimony.city + "</h5>"
+                "<div class='patrimony-id'>" +
+                    "<div class='patrimony-id-title'>" + title  + "</div>" +
+                    "<div class='patrimony-id-subtitle'>" + subtitle + "</div>" +
+                    "<div class='patrimony-id-details'>" +
+                        "<div><div class='label'>Nature</div><div class='value'>" + patrimony.nature + "</div></div>" +
+                        "<div><div class='label'>Statut</div><div class='value'>" + patrimony.state + "</div></div>" +
+                        "<div><div class='label'>Ministère</div><div class='value'>" + patrimony.ministry + "</div></div>" +
+                        "<div><div class='label'>Procédure</div><div class='value'>" + patrimony.procedure + "</div></div>" +
+                        "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
+                        "<div><div class='label'>Mise en vente</div><div class='value'>" + patrimony.registration_year + "</div></div>" +
+                        "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
+                        "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
+                        "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
+                    "</div>" +
+                "</div>"
             )
             .addTo(map);
     });
