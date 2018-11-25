@@ -57,8 +57,14 @@
     -webkit-user-select: none;
 }
 
-.filters-container {
+.map-filters-container {
     padding: 20px 0;
+}
+
+.map-filters-container h5{
+    margin-bottom: 20px;
+    color: var(--main-white);
+    font-weight: bold;
 }
 
 .diagonal-splitter {
@@ -66,7 +72,227 @@
     height: 200px;
 }
 
-.filters-container .col {
+
+
+
+
+/* FILTERS */
+
+.map-filter {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
     text-align: left;
+}
+
+.map-filter.selected {
+    font-weight: bold;
+}
+
+.map-filter-button {
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    margin-right: 10px;
+    border: solid 2px var(--main-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-filter-button > div {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background-color: var(--main-white);
+    opacity: 0;
+    transition: .3s;
+}
+
+.map-filter:hover > .map-filter-button > div,
+.map-filter.selected > .map-filter-button > div {
+    opacity: 1;
+}
+
+
+#batiment-agricole .map-filter-button {
+    border-color: var(--red);
+}
+
+#batiment-agricole .map-filter-button > div {
+    background-color: var(--red);
+}
+
+
+#batiment-culturel .map-filter-button {
+    border-color: var(--yellow1);
+}
+
+#batiment-culturel .map-filter-button > div {
+    background-color: var(--yellow1);
+}
+
+
+#batiment-sport .map-filter-button {
+    border-color: var(--green1);
+}
+
+#batiment-sport .map-filter-button > div {
+    background-color: var(--green1);
+}
+
+
+#batiment-sanitaire .map-filter-button {
+    border-color: var(--orange1);
+}
+
+#batiment-sanitaire .map-filter-button > div {
+    background-color: var(--orange1);
+}
+
+
+#batiment-technique .map-filter-button {
+    border-color: var(--pink);
+}
+
+#batiment-technique .map-filter-button > div {
+    background-color: var(--pink);
+}
+
+
+#bureau .map-filter-button {
+    border-color: var(--gray);
+}
+
+#bureau .map-filter-button > div {
+    background-color: var(--gray);
+}
+
+
+#commerce .map-filter-button {
+    border-color: var(--blue2);
+}
+
+#commerce .map-filter-button > div {
+    background-color: var(--blue2);
+}
+
+
+#edifice-culte .map-filter-button {
+    border-color: var(--yellow2);
+}
+
+#edifice-culte .map-filter-button > div {
+    background-color: var(--yellow2);
+}
+
+
+#espace-amenage .map-filter-button {
+    border-color: var(--purple);
+}
+
+#espace-amenage .map-filter-button > div {
+    background-color: var(--purple);
+}
+
+
+#espace-naturel .map-filter-button {
+    border-color: var(--green2);
+}
+
+#espace-naturel .map-filter-button > div {
+    background-color: var(--green2);
+}
+
+
+#logement .map-filter-button {
+    border-color: var(--blue1);
+}
+
+#logement .map-filter-button > div {
+    background-color: var(--blue1);
+}
+
+
+#monument .map-filter-button {
+    border-color: var(--orange2);
+}
+
+#monument .map-filter-button > div {
+    background-color: var(--orange2);
+}
+
+
+#batiment-sanitaire .map-filter-button {
+    border-color: var(--orange1);
+}
+
+#batiment-sanitaire .map-filter-button > div {
+    background-color: var(--orange1);
+}
+
+
+#reseaux-voiries .map-filter-button {
+    border-color: var(--blue3);
+}
+
+#reseaux-voiries .map-filter-button > div {
+    background-color: var(--blue3);
+}
+
+
+#support-parcelle .map-filter-button {
+    border-color: var(--green3);
+}
+
+#support-parcelle .map-filter-button > div {
+    background-color: var(--green3);
+}
+
+
+
+
+
+
+
+
+/* PATRIMONY ID CARD (ON MAP)*/
+.patrimony-id {
+    color: var(--main-black);
+    width: 300px;
+}
+
+.patrimony-id-title {
+    font-weight: bold;
+    font-size: 17px;
+    font-family: 'Cabin';
+    color: var(--main-black);
+}
+
+.patrimony-id-subtitle {
+    font-size: 12px;
+    color: var(--main-gray);
+}
+
+.patrimony-id-details {
     margin-top: 10px;
+}
+
+.patrimony-id-details > div {
+    display: flex;
+    align-items: center;
+}
+
+.patrimony-id-details .value {
+    display: inline-block;
+    width: 200px;
+}
+
+.patrimony-id-details .label {
+    font-weight: bold;
+    width: 100px;
+    padding-right: 10px;
+    display: inline-block;
 }

@@ -62,113 +62,91 @@
         <div id="map"></div>
 
         <div class="map-searchbar-container">
-            <input type="text" class="browser-default map-searchbar" placeholder="Code postal" maxlength="5">
+            <input type="text" id="map-zipcode-input" class="browser-default map-searchbar" placeholder="Code postal" maxlength="5">
 
-            <div class="map-search-button"><i class="material-icons">search</i></div>
+            <div id="map-search-button" class="map-search-button"><i class="material-icons">search</i></div>
         </div>
 
-        <div class="filters-container container">
+        <div class="map-filters-container container">
+            <h5>Filtrer par type de patrimoine</h5>
+
             <div class="row">
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Bâtiment agricole</span>
-                    </label>
+                <div id="all-filters" class="col s4 map-filter selected">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Tout</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Bâtiment culturel</span>
-                    </label>
+                <div id="batiment-agricole" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Bâtiment agricole</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Bâtiment d'enseignement/sport</span>
-                    </label>
+                <div id="batiment-culturel" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Bâtiment culturel</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Bâtiment sanitaire</span>
-                    </label>
+                <div id="batiment-sport" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Bâtiment d'enseignement/sport</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Bâtiment technique</span>
-                    </label>
+                <div id="batiment-sanitaire" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Bâtiment sanitaire</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Bureau</span>
-                    </label>
+                <div id="batiment-technique" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Bâtiment technique</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Commerce</span>
-                    </label>
+                <div id="bureau" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Bureau</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Edifice de culte</span>
-                    </label>
+                <div id="commerce" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Commerce</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Espace aménagé</span>
-                    </label>
+                <div id="edifice-culte" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Edifice de culte</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Esapce naturel</span>
-                    </label>
+                <div id="espace-amenage" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Espace aménagé</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Logement</span>
-                    </label>
+                <div id="espace-naturel" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Espace naturel</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Monument ou mémorial</span>
-                    </label>
+                <div id="logement" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Logement</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Réseaux et voiries</span>
-                    </label>
+                <div id="monument" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Monument/mémorial</span>
                 </div>
 
-                <div class="col s4">
-                    <label>
-                        <input type="checkbox" class="filled-in" />
-                        <span>Support de parcelle</span>
-                    </label>
+                <div id="reseaux-voiries" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Réseaux et voiries</span>
+                </div>
+
+                <div id="support-parcelle" class="col s4 map-filter">
+                    <div class="map-filter-button"><div></div></div>
+                    <span>Support de parcelle</span>
                 </div>
             </div>
         </div>
-        <script src="scripts/map.js"></script>
     </section>
 
     <div class="diagonal-splitter"></div>
@@ -197,6 +175,10 @@
         </div>
         <!-- End Tap Target Structure -->
     </div>
+
+
+
+
 
 
     <!---------- FOOTER ---------->
@@ -238,12 +220,16 @@
       </footer>
 
 
+
+
+
     <!---------- SCRIPTS ---------->
 
-    <!-- Libs first, your sourcecode after -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="scripts/skel.min.js"></script>
+    <script src="scripts/map.js"></script>
+
     <script src="scripts/main.js"></script>
 </body>
 
