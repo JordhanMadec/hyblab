@@ -1,6 +1,27 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoiam9yZGhhbiIsImEiOiJjaW4xZ3lxYzkwMG5qdzhseTN4eWViMWlxIn0.IjKwIeh3FBxZQmul2JPcew';
 
 
+//----------  COLORS ----------
+
+var gray = 'rgb(135, 135, 135)';
+var green1 = 'rgb(115, 240, 180)';
+var green2 = 'rgb(139, 202, 27)';
+var green3 = 'rgb(10, 103, 64)';
+var red = 'rgb(255, 2, 1)';
+var pink = 'rgb(200, 0, 127)';
+var orange1 = 'rgb(255, 146, 2)';
+var orange2 = 'rgb(255, 100, 0)';
+var purple = 'rgb(94, 30, 132)';
+var blue1 = 'rgb(161, 210, 219)';
+var blue2 = 'rgb(61, 146, 181)';
+var blue3 = 'rgb(28, 42, 150)';
+var yellow1 = 'rgb(255, 255, 0)';
+var yellow2 = 'rgb(255, 200, 0)';
+
+
+
+
+
 //---------- CREATE MAP ----------
 
 var map = new mapboxgl.Map({
@@ -80,8 +101,7 @@ map.on('load', function() {
         type: "geojson",
         data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
         cluster: true,
-        clusterMaxZoom: 15, // Max zoom to cluster points on
-        clusterRadius: 35 // Radius of each cluster when clustering points (defaults to 50)
+        clusterRadius: 30 // Radius of each cluster when clustering points (defaults to 50)
     });
 
     map.addLayer({
@@ -95,15 +115,7 @@ map.on('load', function() {
             //   * Blue, 20px circles when point count is less than 100
             //   * Yellow, 30px circles when point count is between 100 and 750
             //   * Pink, 40px circles when point count is greater than or equal to 750
-            "circle-color": [
-                "step",
-                ["get", "point_count"],
-                "#51bbd6",
-                50,
-                "#f1f075",
-                300,
-                "#f28cb1"
-            ],
+            "circle-color": "#FFF",
             "circle-radius": [
                 "step",
                 ["get", "point_count"],
@@ -134,9 +146,27 @@ map.on('load', function() {
         source: "patrimony",
         filter: ["!", ["has", "point_count"]],
         paint: {
-            "circle-color": "#FFEB3B",
+            "circle-color": [
+                "match",
+                ["get", "nature"],
+                "BATIMENT AGRICOLE", red,
+                "BATIMENT CULTUREL", yellow1,
+                "BATIMENT D'ENSEIGNEMENT OU DE SPORT", green1,
+                "BATIMENT SANITAIRE", orange1,
+                "BATIMENT TECHNIQUE", pink,
+                "BUREAU", gray,
+                "COMMERCE", blue2,
+                "EDIFICE DE CULTE", yellow2,
+                "ESPACE AMENAGE", purple,
+                "ESPACE NATUREL", green2,
+                "LOGEMENT", blue1,
+                "MONUMENT ET MEMORIAL", orange2,
+                "RESEAUX ET VOIRIES", blue3,
+                "SUPPORT DE PARCELLE", green3,
+                "#FFEB3B"
+            ],
             "circle-radius": 10,
-            "circle-stroke-width": 1,
+            "circle-stroke-width": 2,
             "circle-stroke-color": "#fff"
         }
     });
