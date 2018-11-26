@@ -12,6 +12,7 @@
     margin: auto;
     position: relative;
     z-index: 10;
+    background-color: var(--main-dark-gray);
 }
 
 .map-searchbar-container {
@@ -85,10 +86,14 @@
     margin-top: 20px;
     cursor: pointer;
     text-align: left;
+    opacity: .6;
+    transition: .3s;
+    user-select: none;
 }
 
-.map-filter.selected {
+.map-filter.selected, .map-filter:hover {
     font-weight: bold;
+    opacity: 1;
 }
 
 .map-filter-button {
@@ -96,33 +101,32 @@
     width: 30px;
     border-radius: 100%;
     margin-right: 10px;
-    border: solid 2px var(--main-white);
+    border: solid 4px var(--main-white);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .map-filter-button > div {
-    height: 20px;
-    width: 20px;
+    height: 12px;
+    width: 12px;
     border-radius: 100%;
     background-color: var(--main-white);
     opacity: 0;
     transition: .3s;
 }
 
-.map-filter:hover > .map-filter-button > div,
 .map-filter.selected > .map-filter-button > div {
     opacity: 1;
 }
 
 
 #batiment-agricole .map-filter-button {
-    border-color: var(--red);
+    border-color: var(--green1);
 }
 
 #batiment-agricole .map-filter-button > div {
-    background-color: var(--red);
+    background-color: var(--green1);
 }
 
 
@@ -136,11 +140,11 @@
 
 
 #batiment-sport .map-filter-button {
-    border-color: var(--green1);
+    border-color: var(--red);
 }
 
 #batiment-sport .map-filter-button > div {
-    background-color: var(--green1);
+    background-color: var(--red);
 }
 
 

@@ -1,6 +1,27 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoiam9yZGhhbiIsImEiOiJjaW4xZ3lxYzkwMG5qdzhseTN4eWViMWlxIn0.IjKwIeh3FBxZQmul2JPcew';
 
 
+//----------  COLORS ----------
+
+var gray = 'rgb(135, 135, 135)';
+var green1 = 'rgb(115, 240, 180)';
+var green2 = 'rgb(139, 202, 27)';
+var green3 = 'rgb(10, 103, 64)';
+var red = 'rgb(255, 2, 1)';
+var pink = 'rgb(200, 0, 127)';
+var orange1 = 'rgb(255, 146, 2)';
+var orange2 = 'rgb(255, 100, 0)';
+var purple = 'rgb(94, 30, 132)';
+var blue1 = 'rgb(161, 210, 219)';
+var blue2 = 'rgb(61, 146, 181)';
+var blue3 = 'rgb(28, 42, 150)';
+var yellow1 = 'rgb(255, 255, 0)';
+var yellow2 = 'rgb(255, 200, 0)';
+
+
+
+
+
 //---------- CREATE MAP ----------
 
 var map = new mapboxgl.Map({
@@ -42,25 +63,44 @@ $("#map-search-button").click(function() {
     zoomZipcode();
 });
 
-$("#map-zipcode-input").on('keypress', function (e) {
-    if(e.which === 13) { // Press enter key
 
-        //Disable textbox to prevent multiple submit
-        $(this).attr("disabled", "disabled");
 
-        zoomZipcode();
 
-        //Enable the textbox again if needed.
-        $(this).removeAttr("disabled");
+
+//---------- CREATE UNCLUSTERED POINT LAYER ----------
+
+var getUnclusteredPointsLayer = function(id, clustered) {
+    return {
+        id: id,
+        type: "circle",
+        source: clustered ? "patrimonyClustered" : "patrimonyUnclustered",
+        filter: ["all", ["!", ["has", "point_count"]]],
+        paint: {
+            "circle-color": [
+                "match",
+                ["get", "nature"],
+                "BATIMENT AGRICOLE OU D'ELEVAGE", green1,
+                "BATIMENT CULTUREL", yellow1,
+                "BATIMENT D'ENSEIGNEMENT OU DE SPORT", red,
+                "BATIMENT SANITAIRE OU SOCIAL", orange1,
+                "BATIMENT TECHNIQUE", pink,
+                "BUREAU", gray,
+                "COMMERCE", blue2,
+                "EDIFICE DE CULTE", yellow2,
+                "ESPACE AMENAGE", purple,
+                "ESPACE NATUREL", green2,
+                "LOGEMENT", blue1,
+                "MONUMENT ET MEMORIAL", orange2,
+                "RESEAUX ET VOIRIES", blue3,
+                "SUPPORT DE PARCELLE", green3,
+                "#FFEB3B"
+            ],
+            "circle-radius": 7,
+            "circle-stroke-width": 2,
+            "circle-stroke-color": "#fff"
+        }
     }
-});
-
-
-
-
-
-
-
+}
 
 
 
@@ -76,34 +116,26 @@ map.on('load', function() {
     map.setPaintProperty('water', 'fill-color', '#000');
     // Add a new source from our GeoJSON data and set the
     // 'cluster' option to true. GL-JS will add the point_count property to your source data.
-    map.addSource("patrimony", {
+    map.addSource("patrimonyClustered", {
         type: "geojson",
         data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
         cluster: true,
-        clusterMaxZoom: 15, // Max zoom to cluster points on
-        clusterRadius: 35 // Radius of each cluster when clustering points (defaults to 50)
+        clusterRadius: 30
+    });
+    map.addSource("patrimonyUnclustered", {
+        type: "geojson",
+        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
+        cluster: false
     });
 
     map.addLayer({
         id: "clusters",
         type: "circle",
-        source: "patrimony",
+        source: "patrimonyClustered",
         filter: ["has", "point_count"],
         paint: {
-            // Use step expressions (https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
-            // with three steps to implement three types of circles:
-            //   * Blue, 20px circles when point count is less than 100
-            //   * Yellow, 30px circles when point count is between 100 and 750
-            //   * Pink, 40px circles when point count is greater than or equal to 750
-            "circle-color": [
-                "step",
-                ["get", "point_count"],
-                "#51bbd6",
-                50,
-                "#f1f075",
-                300,
-                "#f28cb1"
-            ],
+            "circle-color": "#FFF",
+            "circle-opacity": 0.8,
             "circle-radius": [
                 "step",
                 ["get", "point_count"],
@@ -119,7 +151,7 @@ map.on('load', function() {
     map.addLayer({
         id: "cluster-count",
         type: "symbol",
-        source: "patrimony",
+        source: "patrimonyClustered",
         filter: ["has", "point_count"],
         layout: {
             "text-field": "{point_count_abbreviated}",
@@ -128,24 +160,27 @@ map.on('load', function() {
         }
     });
 
-    map.addLayer({
-        id: "unclustered-point",
-        type: "circle",
-        source: "patrimony",
-        filter: ["!", ["has", "point_count"]],
-        paint: {
-            "circle-color": "#FFEB3B",
-            "circle-radius": 10,
-            "circle-stroke-width": 1,
-            "circle-stroke-color": "#fff"
+    map.addLayer(getUnclusteredPointsLayer("point-clustered",true));
+    map.addLayer(getUnclusteredPointsLayer("point-unclustered",false));
+    map.setLayoutProperty("point-unclustered", 'visibility', 'none');
+
+
+
+
+    //---------- ZOOM ON ZIPCODE ----------
+
+    $("#map-zipcode-input").on('keypress', function (e) {
+        if(e.which === 13) { // Press enter key
+
+            //Disable textbox to prevent multiple submit
+            $(this).attr("disabled", "disabled");
+
+            zoomZipcode();
+
+            //Enable the textbox again if needed.
+            $(this).removeAttr("disabled");
         }
     });
-
-
-
-
-
-
 
 
 
@@ -168,7 +203,7 @@ map.on('load', function() {
     });
 
     // Affiche la fiche du patrimoine
-    map.on('click', 'unclustered-point', function (e) {
+    map.on('click', 'point-unclustered', function (e) {
         var coordinates = e.features[0].geometry.coordinates.slice();
         var patrimony = e.features[0].properties;
 
@@ -203,35 +238,73 @@ map.on('load', function() {
                 "</div>"
             )
             .addTo(map);
+
+        map.on('mouseenter', 'clusters', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'clusters', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.on('mouseenter', 'unclustered-point', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'unclustered-point', function () {
+            map.getCanvas().style.cursor = '';
+        });
     });
 
-    map.on('mouseenter', 'clusters', function () {
-        map.getCanvas().style.cursor = 'pointer';
-    });
-    map.on('mouseleave', 'clusters', function () {
-        map.getCanvas().style.cursor = '';
-    });
-
-    map.on('mouseenter', 'unclustered-point', function () {
-        map.getCanvas().style.cursor = 'pointer';
-    });
-    map.on('mouseleave', 'unclustered-point', function () {
-        map.getCanvas().style.cursor = '';
-    });
 
 
 
 
-    
     //---------- MAP FILTERS ----------
 
     var selectedItems = ['all-filters'];
+    var filterValues = [];
 
     var selectFilters = function () {
         $('.map-filter').removeClass('selected');
         selectedItems.forEach(filter => {
             $('#' + filter).addClass('selected');
         });
+
+        let filterUnclusteredPoint = ["all", ["!", ["has", "point_count"]]];
+
+        if (filterValues.length > 0) {
+            filterUnclusteredPoint = ['match', ['get', 'nature'], filterValues, true, false];
+            map.setLayoutProperty("clusters", 'visibility', 'none');
+            map.setLayoutProperty("cluster-count", 'visibility', 'none');
+            map.setLayoutProperty("point-clustered", 'visibility', 'none');
+            map.setLayoutProperty("point-unclustered", 'visibility', 'visible');
+        } else {
+            map.setLayoutProperty("clusters", 'visibility', 'visible');
+            map.setLayoutProperty("cluster-count", 'visibility', 'visible');
+            map.setLayoutProperty("point-clustered", 'visibility', 'visible');
+            map.setLayoutProperty("point-unclustered", 'visibility', 'none');
+        }
+
+        map.setFilter('point-unclustered', filterUnclusteredPoint);
+    }
+
+    var getFilterValue = function(filterId) {
+        switch (filterId) {
+            case 'batiment-agricole': return "BATIMENT AGRICOLE OU D'ELEVAGE";
+            case 'batiment-culturel': return 'BATIMENT CULTUREL';
+            case 'batiment-sport': return "BATIMENT D'ENSEIGNEMENT OU DE SPORT";
+            case 'batiment-sanitaire': return 'BATIMENT SANITAIRE OU SOCIAL';
+            case 'batiment-technique': return 'BATIMENT TECHNIQUE';
+            case 'bureau': return 'BUREAU';
+            case 'commerce': return 'COMMERCE';
+            case 'edifice-culte': return 'EDIFICE DE CULTE';
+            case 'espace-amenage': return 'ESPACE AMENAGE';
+            case 'espace-naturel': return 'ESPACE NATUREL';
+            case 'logement': return 'LOGEMENT';
+            case 'monument': return 'MONUMENT ET MEMORIAL';
+            case 'reseaux-voiries': return 'RESEAUX ET VOIRIES';
+            case 'support-parcelle': return 'SUPPORT DE PARCELLE';
+            default: return '';
+        }
     }
 
     $('.map-filter').on('click', function (event) {
@@ -241,6 +314,7 @@ map.on('load', function() {
             }
 
             selectedItems = ['all-filters'];
+            filterValues = [];
             selectFilters();
             return;
         }
@@ -248,13 +322,16 @@ map.on('load', function() {
 
         if ($(this).hasClass('selected')) {
             selectedItems = selectedItems.filter(e => e != $(this).attr('id'));
+            filterValues = filterValues.filter(e => e != getFilterValue($(this).attr('id')));
         } else {
             selectedItems = selectedItems.filter(e => e != 'all-filters');
             selectedItems.push($(this).attr('id'));
+            filterValues.push(getFilterValue($(this).attr('id')));
         }
 
         if (selectedItems.length == 0) {
             selectedItems = ['all-filters'];
+            filterValues = [];
         }
 
         selectFilters();
