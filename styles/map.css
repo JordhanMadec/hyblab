@@ -12,6 +12,7 @@
     margin: auto;
     position: relative;
     z-index: 10;
+    background-color: var(--main-dark-gray);
 }
 
 .map-searchbar-container {
@@ -87,6 +88,7 @@
     text-align: left;
     opacity: .6;
     transition: .3s;
+    user-select: none;
 }
 
 .map-filter.selected, .map-filter:hover {
@@ -114,7 +116,6 @@
     transition: .3s;
 }
 
-.map-filter:hover > .map-filter-button > div,
 .map-filter.selected > .map-filter-button > div {
     opacity: 1;
 }

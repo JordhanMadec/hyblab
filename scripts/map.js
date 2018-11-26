@@ -89,7 +89,7 @@ map.on('load', function() {
         type: "geojson",
         data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
         cluster: true,
-        clusterRadius: 30 // Radius of each cluster when clustering points (defaults to 50)
+        clusterRadius: 30
     });
 
     map.addLayer({
@@ -128,7 +128,7 @@ map.on('load', function() {
         id: "unclustered-point",
         type: "circle",
         source: "patrimony",
-        filter: ["!", ["has", "point_count"]],
+        filter: ["all", ["!", ["has", "point_count"]]],
         paint: {
             "circle-color": [
                 "match",
@@ -253,12 +253,47 @@ map.on('load', function() {
     //---------- MAP FILTERS ----------
 
     var selectedItems = ['all-filters'];
+    var filterValues = [];
 
     var selectFilters = function () {
         $('.map-filter').removeClass('selected');
         selectedItems.forEach(filter => {
             $('#' + filter).addClass('selected');
         });
+
+        let filterUnclusteredPoint = ["all", ["!", ["has", "point_count"]]];
+       // let filterClusters = ["all", ["!", ["has", "point_count"]]];
+
+        if (filterValues.length > 0) {
+            let filter = ['match', ['get', 'nature'], filterValues, true, false]
+            filterUnclusteredPoint = filter;
+           // filterClusters.push(filter);
+        }
+
+
+        map.setFilter('unclustered-point', filterUnclusteredPoint);
+       // map.setFilter('clusters', filterClusters);
+        //map.setFilter('cluster-count', filterClusters);
+    }
+
+    var getFilterValue = function(filterId) {
+        switch (filterId) {
+            case 'batiment-agricole': return 'BATIMENT AGRICOLE';
+            case 'batiment-culturel': return 'BATIMENT CULTUREL';
+            case 'batiment-sport': return "BATIMENT D'ENSEIGNEMENT OU DE SPORT";
+            case 'batiment-sanitaire': return 'BATIMENT SANITAIRE';
+            case 'batiment-technique': return 'BATIMENT TECHNIQUE';
+            case 'bureau': return 'BUREAU';
+            case 'commerce': return 'COMMERCE';
+            case 'edifice-culte': return 'EDIFICE DE CULTE';
+            case 'espace-amenage': return 'ESPACE AMENAGE';
+            case 'espace-naturel': return 'ESPACE NATUREL';
+            case 'logement': return 'LOGEMENT';
+            case 'monument': return 'MONUMENT ET MEMORIAL';
+            case 'reseaux-voiries': return 'RESEAUX ET VOIRIES';
+            case 'support-parcelle': return 'SUPPORT DE PARCELLE';
+            default: return '';
+        }
     }
 
     $('.map-filter').on('click', function (event) {
@@ -268,6 +303,7 @@ map.on('load', function() {
             }
 
             selectedItems = ['all-filters'];
+            filterValues = [];
             selectFilters();
             return;
         }
@@ -275,13 +311,16 @@ map.on('load', function() {
 
         if ($(this).hasClass('selected')) {
             selectedItems = selectedItems.filter(e => e != $(this).attr('id'));
+            filterValues = filterValues.filter(e => e != getFilterValue($(this).attr('id')));
         } else {
             selectedItems = selectedItems.filter(e => e != 'all-filters');
             selectedItems.push($(this).attr('id'));
+            filterValues.push(getFilterValue($(this).attr('id')));
         }
 
         if (selectedItems.length == 0) {
             selectedItems = ['all-filters'];
+            filterValues = [];
         }
 
         selectFilters();
