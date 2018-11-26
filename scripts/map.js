@@ -202,8 +202,7 @@ map.on('load', function() {
         });
     });
 
-    // Affiche la fiche du patrimoine
-    map.on('click', 'point-unclustered', function (e) {
+    var displayIdCard = function (e) {
         var coordinates = e.features[0].geometry.coordinates.slice();
         var patrimony = e.features[0].properties;
 
@@ -222,19 +221,19 @@ map.on('load', function() {
             .setLngLat(coordinates)
             .setHTML(
                 "<div class='patrimony-id'>" +
-                    "<div class='patrimony-id-title'>" + title  + "</div>" +
-                    "<div class='patrimony-id-subtitle'>" + subtitle + "</div>" +
-                    "<div class='patrimony-id-details'>" +
-                        "<div><div class='label'>Nature</div><div class='value'>" + patrimony.nature + "</div></div>" +
-                        "<div><div class='label'>Statut</div><div class='value'>" + patrimony.state + "</div></div>" +
-                        "<div><div class='label'>Ministère</div><div class='value'>" + patrimony.ministry + "</div></div>" +
-                        "<div><div class='label'>Procédure</div><div class='value'>" + patrimony.procedure + "</div></div>" +
-                        "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
-                        "<div><div class='label'>Mise en vente</div><div class='value'>" + patrimony.registration_year + "</div></div>" +
-                        "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
-                        "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
-                        "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
-                    "</div>" +
+                "<div class='patrimony-id-title'>" + title  + "</div>" +
+                "<div class='patrimony-id-subtitle'>" + subtitle + "</div>" +
+                "<div class='patrimony-id-details'>" +
+                "<div><div class='label'>Nature</div><div class='value'>" + patrimony.nature + "</div></div>" +
+                "<div><div class='label'>Statut</div><div class='value'>" + patrimony.state + "</div></div>" +
+                "<div><div class='label'>Ministère</div><div class='value'>" + patrimony.ministry + "</div></div>" +
+                "<div><div class='label'>Procédure</div><div class='value'>" + patrimony.procedure + "</div></div>" +
+                "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
+                "<div><div class='label'>Mise en vente</div><div class='value'>" + patrimony.registration_year + "</div></div>" +
+                "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
+                "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
+                "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
+                "</div>" +
                 "</div>"
             )
             .addTo(map);
@@ -252,6 +251,14 @@ map.on('load', function() {
         map.on('mouseleave', 'unclustered-point', function () {
             map.getCanvas().style.cursor = '';
         });
+    }
+
+    // Affiche la fiche du patrimoine
+    map.on('click', 'point-unclustered', function (e) {
+        displayIdCard(e);
+    });
+    map.on('click', 'point-clustered', function (e) {
+        displayIdCard(e);
     });
 
 
