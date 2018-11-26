@@ -67,9 +67,40 @@ $("#map-search-button").click(function() {
 
 
 
+//---------- CREATE UNCLUSTERED POINT LAYER ----------
 
-
-
+var getUnclusteredPointsLayer = function(id, clustered) {
+    return {
+        id: id,
+        type: "circle",
+        source: clustered ? "patrimonyClustered" : "patrimonyUnclustered",
+        filter: ["all", ["!", ["has", "point_count"]]],
+        paint: {
+            "circle-color": [
+                "match",
+                ["get", "nature"],
+                "BATIMENT AGRICOLE OU D'ELEVAGE", green1,
+                "BATIMENT CULTUREL", yellow1,
+                "BATIMENT D'ENSEIGNEMENT OU DE SPORT", red,
+                "BATIMENT SANITAIRE OU SOCIAL", orange1,
+                "BATIMENT TECHNIQUE", pink,
+                "BUREAU", gray,
+                "COMMERCE", blue2,
+                "EDIFICE DE CULTE", yellow2,
+                "ESPACE AMENAGE", purple,
+                "ESPACE NATUREL", green2,
+                "LOGEMENT", blue1,
+                "MONUMENT ET MEMORIAL", orange2,
+                "RESEAUX ET VOIRIES", blue3,
+                "SUPPORT DE PARCELLE", green3,
+                "#FFEB3B"
+            ],
+            "circle-radius": 7,
+            "circle-stroke-width": 2,
+            "circle-stroke-color": "#fff"
+        }
+    }
+}
 
 
 
@@ -85,17 +116,22 @@ map.on('load', function() {
     map.setPaintProperty('water', 'fill-color', '#000');
     // Add a new source from our GeoJSON data and set the
     // 'cluster' option to true. GL-JS will add the point_count property to your source data.
-    map.addSource("patrimony", {
+    map.addSource("patrimonyClustered", {
         type: "geojson",
         data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
         cluster: true,
         clusterRadius: 30
     });
+    map.addSource("patrimonyUnclustered", {
+        type: "geojson",
+        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
+        cluster: false
+    });
 
     map.addLayer({
         id: "clusters",
         type: "circle",
-        source: "patrimony",
+        source: "patrimonyClustered",
         filter: ["has", "point_count"],
         paint: {
             "circle-color": "#FFF",
@@ -115,7 +151,7 @@ map.on('load', function() {
     map.addLayer({
         id: "cluster-count",
         type: "symbol",
-        source: "patrimony",
+        source: "patrimonyClustered",
         filter: ["has", "point_count"],
         layout: {
             "text-field": "{point_count_abbreviated}",
@@ -124,37 +160,9 @@ map.on('load', function() {
         }
     });
 
-    map.addLayer({
-        id: "unclustered-point",
-        type: "circle",
-        source: "patrimony",
-        filter: ["all", ["!", ["has", "point_count"]]],
-        paint: {
-            "circle-color": [
-                "match",
-                ["get", "nature"],
-                "BATIMENT AGRICOLE", red,
-                "BATIMENT CULTUREL", yellow1,
-                "BATIMENT D'ENSEIGNEMENT OU DE SPORT", green1,
-                "BATIMENT SANITAIRE", orange1,
-                "BATIMENT TECHNIQUE", pink,
-                "BUREAU", gray,
-                "COMMERCE", blue2,
-                "EDIFICE DE CULTE", yellow2,
-                "ESPACE AMENAGE", purple,
-                "ESPACE NATUREL", green2,
-                "LOGEMENT", blue1,
-                "MONUMENT ET MEMORIAL", orange2,
-                "RESEAUX ET VOIRIES", blue3,
-                "SUPPORT DE PARCELLE", green3,
-                "#FFEB3B"
-            ],
-            "circle-radius": 10,
-            "circle-stroke-width": 2,
-            "circle-stroke-color": "#fff"
-        }
-    });
-
+    map.addLayer(getUnclusteredPointsLayer("point-clustered",true));
+    map.addLayer(getUnclusteredPointsLayer("point-unclustered",false));
+    map.setLayoutProperty("point-unclustered", 'visibility', 'none');
 
 
 
@@ -195,7 +203,7 @@ map.on('load', function() {
     });
 
     // Affiche la fiche du patrimoine
-    map.on('click', 'unclustered-point', function (e) {
+    map.on('click', 'point-unclustered', function (e) {
         var coordinates = e.features[0].geometry.coordinates.slice();
         var patrimony = e.features[0].properties;
 
@@ -262,26 +270,29 @@ map.on('load', function() {
         });
 
         let filterUnclusteredPoint = ["all", ["!", ["has", "point_count"]]];
-       // let filterClusters = ["all", ["!", ["has", "point_count"]]];
 
         if (filterValues.length > 0) {
-            let filter = ['match', ['get', 'nature'], filterValues, true, false]
-            filterUnclusteredPoint = filter;
-           // filterClusters.push(filter);
+            filterUnclusteredPoint = ['match', ['get', 'nature'], filterValues, true, false];
+            map.setLayoutProperty("clusters", 'visibility', 'none');
+            map.setLayoutProperty("cluster-count", 'visibility', 'none');
+            map.setLayoutProperty("point-clustered", 'visibility', 'none');
+            map.setLayoutProperty("point-unclustered", 'visibility', 'visible');
+        } else {
+            map.setLayoutProperty("clusters", 'visibility', 'visible');
+            map.setLayoutProperty("cluster-count", 'visibility', 'visible');
+            map.setLayoutProperty("point-clustered", 'visibility', 'visible');
+            map.setLayoutProperty("point-unclustered", 'visibility', 'none');
         }
 
-
-        map.setFilter('unclustered-point', filterUnclusteredPoint);
-       // map.setFilter('clusters', filterClusters);
-        //map.setFilter('cluster-count', filterClusters);
+        map.setFilter('point-unclustered', filterUnclusteredPoint);
     }
 
     var getFilterValue = function(filterId) {
         switch (filterId) {
-            case 'batiment-agricole': return 'BATIMENT AGRICOLE';
+            case 'batiment-agricole': return "BATIMENT AGRICOLE OU D'ELEVAGE";
             case 'batiment-culturel': return 'BATIMENT CULTUREL';
             case 'batiment-sport': return "BATIMENT D'ENSEIGNEMENT OU DE SPORT";
-            case 'batiment-sanitaire': return 'BATIMENT SANITAIRE';
+            case 'batiment-sanitaire': return 'BATIMENT SANITAIRE OU SOCIAL';
             case 'batiment-technique': return 'BATIMENT TECHNIQUE';
             case 'bureau': return 'BUREAU';
             case 'commerce': return 'COMMERCE';

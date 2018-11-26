@@ -122,11 +122,11 @@
 
 
 #batiment-agricole .map-filter-button {
-    border-color: var(--red);
+    border-color: var(--green1);
 }
 
 #batiment-agricole .map-filter-button > div {
-    background-color: var(--red);
+    background-color: var(--green1);
 }
 
 
@@ -140,11 +140,11 @@
 
 
 #batiment-sport .map-filter-button {
-    border-color: var(--green1);
+    border-color: var(--red);
 }
 
 #batiment-sport .map-filter-button > div {
-    background-color: var(--green1);
+    background-color: var(--red);
 }
 
 
