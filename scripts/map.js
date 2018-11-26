@@ -63,18 +63,6 @@ $("#map-search-button").click(function() {
     zoomZipcode();
 });
 
-$("#map-zipcode-input").on('keypress', function (e) {
-    if(e.which === 13) { // Press enter key
-
-        //Disable textbox to prevent multiple submit
-        $(this).attr("disabled", "disabled");
-
-        zoomZipcode();
-
-        //Enable the textbox again if needed.
-        $(this).removeAttr("disabled");
-    }
-});
 
 
 
@@ -110,12 +98,8 @@ map.on('load', function() {
         source: "patrimony",
         filter: ["has", "point_count"],
         paint: {
-            // Use step expressions (https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
-            // with three steps to implement three types of circles:
-            //   * Blue, 20px circles when point count is less than 100
-            //   * Yellow, 30px circles when point count is between 100 and 750
-            //   * Pink, 40px circles when point count is greater than or equal to 750
             "circle-color": "#FFF",
+            "circle-opacity": 0.8,
             "circle-radius": [
                 "step",
                 ["get", "point_count"],
@@ -175,7 +159,20 @@ map.on('load', function() {
 
 
 
+    //---------- ZOOM ON ZIPCODE ----------
 
+    $("#map-zipcode-input").on('keypress', function (e) {
+        if(e.which === 13) { // Press enter key
+
+            //Disable textbox to prevent multiple submit
+            $(this).attr("disabled", "disabled");
+
+            zoomZipcode();
+
+            //Enable the textbox again if needed.
+            $(this).removeAttr("disabled");
+        }
+    });
 
 
 
@@ -233,26 +230,26 @@ map.on('load', function() {
                 "</div>"
             )
             .addTo(map);
+
+        map.on('mouseenter', 'clusters', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'clusters', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.on('mouseenter', 'unclustered-point', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'unclustered-point', function () {
+            map.getCanvas().style.cursor = '';
+        });
     });
 
-    map.on('mouseenter', 'clusters', function () {
-        map.getCanvas().style.cursor = 'pointer';
-    });
-    map.on('mouseleave', 'clusters', function () {
-        map.getCanvas().style.cursor = '';
-    });
-
-    map.on('mouseenter', 'unclustered-point', function () {
-        map.getCanvas().style.cursor = 'pointer';
-    });
-    map.on('mouseleave', 'unclustered-point', function () {
-        map.getCanvas().style.cursor = '';
-    });
 
 
 
 
-    
     //---------- MAP FILTERS ----------
 
     var selectedItems = ['all-filters'];

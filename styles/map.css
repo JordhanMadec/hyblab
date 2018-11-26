@@ -85,10 +85,13 @@
     margin-top: 20px;
     cursor: pointer;
     text-align: left;
+    opacity: .6;
+    transition: .3s;
 }
 
-.map-filter.selected {
+.map-filter.selected, .map-filter:hover {
     font-weight: bold;
+    opacity: 1;
 }
 
 .map-filter-button {
@@ -96,15 +99,15 @@
     width: 30px;
     border-radius: 100%;
     margin-right: 10px;
-    border: solid 2px var(--main-white);
+    border: solid 4px var(--main-white);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .map-filter-button > div {
-    height: 20px;
-    width: 20px;
+    height: 12px;
+    width: 12px;
     border-radius: 100%;
     background-color: var(--main-white);
     opacity: 0;
