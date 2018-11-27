@@ -191,7 +191,7 @@ map.on('load', function() {
     map.on('click', 'clusters', function (e) {
         var features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
         var clusterId = features[0].properties.cluster_id;
-        map.getSource('patrimony').getClusterExpansionZoom(clusterId, function (err, zoom) {
+        map.getSource('patrimonyClustered').getClusterExpansionZoom(clusterId, function (err, zoom) {
             if (err)
                 return;
 
@@ -213,15 +213,26 @@ map.on('load', function() {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
 
-        title = patrimony.address.toLowerCase() != "null" ? patrimony.address : "Pas d'adresse";
+
+        address = patrimony.numero.trim() + patrimony.cardinal.trim() + " " + patrimony.voie.trim() + " " + patrimony.address.trim();
+        address = address.trim();
+
+        if (address == "null") {
+            address = patrimony.lieu_dit.trim().length > 0 ? patrimony.lieu_dit.trim() : "Pas d'adresse";
+        } else if (patrimony.lieu_dit.trim().length > 0) {
+            address = patrimony.address.trim() != patrimony.lieu_dit.trim() ? address + " (" + patrimony.lieu_dit.trim() + ")" : address;
+        }
+
         subtitle = patrimony.zipcode + ", " + patrimony.city
         description = patrimony.description.toLowerCase() != "null" ? patrimony.description : "Pas de description";
+
+        console.log(patrimony);
 
         new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(
                 "<div class='patrimony-id'>" +
-                "<div class='patrimony-id-title'>" + title  + "</div>" +
+                "<div class='patrimony-id-title'>" + address.toLowerCase() + "</div>" +
                 "<div class='patrimony-id-subtitle'>" + subtitle + "</div>" +
                 "<div class='patrimony-id-details'>" +
                 "<div><div class='label'>Nature</div><div class='value'>" + patrimony.nature + "</div></div>" +

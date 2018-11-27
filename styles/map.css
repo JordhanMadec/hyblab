@@ -273,6 +273,7 @@
     font-size: 17px;
     font-family: 'Cabin';
     color: var(--main-black);
+    text-transform: capitalize;
 }
 
 .patrimony-id-subtitle {
