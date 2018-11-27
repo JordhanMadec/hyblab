@@ -245,10 +245,17 @@ map.on('load', function() {
             map.getCanvas().style.cursor = '';
         });
 
-        map.on('mouseenter', 'unclustered-point', function () {
+        map.on('mouseenter', 'point-unclustered', function () {
             map.getCanvas().style.cursor = 'pointer';
         });
-        map.on('mouseleave', 'unclustered-point', function () {
+        map.on('mouseleave', 'point-unclustered', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.on('mouseenter', 'point-clustered', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'point-clustered', function () {
             map.getCanvas().style.cursor = '';
         });
     }
