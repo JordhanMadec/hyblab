@@ -105,3 +105,93 @@ section .section-title {
 section {
     background-color: var(--main-black);
 }
+
+
+
+/* --------------------------
+Style for carousel slider 
+in Fun Fact discovery feature 
+----------------------------*/
+#carousel {
+    position: relative;
+    width:60%;
+    margin:0 auto;
+    }
+    
+    #slides {
+    overflow: hidden;
+    position: relative;
+    width: 40%;
+    height: 100%;
+    margin-left: -25%;
+    }
+    
+    #slides ul {
+    list-style: none;
+    width:100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    }
+    
+     #slides li {
+    width:100%;
+    height: 100%;
+    float:left;
+    text-align: center;
+    position: relative;
+    }
+  
+    /* Styling for prev and next buttons */
+    .btn-bar{
+        display: block;
+        position: relative;
+        margin-left: 28%;
+        width: 100%;
+    }
+   
+    #buttons a {
+    text-align:left;
+    display:block;
+    font-size:40px;
+    float:left;
+    outline:0;
+    color:black;
+    text-decoration:none;
+    width:50%;
+    margin-top: -10%;
+    }
+    
+    a#prev:hover, a#next:hover {
+    color: black;
+    text-shadow: 7px 0 0em black;  
+    }
+    
+    .quote-phrase {
+    font-weight:300;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 5px 20px;
+    }
+    
+    .quote-phrase {
+    height: 200px;
+    font-size:24px;
+    color:rgb(0, 0, 0);
+    }
+    
+    .quote-marks {
+    font-size:30px;
+    padding:0 3px 3px;
+    position:inherit;
+    }
+    
+    .quoteContainer, .authorContainer {
+    display: table;
+    width: 100%;
+    }
+/* -----------------------------
+End of style for carousel slider 
+in Fun Fact discovery feature 
+-------------------------------*/
