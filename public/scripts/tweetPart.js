@@ -28,3 +28,21 @@ $("#prixUtilisateur3").on('keypress', function (e) {
         openTwitter(3);
     }
 });
+
+
+
+
+
+//---------- RESIZE BOXES ----------
+
+var $window = $(window);
+
+function squareBoxes() {
+
+    $('#box1, #box2, #box3').css({
+        height: $('#box1').width()
+    });
+}
+
+squareBoxes();
+$window.resize(squareBoxes);
