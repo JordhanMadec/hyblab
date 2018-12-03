@@ -136,13 +136,13 @@ map.on('load', function() {
     // 'cluster' option to true. GL-JS will add the point_count property to your source data.
     map.addSource("patrimonyClustered", {
         type: "geojson",
-        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
+        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/public/data.geojson",
         cluster: true,
         clusterRadius: 30
     });
     map.addSource("patrimonyUnclustered", {
         type: "geojson",
-        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
+        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/public/data.geojson",
         cluster: false
     });
 
