@@ -226,24 +226,29 @@ map.on('load', function() {
         subtitle = patrimony.zipcode + ", " + patrimony.city
         description = patrimony.description.toLowerCase() != "null" ? patrimony.description : "Pas de description";
 
-        console.log(patrimony);
+        imgSource = 'assets/images/pictos/' + 'picto' + '.svg';
 
         new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(
                 "<div class='patrimony-id'>" +
-                "<div class='patrimony-id-title'>" + address.toLowerCase() + "</div>" +
-                "<div class='patrimony-id-subtitle'>" + subtitle + "</div>" +
-                "<div class='patrimony-id-details'>" +
-                "<div><div class='label'>Nature</div><div class='value'>" + patrimony.nature + "</div></div>" +
-                "<div><div class='label'>Statut</div><div class='value'>" + patrimony.state + "</div></div>" +
-                "<div><div class='label'>Ministère</div><div class='value'>" + patrimony.ministry + "</div></div>" +
-                "<div><div class='label'>Procédure</div><div class='value'>" + patrimony.procedure + "</div></div>" +
-                "<div><div class='label'>Mise en vente</div><div class='value'>" + patrimony.registration_year + "</div></div>" +
-                "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
-                "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
-                "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
-                "</div>" +
+                    "<div class='patrimony-id-header'>" +
+                        "<img src=" + imgSource + " class='patrimony-id-header-image'>" +
+                        "<div class='patrimony-id-title-container'>" +
+                            "<div class='patrimony-id-title'>" + address.toLowerCase() + "</div>" +
+                            "<div class='patrimony-id-subtitle'>" + subtitle + "</div>" +
+                        "</div>" +
+                    "</div>" +
+                    "<div class='patrimony-id-details'>" +
+                        "<div><div class='label'>Nature</div><div class='value'>" + patrimony.nature + "</div></div>" +
+                        "<div><div class='label'>Statut</div><div class='value'>" + patrimony.state + "</div></div>" +
+                        "<div><div class='label'>Ministère</div><div class='value'>" + patrimony.ministry + "</div></div>" +
+                        "<div><div class='label'>Procédure</div><div class='value'>" + patrimony.procedure + "</div></div>" +
+                        "<div><div class='label'>Mise en vente</div><div class='value'>" + patrimony.registration_year + "</div></div>" +
+                        "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
+                        "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
+                        "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
+                    "</div>" +
                 "</div>"
             )
             .addTo(map);
@@ -284,19 +289,35 @@ map.on('load', function() {
 
     //---------- MAP FILTERS ----------
 
-    var selectedItems = ['all-filters'];
-    var filterValues = [];
+    var selectedFiltersNature = ['all-filters-nature'];
+    var selectedFiltersState = ['all-filters-state'];
+    var natureFilters = [];
+    var stateFilters = [];
 
     var selectFilters = function () {
-        $('.map-filter').removeClass('selected');
-        selectedItems.forEach(filter => {
+        $('.map-filter-nature').removeClass('selected');
+        selectedFiltersNature.forEach(filter => {
+            $('#' + filter).addClass('selected');
+        });
+
+        $('.map-filter-state').removeClass('selected');
+        selectedFiltersState.forEach(filter => {
             $('#' + filter).addClass('selected');
         });
 
         let filterUnclusteredPoint = ["all", ["!", ["has", "point_count"]]];
 
-        if (filterValues.length > 0) {
-            filterUnclusteredPoint = ['match', ['get', 'nature'], filterValues, true, false];
+        if (natureFilters.length > 0 || stateFilters.length > 0) {
+            filterUnclusteredPoint = ["all"];
+
+            if (natureFilters.length > 0) {
+                filterUnclusteredPoint.push(['match', ['get', 'nature'], natureFilters, true, false]);
+            }
+
+            if (stateFilters.length > 0) {
+                filterUnclusteredPoint.push(['match', ['get', 'state'], stateFilters, true, false]);
+            }
+
             map.setLayoutProperty("clusters", 'visibility', 'none');
             map.setLayoutProperty("cluster-count", 'visibility', 'none');
             map.setLayoutProperty("point-clustered", 'visibility', 'none');
@@ -327,35 +348,68 @@ map.on('load', function() {
             case 'monument': return 'MONUMENT ET MEMORIAL';
             case 'reseaux-voiries': return 'RESEAUX ET VOIRIES';
             case 'support-parcelle': return 'SUPPORT DE PARCELLE';
+            case 'cession-a-venir': return 'Cession à venir';
+            case 'cession-realisee': return 'Cession réalisée';
+            case 'cession-en-cours': return 'Cessions en cours';
             default: return '';
         }
     }
 
-    $('.map-filter').on('click', function (event) {
-        if ($(this).attr('id') == 'all-filters') {
+    $('.map-filter-nature').on('click', function (event) {
+        if ($(this).attr('id') == 'all-filters-nature') {
             if ($(this).hasClass('selected')) {
                 return;
             }
 
-            selectedItems = ['all-filters'];
-            filterValues = [];
+            selectedFiltersNature = ['all-filters-nature'];
+            natureFilters = [];
             selectFilters();
             return;
         }
 
 
         if ($(this).hasClass('selected')) {
-            selectedItems = selectedItems.filter(e => e != $(this).attr('id'));
-            filterValues = filterValues.filter(e => e != getFilterValue($(this).attr('id')));
+            selectedFiltersNature = selectedFiltersNature.filter(e => e != $(this).attr('id'));
+            natureFilters = natureFilters.filter(e => e != getFilterValue($(this).attr('id')));
         } else {
-            selectedItems = selectedItems.filter(e => e != 'all-filters');
-            selectedItems.push($(this).attr('id'));
-            filterValues.push(getFilterValue($(this).attr('id')));
+            selectedFiltersNature = selectedFiltersNature.filter(e => e != 'all-filters-nature');
+            selectedFiltersNature.push($(this).attr('id'));
+            natureFilters.push(getFilterValue($(this).attr('id')));
         }
 
-        if (selectedItems.length == 0) {
-            selectedItems = ['all-filters'];
-            filterValues = [];
+        if (selectedFiltersNature.length == 0) {
+            selectedFiltersNature = ['all-filters-nature'];
+            natureFilters = [];
+        }
+
+        selectFilters();
+    })
+
+    $('.map-filter-state').on('click', function (event) {
+        if ($(this).attr('id') == 'all-filters-state') {
+            if ($(this).hasClass('selected')) {
+                return;
+            }
+
+            selectedFiltersState = ['all-filters-state'];
+            stateFilters = [];
+            selectFilters();
+            return;
+        }
+
+
+        if ($(this).hasClass('selected')) {
+            selectedFiltersState = selectedFiltersState.filter(e => e != $(this).attr('id'));
+            stateFilters = stateFilters.filter(e => e != getFilterValue($(this).attr('id')));
+        } else {
+            selectedFiltersState = selectedFiltersState.filter(e => e != 'all-filters-state');
+            selectedFiltersState.push($(this).attr('id'));
+            stateFilters.push(getFilterValue($(this).attr('id')));
+        }
+
+        if (selectedFiltersState.length == 0) {
+            selectedFiltersState = ['all-filters-state'];
+            stateFilters = [];
         }
 
         selectFilters();

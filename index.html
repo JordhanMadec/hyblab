@@ -62,7 +62,7 @@
 
         <div id="map"></div>
 
-        <div class="map-searchbar-container">
+        <div class="map-searchbar-container z-depth-2">
             <input type="text" id="map-zipcode-input" class="browser-default map-searchbar" placeholder="Code postal" maxlength="5">
 
             <div id="map-search-button" class="map-search-button">
@@ -71,108 +71,142 @@
         </div>
 
         <div class="map-filters-container container">
-            <h5>Filtrer par type de patrimoine</h5>
+            <h5>Filtrer par statut de la cession</h5>
 
             <div class="row">
-                <div id="all-filters" class="col s4 map-filter selected">
+                <div id="all-filters-state" class="col s3 map-filter-state selected">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Tout</span>
                 </div>
 
-                <div id="batiment-agricole" class="col s4 map-filter">
+                <div id="cession-a-venir" class="col s3 map-filter-state">
+                    <div class="map-filter-button">
+                        <div></div>
+                    </div>
+                    <span>A venir</span>
+                </div>
+
+                <div id="cession-en-cours" class="col s3 map-filter-state">
+                    <div class="map-filter-button">
+                        <div></div>
+                    </div>
+                    <span>En cours</span>
+                </div>
+
+                <div id="cession-realisee" class="col s3 map-filter-state">
+                    <div class="map-filter-button">
+                        <div></div>
+                    </div>
+                    <span>Réalisée</span>
+                </div>
+            </div>
+
+
+
+            <h5>Filtrer par type de patrimoine</h5>
+
+            <div class="row">
+                <div id="all-filters-nature" class="col s4 map-filter-nature selected">
+                    <div class="map-filter-button">
+                        <div></div>
+                    </div>
+                    <span>Tout</span>
+                </div>
+
+                <div id="batiment-agricole" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bâtiment agricole</span>
                 </div>
 
-                <div id="batiment-culturel" class="col s4 map-filter">
+                <div id="batiment-culturel" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bâtiment culturel</span>
                 </div>
 
-                <div id="batiment-sport" class="col s4 map-filter">
+                <div id="batiment-sport" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bâtiment d'enseignement/sport</span>
                 </div>
 
-                <div id="batiment-sanitaire" class="col s4 map-filter">
+                <div id="batiment-sanitaire" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bâtiment sanitaire</span>
                 </div>
 
-                <div id="batiment-technique" class="col s4 map-filter">
+                <div id="batiment-technique" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bâtiment technique</span>
                 </div>
 
-                <div id="bureau" class="col s4 map-filter">
+                <div id="bureau" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bureau</span>
                 </div>
 
-                <div id="commerce" class="col s4 map-filter">
+                <div id="commerce" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Commerce</span>
                 </div>
 
-                <div id="edifice-culte" class="col s4 map-filter">
+                <div id="edifice-culte" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Edifice de culte</span>
                 </div>
 
-                <div id="espace-amenage" class="col s4 map-filter">
+                <div id="espace-amenage" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Espace aménagé</span>
                 </div>
 
-                <div id="espace-naturel" class="col s4 map-filter">
+                <div id="espace-naturel" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Espace naturel</span>
                 </div>
 
-                <div id="logement" class="col s4 map-filter">
+                <div id="logement" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Logement</span>
                 </div>
 
-                <div id="monument" class="col s4 map-filter">
+                <div id="monument" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Monument/mémorial</span>
                 </div>
 
-                <div id="reseaux-voiries" class="col s4 map-filter">
+                <div id="reseaux-voiries" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Réseaux et voiries</span>
                 </div>
 
-                <div id="support-parcelle" class="col s4 map-filter">
+                <div id="support-parcelle" class="col s4 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
