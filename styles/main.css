@@ -212,7 +212,7 @@ in Fun Fact discovery feature
 }
 
 #biens-section img:hover{
-    filter: blur(1px);
+    filter: blur(2px);
     cursor: pointer;
 }
 
@@ -236,27 +236,31 @@ in Fun Fact discovery feature
 }
 
 #biens-section .barRecherche .input-field{
-    color: black;
+    color: var(--main-black);
 }
 #biens-section .inputPrix{
-    color: black;
+    color: var(--main-black);
     font-size: 20px;
 }
 
 #biens-section label{
-    color: black;
+    color: var(--main-black);
     font-size: 20px;
 }
 
 #biens-section .barRecherche .input-field input[type=text]:focus + label {
-    color: #000;
+    color: var(--main-black);
 }
 
 #biens-section .barRecherche i{
-    color: #000;
+    color: var(--main-black);
 }
 
 #biens-section .barRecherche  .input-field input[type=text]:focus {
-    border-bottom: 1px solid #000;
-    box-shadow: 0 1px 0 0 #000;
-  }
+    border-bottom: 1px solid var(--main-black);
+    box-shadow: 0 1px 0 0 var(--main-black);
+}
+
+#biens-section .barRecherche  label{
+    font-weight: bold;
+}

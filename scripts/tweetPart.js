@@ -1,4 +1,7 @@
 function displayInfo(nb){
+    document.getElementById("boites").style.display = "none";
+    document.getElementById("bien"+nb).style.display = "block";
+/*
     var toDisplay = false;
     for(var i = 1; i <= 3; i++){
         if( i != nb && document.getElementById("bien" + i).style.display == "none"){
@@ -16,7 +19,7 @@ function displayInfo(nb){
         document.getElementById("infoBien" + nb).style.display = "none";
         for(var i = 1; i <= 3; i++)
             document.getElementById("bien" + i).style.display = "block";
-    }
+    }*/
 }
 
 function openTwitter(nb){
