@@ -139,3 +139,11 @@ footer.page-footer .footer-copyright {
     width: 50% !important ; 
     border-radius: 30px;
   }
+
+.national h5 {
+      color: black;
+} 
+
+.local h5 {
+    color: black;
+} 
