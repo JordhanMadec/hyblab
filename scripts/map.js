@@ -3,20 +3,44 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9yZGhhbiIsImEiOiJjaW4xZ3lxYzkwMG5qdzhseTN4e
 
 //----------  COLORS ----------
 
-var gray = 'rgb(135, 135, 135)';
-var green1 = 'rgb(115, 240, 180)';
-var green2 = 'rgb(139, 202, 27)';
-var green3 = 'rgb(10, 103, 64)';
-var red = 'rgb(255, 2, 1)';
-var pink = 'rgb(200, 0, 127)';
-var orange1 = 'rgb(255, 146, 2)';
-var orange2 = 'rgb(255, 100, 0)';
-var purple = 'rgb(94, 30, 132)';
-var blue1 = 'rgb(161, 210, 219)';
-var blue2 = 'rgb(61, 146, 181)';
-var blue3 = 'rgb(28, 42, 150)';
-var yellow1 = 'rgb(255, 255, 0)';
-var yellow2 = 'rgb(255, 200, 0)';
+var gray = '#9e9e9e';
+var green1 = '#69f0ae';
+var green2 = '#8bc34a';
+var green3 = '#558b2f';
+var red = '#e53935';
+var pink = '#f06292';
+var orange1 = '#ff9800';
+var orange2 = '#e65100';
+var purple = '#673ab7';
+var blue1 = '#bbdefb';
+var blue2 = '#90caf9';
+var blue3 = '#3f51b5';
+var yellow1 = '#ffeb3b';
+var yellow2 = '#fbc02d';
+
+
+
+
+
+//---------- RESIZE MAP ----------
+
+var $window = $(window);
+
+function fullSize() {
+    size = Math.min($window.height(), $window.width()) * 0.8;
+
+    $('#map').css({
+        width: size,
+        height: size
+    });
+}
+
+fullSize();
+$window.resize(fullSize);
+
+
+
+
 
 
 
@@ -34,12 +58,6 @@ var map = new mapboxgl.Map({
         [13.467531, 53.725433]
     ]
 });
-
-
-
-
-
-
 
 
 //---------- ZOOM ON ZIPCODE ----------
@@ -93,7 +111,7 @@ var getUnclusteredPointsLayer = function(id, clustered) {
                 "MONUMENT ET MEMORIAL", orange2,
                 "RESEAUX ET VOIRIES", blue3,
                 "SUPPORT DE PARCELLE", green3,
-                "#FFEB3B"
+                "#000"
             ],
             "circle-radius": 7,
             "circle-stroke-width": 2,
@@ -226,24 +244,29 @@ map.on('load', function() {
         subtitle = patrimony.zipcode + ", " + patrimony.city
         description = patrimony.description.toLowerCase() != "null" ? patrimony.description : "Pas de description";
 
-        console.log(patrimony);
+        imgSource = 'assets/images/pictos/' + 'picto' + '.svg';
 
         new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(
                 "<div class='patrimony-id'>" +
-                "<div class='patrimony-id-title'>" + address.toLowerCase() + "</div>" +
-                "<div class='patrimony-id-subtitle'>" + subtitle + "</div>" +
-                "<div class='patrimony-id-details'>" +
-                "<div><div class='label'>Nature</div><div class='value'>" + patrimony.nature + "</div></div>" +
-                "<div><div class='label'>Statut</div><div class='value'>" + patrimony.state + "</div></div>" +
-                "<div><div class='label'>Ministère</div><div class='value'>" + patrimony.ministry + "</div></div>" +
-                "<div><div class='label'>Procédure</div><div class='value'>" + patrimony.procedure + "</div></div>" +
-                "<div><div class='label'>Mise en vente</div><div class='value'>" + patrimony.registration_year + "</div></div>" +
-                "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
-                "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
-                "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
-                "</div>" +
+                    "<div class='patrimony-id-header'>" +
+                        "<img src=" + imgSource + " class='patrimony-id-header-image'>" +
+                        "<div class='patrimony-id-title-container'>" +
+                            "<div class='patrimony-id-title'>" + address.toLowerCase() + "</div>" +
+                            "<div class='patrimony-id-subtitle'>" + subtitle + "</div>" +
+                        "</div>" +
+                    "</div>" +
+                    "<div class='patrimony-id-details'>" +
+                        "<div><div class='label'>Nature</div><div class='value'>" + patrimony.nature + "</div></div>" +
+                        "<div><div class='label'>Statut</div><div class='value'>" + patrimony.state + "</div></div>" +
+                        "<div><div class='label'>Ministère</div><div class='value'>" + patrimony.ministry + "</div></div>" +
+                        "<div><div class='label'>Procédure</div><div class='value'>" + patrimony.procedure + "</div></div>" +
+                        "<div><div class='label'>Mise en vente</div><div class='value'>" + patrimony.registration_year + "</div></div>" +
+                        "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
+                        "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
+                        "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
+                    "</div>" +
                 "</div>"
             )
             .addTo(map);
@@ -284,19 +307,35 @@ map.on('load', function() {
 
     //---------- MAP FILTERS ----------
 
-    var selectedItems = ['all-filters'];
-    var filterValues = [];
+    var selectedFiltersNature = ['all-filters-nature'];
+    var selectedFiltersState = ['all-filters-state'];
+    var natureFilters = [];
+    var stateFilters = [];
 
     var selectFilters = function () {
-        $('.map-filter').removeClass('selected');
-        selectedItems.forEach(filter => {
+        $('.map-filter-nature').removeClass('selected');
+        selectedFiltersNature.forEach(filter => {
+            $('#' + filter).addClass('selected');
+        });
+
+        $('.map-filter-state').removeClass('selected');
+        selectedFiltersState.forEach(filter => {
             $('#' + filter).addClass('selected');
         });
 
         let filterUnclusteredPoint = ["all", ["!", ["has", "point_count"]]];
 
-        if (filterValues.length > 0) {
-            filterUnclusteredPoint = ['match', ['get', 'nature'], filterValues, true, false];
+        if (natureFilters.length > 0 || stateFilters.length > 0) {
+            filterUnclusteredPoint = ["all"];
+
+            if (natureFilters.length > 0) {
+                filterUnclusteredPoint.push(['match', ['get', 'nature'], natureFilters, true, false]);
+            }
+
+            if (stateFilters.length > 0) {
+                filterUnclusteredPoint.push(['match', ['get', 'state'], stateFilters, true, false]);
+            }
+
             map.setLayoutProperty("clusters", 'visibility', 'none');
             map.setLayoutProperty("cluster-count", 'visibility', 'none');
             map.setLayoutProperty("point-clustered", 'visibility', 'none');
@@ -327,35 +366,68 @@ map.on('load', function() {
             case 'monument': return 'MONUMENT ET MEMORIAL';
             case 'reseaux-voiries': return 'RESEAUX ET VOIRIES';
             case 'support-parcelle': return 'SUPPORT DE PARCELLE';
+            case 'cession-a-venir': return 'Cession à venir';
+            case 'cession-realisee': return 'Cession réalisée';
+            case 'cession-en-cours': return 'Cessions en cours';
             default: return '';
         }
     }
 
-    $('.map-filter').on('click', function (event) {
-        if ($(this).attr('id') == 'all-filters') {
+    $('.map-filter-nature').on('click', function (event) {
+        if ($(this).attr('id') == 'all-filters-nature') {
             if ($(this).hasClass('selected')) {
                 return;
             }
 
-            selectedItems = ['all-filters'];
-            filterValues = [];
+            selectedFiltersNature = ['all-filters-nature'];
+            natureFilters = [];
             selectFilters();
             return;
         }
 
 
         if ($(this).hasClass('selected')) {
-            selectedItems = selectedItems.filter(e => e != $(this).attr('id'));
-            filterValues = filterValues.filter(e => e != getFilterValue($(this).attr('id')));
+            selectedFiltersNature = selectedFiltersNature.filter(e => e != $(this).attr('id'));
+            natureFilters = natureFilters.filter(e => e != getFilterValue($(this).attr('id')));
         } else {
-            selectedItems = selectedItems.filter(e => e != 'all-filters');
-            selectedItems.push($(this).attr('id'));
-            filterValues.push(getFilterValue($(this).attr('id')));
+            selectedFiltersNature = selectedFiltersNature.filter(e => e != 'all-filters-nature');
+            selectedFiltersNature.push($(this).attr('id'));
+            natureFilters.push(getFilterValue($(this).attr('id')));
         }
 
-        if (selectedItems.length == 0) {
-            selectedItems = ['all-filters'];
-            filterValues = [];
+        if (selectedFiltersNature.length == 0) {
+            selectedFiltersNature = ['all-filters-nature'];
+            natureFilters = [];
+        }
+
+        selectFilters();
+    })
+
+    $('.map-filter-state').on('click', function (event) {
+        if ($(this).attr('id') == 'all-filters-state') {
+            if ($(this).hasClass('selected')) {
+                return;
+            }
+
+            selectedFiltersState = ['all-filters-state'];
+            stateFilters = [];
+            selectFilters();
+            return;
+        }
+
+
+        if ($(this).hasClass('selected')) {
+            selectedFiltersState = selectedFiltersState.filter(e => e != $(this).attr('id'));
+            stateFilters = stateFilters.filter(e => e != getFilterValue($(this).attr('id')));
+        } else {
+            selectedFiltersState = selectedFiltersState.filter(e => e != 'all-filters-state');
+            selectedFiltersState.push($(this).attr('id'));
+            stateFilters.push(getFilterValue($(this).attr('id')));
+        }
+
+        if (selectedFiltersState.length == 0) {
+            selectedFiltersState = ['all-filters-state'];
+            stateFilters = [];
         }
 
         selectFilters();

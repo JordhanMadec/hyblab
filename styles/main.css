@@ -98,8 +98,8 @@ section .section-title {
     background-color: var(--main-yellow) !important;
 }
 
-.tap-target-wrapper.open .tap-target {
-    opacity: 1 !important;
+.btn-floating i {
+    color: var(--main-black);
 }
 
 section {

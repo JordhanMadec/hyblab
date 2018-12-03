@@ -20,6 +20,7 @@
     <!-- CSS -->
     <link href="styles/main.css" rel="stylesheet" />
     <link href="styles/map.css" rel="stylesheet" />
+    <link href="styles/funfact.css" rel="stylesheet" />
 
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
@@ -61,7 +62,7 @@
 
         <div id="map"></div>
 
-        <div class="map-searchbar-container">
+        <div class="map-searchbar-container z-depth-2">
             <input type="text" id="map-zipcode-input" class="browser-default map-searchbar" placeholder="Code postal" maxlength="5">
 
             <div id="map-search-button" class="map-search-button">
@@ -70,108 +71,142 @@
         </div>
 
         <div class="map-filters-container container">
-            <h5>Filtrer par type de patrimoine</h5>
+            <h5>Filtrer par statut de la cession</h5>
 
             <div class="row">
-                <div id="all-filters" class="col s4 map-filter selected">
+                <div id="all-filters-state" class="col l3 m6 s12 map-filter-state selected">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Tout</span>
                 </div>
 
-                <div id="batiment-agricole" class="col s4 map-filter">
+                <div id="cession-a-venir" class="col l3 m6 s12 map-filter-state">
+                    <div class="map-filter-button">
+                        <div></div>
+                    </div>
+                    <span>A venir</span>
+                </div>
+
+                <div id="cession-en-cours" class="col l3 m6 s12 map-filter-state">
+                    <div class="map-filter-button">
+                        <div></div>
+                    </div>
+                    <span>En cours</span>
+                </div>
+
+                <div id="cession-realisee" class="col l3 m6 s12 map-filter-state">
+                    <div class="map-filter-button">
+                        <div></div>
+                    </div>
+                    <span>Réalisée</span>
+                </div>
+            </div>
+
+
+
+            <h5>Filtrer par type de patrimoine</h5>
+
+            <div class="row">
+                <div id="all-filters-nature" class="col l4 m6 s12 map-filter-nature selected">
+                    <div class="map-filter-button">
+                        <div></div>
+                    </div>
+                    <span>Tout</span>
+                </div>
+
+                <div id="batiment-agricole" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bâtiment agricole</span>
                 </div>
 
-                <div id="batiment-culturel" class="col s4 map-filter">
+                <div id="batiment-culturel" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bâtiment culturel</span>
                 </div>
 
-                <div id="batiment-sport" class="col s4 map-filter">
+                <div id="batiment-sport" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bâtiment d'enseignement/sport</span>
                 </div>
 
-                <div id="batiment-sanitaire" class="col s4 map-filter">
+                <div id="batiment-sanitaire" class="col l4 m6 s124 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bâtiment sanitaire</span>
                 </div>
 
-                <div id="batiment-technique" class="col s4 map-filter">
+                <div id="batiment-technique" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bâtiment technique</span>
                 </div>
 
-                <div id="bureau" class="col s4 map-filter">
+                <div id="bureau" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Bureau</span>
                 </div>
 
-                <div id="commerce" class="col s4 map-filter">
+                <div id="commerce" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Commerce</span>
                 </div>
 
-                <div id="edifice-culte" class="col s4 map-filter">
+                <div id="edifice-culte" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Edifice de culte</span>
                 </div>
 
-                <div id="espace-amenage" class="col s4 map-filter">
+                <div id="espace-amenage" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Espace aménagé</span>
                 </div>
 
-                <div id="espace-naturel" class="col s4 map-filter">
+                <div id="espace-naturel" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Espace naturel</span>
                 </div>
 
-                <div id="logement" class="col s4 map-filter">
+                <div id="logement" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Logement</span>
                 </div>
 
-                <div id="monument" class="col s4 map-filter">
+                <div id="monument" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Monument/mémorial</span>
                 </div>
 
-                <div id="reseaux-voiries" class="col s4 map-filter">
+                <div id="reseaux-voiries" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
                     <span>Réseaux et voiries</span>
                 </div>
 
-                <div id="support-parcelle" class="col s4 map-filter">
+                <div id="support-parcelle" class="col l4 m6 s12 map-filter-nature">
                     <div class="map-filter-button">
                         <div></div>
                     </div>
@@ -285,63 +320,52 @@
 
     <!---------- FUN FACTS ---------->
 
-    <div class="container">
-        <!-- Element Showed -->
-        <div class="fixed-action-btn" style="bottom: 24px; right: 24px;" onclick="$('.tap-target').tapTarget('open')">
-            <a id="funfact" class="btn btn-floating btn-large btn-funfact">
-                <i class="large material-icons" style="color: black">tag_faces</i>
-            </a>
-        </div>
-
-        <!-- Start Tap Target Structure -->
-        <div class="tap-target white" data-activates="funfact">
-            <div class="tap-target-content black-text">
-                <h5 style="margin-left: 40%; margin-top: 15%; text-shadow: 1px 1px 1px #000;">Fun Facts !</h5>
-                <!-- Begin fun fact slider -->
-                <div id="carousel">
-                    <div id="slides">
-                        <ul>
-                            <li class="slide">
-                                <div class="quoteContainer">
-                                    <p class="quote-phrase">
-                                        <span class="quote-marks">"</span>
-                                        La tour Eiffel a ete vendue en 1905 par Joe la Carto... deux fois !
-                                        <class="quote-marks">"</span>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="slide">
-                                <div class="quoteContainer">
-                                    <p class="quote-phrase">
-                                        <span class="quote-marks">"</span>
-                                        Le stade de France en vente ! Les champions du monde n'ont plus besoin de pelouse...
-                                        <span class="quote-marks">"</span>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="slide">
-                                <div class="quoteContainer">
-                                    <p class="quote-phrase">
-                                        <span class="quote-marks">"</span>
-                                        Carl Fakeguy, was the most helpful designer I've ever hired. He listened to my ideas...
-                                        <span class="quote-marks">"</span>
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="btn-bar">
-                        <div id="buttons">
-                            <a id="prev" href="#"><</a><a id="next" href="#">></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End fun fact slider -->
-            </div>
-        </div>
-        <!-- End Tap Target Structure -->
+    <div class="fixed-action-btn funfact-button" onclick="toggleFunfact()">
+        <a id="funfact-button" class="btn btn-floating btn-large btn-funfact">
+            <i class="large material-icons">tag_faces</i>
+        </a>
     </div>
 
+    <div class="funfact-wrapper z-depth-4">
+        <h5>Fun Facts !</h5>
+        <!-- Begin fun fact slider -->
+        <div id="carousel">
+            <div id="slides">
+                <ul>
+                    <li class="slide">
+                        <div class="quote-container">
+                            <p class="quote-phrase">
+                                La tour Eiffel a ete vendue en 1905 par Joe la Carto... deux fois !
+                            </p>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="quote-container">
+                            <p class="quote-phrase">
+                                Le stade de France en vente ! Les champions du monde n'ont plus besoin de pelouse...
+                            </p>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="quote-container">
+                            <p class="quote-phrase">
+                                Carl Fakeguy, was the most helpful designer I've ever hired. He listened to my ideas...
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <a id="previous-funfact" class="funfact-control-button" href="#">
+                <i class="material-icons">chevron_left</i>
+            </a>
+
+            <a id="next-funfact" class="funfact-control-button" href="#">
+                <i class="material-icons">chevron_right</i>
+            </a>
+        </div>
+        <!-- End fun fact slider -->
+    </div>
 
 
 
@@ -416,6 +440,7 @@
     <script src="scripts/skel.min.js"></script>
     <script src="scripts/map.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="scripts/funfact.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/tweetPart.js"></script>
 </body>
