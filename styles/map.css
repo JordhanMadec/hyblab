@@ -62,6 +62,10 @@
     padding: 20px 0;
 }
 
+.map-filters-container .row {
+    margin-bottom: 40px;
+}
+
 .map-filters-container h5{
     margin-bottom: 20px;
     color: var(--main-white);
@@ -79,7 +83,8 @@
 
 /* FILTERS */
 
-.map-filter {
+.map-filter-nature,
+.map-filter-state {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -91,7 +96,8 @@
     user-select: none;
 }
 
-.map-filter.selected, .map-filter:hover {
+.map-filter-nature.selected, .map-filter-nature:hover,
+.map-filter-state.selected, .map-filter-state:hover {
     font-weight: bold;
     opacity: 1;
 }
@@ -116,7 +122,8 @@
     transition: .3s;
 }
 
-.map-filter.selected > .map-filter-button > div {
+.map-filter-nature.selected > .map-filter-button > div,
+.map-filter-state.selected > .map-filter-button > div {
     opacity: 1;
 }
 
