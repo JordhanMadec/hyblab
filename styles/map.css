@@ -268,6 +268,18 @@
     width: 300px;
 }
 
+.patrimony-id-header {
+    display: flex;
+    align-items: center;
+}
+
+.patrimony-id-header-image {
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+    border-radius: 100%;
+}
+
 .patrimony-id-title {
     font-weight: bold;
     font-size: 17px;

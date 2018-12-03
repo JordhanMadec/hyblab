@@ -226,24 +226,29 @@ map.on('load', function() {
         subtitle = patrimony.zipcode + ", " + patrimony.city
         description = patrimony.description.toLowerCase() != "null" ? patrimony.description : "Pas de description";
 
-        console.log(patrimony);
+        imgSource = 'assets/images/pictos/' + 'picto' + '.svg';
 
         new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(
                 "<div class='patrimony-id'>" +
-                "<div class='patrimony-id-title'>" + address.toLowerCase() + "</div>" +
-                "<div class='patrimony-id-subtitle'>" + subtitle + "</div>" +
-                "<div class='patrimony-id-details'>" +
-                "<div><div class='label'>Nature</div><div class='value'>" + patrimony.nature + "</div></div>" +
-                "<div><div class='label'>Statut</div><div class='value'>" + patrimony.state + "</div></div>" +
-                "<div><div class='label'>Ministère</div><div class='value'>" + patrimony.ministry + "</div></div>" +
-                "<div><div class='label'>Procédure</div><div class='value'>" + patrimony.procedure + "</div></div>" +
-                "<div><div class='label'>Mise en vente</div><div class='value'>" + patrimony.registration_year + "</div></div>" +
-                "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
-                "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
-                "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
-                "</div>" +
+                    "<div class='patrimony-id-header'>" +
+                        "<img src=" + imgSource + " class='patrimony-id-header-image'>" +
+                        "<div class='patrimony-id-title-container'>" +
+                            "<div class='patrimony-id-title'>" + address.toLowerCase() + "</div>" +
+                            "<div class='patrimony-id-subtitle'>" + subtitle + "</div>" +
+                        "</div>" +
+                    "</div>" +
+                    "<div class='patrimony-id-details'>" +
+                        "<div><div class='label'>Nature</div><div class='value'>" + patrimony.nature + "</div></div>" +
+                        "<div><div class='label'>Statut</div><div class='value'>" + patrimony.state + "</div></div>" +
+                        "<div><div class='label'>Ministère</div><div class='value'>" + patrimony.ministry + "</div></div>" +
+                        "<div><div class='label'>Procédure</div><div class='value'>" + patrimony.procedure + "</div></div>" +
+                        "<div><div class='label'>Mise en vente</div><div class='value'>" + patrimony.registration_year + "</div></div>" +
+                        "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
+                        "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
+                        "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
+                    "</div>" +
                 "</div>"
             )
             .addTo(map);
