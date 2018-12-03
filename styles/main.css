@@ -227,3 +227,36 @@ in Fun Fact discovery feature
 .infoBien{
     display: none;
 }
+
+#biens-section .barRecherche{
+    border-radius: 50px;
+    width: 400px;
+    color: white;
+    font-size: 20px;
+}
+
+#biens-section .barRecherche .input-field{
+    color: black;
+}
+#biens-section .inputPrix{
+    color: black;
+    font-size: 20px;
+}
+
+#biens-section label{
+    color: black;
+    font-size: 20px;
+}
+
+#biens-section .barRecherche .input-field input[type=text]:focus + label {
+    color: #000;
+}
+
+#biens-section .barRecherche i{
+    color: #000;
+}
+
+#biens-section .barRecherche  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }

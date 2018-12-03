@@ -210,11 +210,10 @@
                     <p>2016</p>
                     <h5>Description</h5>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                    <input type="text" placeholder="Proposer un Prix" text-color="white">
-                    <a href="https://twitter.com/intent/tweet?button_hashtag=OnDenonce&ref_src=twsrc%5Etfw&text=Donnez nous le prix" class="twitter-hashtag-button" data-show-count="false">
-                        Tweet
-                    </a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <div class="barRecherche">
+                            <input type="text" class="browser-default map-searchbar" placeholder="Proposer un prix" id="prixUtilisateur1">
+                    </div>
+                    <button onclick="openTwitter(1)">Tweeter</button>
                 </div>
 
                 <div id="infoBien2" class="infoBien col s8 left-align">
@@ -230,15 +229,10 @@
                     <p>2016</p>
                     <h5>Description</h5>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-                    <div class="">
-                            <input type="text" class="browser-default map-searchbar" placeholder="Proposer un prix" id="prixUtilisateur">
+                    <div class="barRecherche">
+                            <input type="text" class="browser-default map-searchbar" placeholder="Proposer un prix" id="prixUtilisateur2">
                     </div>
-                    <button onclick="openTwitter()">Tweeter</button>
-
-                    <a href="https://twitter.com/intent/tweet?button_hashtag=OnDenonce&ref_src=twsrc%5Etfw&text=Donnez nous le prix" class="twitter-hashtag-button" data-show-count="false">
-                        Tweet
-                    </a>
+                    <button onclick="openTwitter(2)">Tweeter</button>
                 </div>
 
                 <div id="infoBien3" class="infoBien col s8 left-align">
@@ -254,11 +248,14 @@
                     <p>2016</p>
                     <h5>Description</h5>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                    <input type="text" placeholder="Proposer un Prix" text-color="white">
-                    <a href="https://twitter.com/intent/tweet?button_hashtag=OnDenonce&ref_src=twsrc%5Etfw&text=Donnez nous le prix" class="twitter-hashtag-button" data-show-count="false">
-                        Tweet
-                    </a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    
+                    <div class="barRecherche">
+                         <div class="input-field col s12">
+                            <input id="prixUtilisateur3" type="text" class="validate inputPrix">
+                             <i class="material-icons prefix" onclick="openTwitter(3)">send</i>
+                             <label for="prixUtilisateur3">Proposer un prix</label>
+                         </div>
+                    </div>
                 </div>
         </div>
     </section>

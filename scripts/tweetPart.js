@@ -19,12 +19,10 @@ function displayInfo(nb){
     }
 }
 
-function openTwitter(){
-    let prix = document.getElementById("prixUtilisateur").value;
+function openTwitter(nb){
+    let prix = document.getElementById("prixUtilisateur" + nb).value;
     let text = "Nous voulons savoir le prix du bien. Pour nous, il vaut " + prix + "€";
     let HashTag = "DonneLePrix";
-    //text = encodeURI(text);
-    //HashTag = encodeURI(text);
     var lien = "https://twitter.com/intent/tweet?button_hashtag=" + HashTag + "&ref_src=twsrc%5Etfw&text=" + text;
     window.open(lien);
 }
