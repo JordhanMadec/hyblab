@@ -34,4 +34,6 @@ $(function() {
 	$window.on('load', function() {
 		$body.removeClass('is-loading');
 	});
+
+	initModalAndGraph();
 });
