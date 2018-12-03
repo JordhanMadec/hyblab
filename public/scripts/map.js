@@ -267,6 +267,7 @@ map.on('load', function() {
                         "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
                         "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
                     "</div>" +
+                    "<a class='waves-effect waves-light btn modal-trigger' href='#modal1'>Voir Statistiques</a>" +
                 "</div>"
             )
             .addTo(map);
