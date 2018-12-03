@@ -218,11 +218,104 @@
 
     <div class="diagonal-splitter"></div>
 
+    <!---------- Tweet Part Section ---------->
+    <section id="biens-section">
 
+         <div id="boites" class="row center-align">
+                <h1 class="section-title">Estimez un  bien </h1>
+                <div class="col s2 offset-s3" onclick="displayInfo(1)">
+                    <img class="responsive-img" src="./assets/images/cube.svg">
+                </div>
+                <div class="col s2" onclick="displayInfo(2)">
+                    <img class="responsive-img" src="./assets/images/cube.svg">
+                </div>
+                <div class="col s2" onclick="displayInfo(3)">
+                    <img class="responsive-img" width="100%"src="./assets/images/cube.svg">
+                </div>
+         </div>
+                
+         <div id="picture-biens" class="row center-align">
+                <div class="infoBien" id="bien1">
+                    <h1 class="section-title">Villa avec jardin</h1>
+                        <div id="bien1" class="col s5">
+                            <img class="responsive-img " width="80%" src="./assets/images/testBatTweet.jpg">
+                        </div>
+                        <div class="col s7 left-align">
+                                <h5>Adresse</h5>
+                                <p>14 chemin de Tanit</p>
+                                <h5>Ville</h5>
+                                <p>Antibes (Alpes-Maritimes)</p>
+                                <h5>Propriétaire actuel</h5>
+                                <p>Ministère de la Défense</p>
+                                <h5>Date de mise en vente</h5>
+                                <p>2016</p>
+                                <h5>Description</h5>
+                                <p>
+                                    Ancienne maison bourgeoise de 317,75 m² classée au PLU de la ville d'Antibes et bâtie sur un terrain de 1 198 m² cadastré BT 138.<br/>
+                                    Elevée de 2 étages sur rez-de-chaussée avec cour intérieure et jardin, elle se situe  dans un quartier résidentiel calme non loin du boulevard du Président Wilson et du bord de mer.
+                                    <br/>Travaux à prévoir.
+                                    <br/>Libre de toute occupation.
+                                </p>
+                                <div class="bar-proposePrix">
+                                        <input type="text" id="prixUtilisateur1" class="browser-default proposePrix" placeholder="Proposez un prix">
+                                        <div id="map-search-button" class="proposePrix-button" onclick="openTwitter(1)">
+                                            <i class="material-icons">send</i>
+                                        </div>
+                                    </div>
+                                </div>
+                </div>
 
+                <div class="infoBien" id="bien2">
+                    <h1 class="section-title">Emplacement de stationnement</h1>
+                    <div class="valign-wrapper">
+                        <div class="col s6">
+                            <img  class="responsive-img" width="80%"src="./assets/images/testBatTweet2.jpg">
+                        </div>
+                        <div class="col s6 left-align">
+                                <h5>Adresse</h5>
+                                <p>30 rue des Planchettes</p>
+                                <h5>Ville</h5>
+                                <p>Clermont-Ferrand (Puy-de-Dôme)</p>
+                                <h5>Description</h5>
+                                <p>Emplacement de stationnement n° 93 </p>
+                                <div class="bar-proposePrix">
+                                        <input type="text" id="prixUtilisateur2" class="browser-default proposePrix" placeholder="Proposez un prix">
+                                        <div id="map-search-button" class="proposePrix-button" onclick="openTwitter(2)">
+                                            <i class="material-icons">send</i>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                </div>
 
+                <div class="infoBien" id="bien3">
+                    <h1 class="section-title">Local commercial</h1>
+                    <div class="valign-wrapper">
+                        <div class="col s5">
+                                <img class="responsive-img" width="90%" src="./assets/images/testBatTweet3.jpg">
+                        </div>
+                        <div class="col s7 left-align">
+                                <h5>Adresse</h5>
+                                <p>38 quai des Chartrons</p>
+                                <h5>Ville</h5>
+                                <p>Bordeaux (Gironde)</p>
+                                <h5>Description</h5>
+                                <p>Dans un immeuble en copropriété en pierre de taille, au bord de la Garonne, ancien chai vouté à usage de local commercial/bureau. 
+                                    <br/>Lot 1 : rez-de-chaussée de 258 m² et cave de 40 m².</p>
 
+                                <div class="bar-proposePrix">
+                                    <input type="text" id="prixUtilisateur3" class="browser-default proposePrix" placeholder="Proposez un prix">
+                                    <div id="map-search-button" class="proposePrix-button" onclick="openTwitter(3)">
+                                        <i class="material-icons">send</i>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+        </div>
+    </section>
 
+    <div class="diagonal-splitter"></div>
 
 
     <!---------- FUN FACTS ---------->
@@ -346,9 +439,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="scripts/skel.min.js"></script>
     <script src="scripts/map.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="scripts/funfact.js"></script>
-
     <script src="scripts/main.js"></script>
+    <script src="scripts/tweetPart.js"></script>
 </body>
 
 </html>
