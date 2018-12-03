@@ -21,6 +21,8 @@
     <link href="styles/main.css" rel="stylesheet" />
     <link href="styles/map.css" rel="stylesheet" />
     <link href="styles/funfact.css" rel="stylesheet" />
+    <link href="styles/tweets.css" rel="stylesheet" />
+    <link href="styles/articles.css" rel="stylesheet" />
 
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
@@ -216,7 +218,227 @@
         </div>
     </section>
 
+    <div class="diagonal-splitter">
+        <img class="bidule-img" src="assets/images/bidule.svg">
+    </div>
+
+
+    <section id="articles-section">
+        <div class="container">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit posuere odio sed dictum. Maecenas malesuada enim ultrices, consequat neque in, consectetur sapien. Maecenas ultricies pretium metus, sit amet dictum nulla eleifend sit amet. Etiam dictum, massa at imperdiet lobortis, urna velit porta mi, sed dictum ante nulla eu augue. Aenean sodales eros non feugiat laoreet. In consectetur vitae metus ac pellentesque. Morbi blandit eros a eros mollis, nec ultrices neque finibus. Fusce sed metus vel nisl euismod eleifend. Vivamus pulvinar purus eget ante hendrerit faucibus. Aliquam erat volutpat. Curabitur consequat turpis quis varius ornare. Mauris cursus dictum massa quis aliquam.
+
+            Phasellus accumsan in orci ut eleifend. Quisque justo mi, pulvinar in volutpat at, sodales porttitor augue. Quisque vel magna euismod, vehicula quam a, tempor nulla. Curabitur a tristique massa. Duis vel scelerisque dolor, eget congue orci. Curabitur vitae ligula eu mauris fringilla congue. Proin dictum blandit tincidunt. Curabitur pellentesque velit ante, et sollicitudin urna suscipit quis. Vestibulum et orci varius, porta urna ac, consequat ex. Fusce congue, purus sit amet vulputate congue, dui mi rutrum lorem, at gravida elit nulla vel neque. Phasellus volutpat tortor condimentum ligula porttitor, quis pretium risus viverra.
+
+            Morbi sit amet dolor mi. Ut volutpat rhoncus eros quis lobortis. Suspendisse iaculis justo eros, ac euismod augue maximus sed. Cras gravida gravida accumsan. Vivamus imperdiet urna odio, ac ornare sem tempus id. Proin porttitor mauris eu ipsum tristique, at mattis ligula ultrices. Nulla in viverra ante. Phasellus libero erat, consequat quis consectetur sit amet, tincidunt non sem. Pellentesque scelerisque mi ac luctus convallis. Nam id dapibus mauris. Donec vestibulum, ante at pellentesque aliquam, elit nibh vehicula ante, quis vestibulum ante justo in libero.
+
+            Morbi nisi neque, fermentum et efficitur ac, dignissim sed mi. Pellentesque sed cursus sapien. Maecenas libero erat, suscipit ac tristique vel, varius ac enim. In rutrum ultrices varius. Suspendisse enim ligula, interdum a ante eu, ullamcorper dignissim tortor. Pellentesque in dignissim purus. Donec dignissim lacus ut accumsan tincidunt.
+
+            Mauris maximus et lacus sed pellentesque. Aliquam gravida urna id augue consequat, sit amet sagittis tortor maximus. Etiam ac augue in justo semper imperdiet quis non leo. Sed elementum vulputate eros, eu interdum ipsum ornare fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer a ipsum ligula. Aliquam consectetur congue sapien, ut feugiat erat molestie ut. Phasellus eleifend nibh nec orci sodales, sit amet malesuada ipsum feugiat. Nunc at nisl nec massa pulvinar tincidunt. Nulla lacus mauris, volutpat sit amet accumsan eu, congue sit amet quam. Sed gravida feugiat maximus.
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+  <!---------- MODAL FOR STAT---------->
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal" style="min-height: 77%">
+        <div class="modal-content">
+          <h4>Statistiques</h4>
+          <!-- Stats Tab -->
+           <ul id="tabs-swipe-demo" class="tabs tabs-fixed-width">
+                <li class="tab col s3"><a class="active" href="#test-swipe-1">Type de biens</a></li>
+                <li class="tab col s3"><a href="#test-swipe-2">Type de ventes</a></li>
+                <li class="tab col s3"><a href="#test-swipe-3">Ministeres occupants</a></li>
+                <li class="tab col s3"><a href="#test-swipe-4">Acquereurs</a></li>
+                <li class="tab col s3"><a href="#test-swipe-5">Duree des ventes</a></li>
+            </ul>
+            <div id="test-swipe-1" class="col s12">
+                <div class="national">
+                    <h5>Stats nationales :</h5>
+                    <canvas id="typeBiens"></canvas>
+                </div>
+                <div class="local">
+                    <h5>Stats locales (100KM de rayon) :</h5>
+    
+                </div>
+            </div>
+            <div id="test-swipe-2" class="col s12">
+                <div class="national">
+                    <h5>Stats nationales :</h5>
+                    <canvas id="typeVente"></canvas>
+                </div>
+                <div class="local">
+                    <h5>Stats locales (100KM de rayon) :</h5>
+            
+                </div>  
+            </div>
+            <div id="test-swipe-3" class="col s12">
+                <div class="national">
+                    <h5>Stats nationales :</h5>
+                    <canvas id="occupants"></canvas>
+                </div>
+                <div class="local">
+                    <h5>Stats locales (100KM de rayon) :</h5>
+            
+                </div>
+            </div>
+            <div id="test-swipe-4" class="col s12">
+                <div class="national">
+                    <h5>Stats nationales :</h5>
+                        <canvas id="acquereurs"></canvas>
+                    </div>
+                    <div class="local">
+                        <h5>Stats locales (100KM de rayon) :</h5>
+            
+                    </div>
+            </div>
+            <div id="test-swipe-5" class="col s12">
+                <div class="national">
+                    <h5>Stats nationales :</h5>
+                        <canvas id="duree"></canvas>
+                    </div>
+                    <div class="local">
+                        <h5>Stats locales (100KM de rayon) :</h5>
+            
+                    </div>
+            </div>
+            <!-- End Stats tab -->
+        </div>
+      </div>
+    <!---------- END MODAL FOR STAT---------->
+
+
+    <div class="diagonal-splitter-bl"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!---------- Tweet Part Section ---------->
+    <section id="biens-section">
+
+        <div class="container">
+
+         <div id="boites" class="row center-align">
+                <h1 class="section-title">Estimez un  bien </h1>
+
+                <div class="col l4 s12 mystery-box-container" onclick="displayInfo(1)">
+                    <div id="box1" class="mystery-box"></div>
+                    <div class="question-mark">?</div>
+                </div>
+                <div class="col l4 s12 mystery-box-container" onclick="displayInfo(2)">
+                    <div id="box2" class="mystery-box"></div>
+                    <div class="question-mark">?</div>
+                </div>
+                <div class="col l4 s12 mystery-box-container" onclick="displayInfo(3)">
+                    <div id="box3" class="mystery-box"></div>
+                    <div class="question-mark">?</div>
+                </div>
+         </div>
+
+         <div id="picture-biens" class="row center-align">
+                <div class="infoBien" id="bien1">
+                    <h1 class="section-title">Villa avec jardin</h1>
+                        <div class="col s5">
+                            <img class="responsive-img " width="80%" src="./assets/images/testBatTweet.jpg">
+                        </div>
+                        <div class="col s7 left-align">
+                                <h5>Adresse</h5>
+                                <p>14 chemin de Tanit</p>
+                                <h5>Ville</h5>
+                                <p>Antibes (Alpes-Maritimes)</p>
+                                <h5>Propriétaire actuel</h5>
+                                <p>Ministère de la Défense</p>
+                                <h5>Date de mise en vente</h5>
+                                <p>2016</p>
+                                <h5>Description</h5>
+                                <p>
+                                    Ancienne maison bourgeoise de 317,75 m² classée au PLU de la ville d'Antibes et bâtie sur un terrain de 1 198 m² cadastré BT 138.<br/>
+                                    Elevée de 2 étages sur rez-de-chaussée avec cour intérieure et jardin, elle se situe  dans un quartier résidentiel calme non loin du boulevard du Président Wilson et du bord de mer.
+                                    <br/>Travaux à prévoir.
+                                    <br/>Libre de toute occupation.
+                                </p>
+                                <div class="bar-proposePrix">
+                                        <input type="text" id="prixUtilisateur1" class="browser-default proposePrix" placeholder="Proposez un prix">
+                                        <div class="proposePrix-button" onclick="openTwitter(1)">
+                                            <i class="material-icons">send</i>
+                                        </div>
+                                    </div>
+                                </div>
+                </div>
+
+                <div class="infoBien" id="bien2">
+                    <h1 class="section-title">Emplacement de stationnement</h1>
+                    <div class="valign-wrapper">
+                        <div class="col s6">
+                            <img  class="responsive-img" width="80%"src="./assets/images/testBatTweet2.jpg">
+                        </div>
+                        <div class="col s6 left-align">
+                                <h5>Adresse</h5>
+                                <p>30 rue des Planchettes</p>
+                                <h5>Ville</h5>
+                                <p>Clermont-Ferrand (Puy-de-Dôme)</p>
+                                <h5>Description</h5>
+                                <p>Emplacement de stationnement n° 93 </p>
+                                <div class="bar-proposePrix">
+                                        <input type="text" id="prixUtilisateur2" class="browser-default proposePrix" placeholder="Proposez un prix">
+                                        <div class="proposePrix-button" onclick="openTwitter(2)">
+                                            <i class="material-icons">send</i>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="infoBien" id="bien3">
+                    <h1 class="section-title">Local commercial</h1>
+                    <div class="valign-wrapper">
+                        <div class="col s5">
+                                <img class="responsive-img" width="90%" src="./assets/images/testBatTweet3.jpg">
+                        </div>
+                        <div class="col s7 left-align">
+                                <h5>Adresse</h5>
+                                <p>38 quai des Chartrons</p>
+                                <h5>Ville</h5>
+                                <p>Bordeaux (Gironde)</p>
+                                <h5>Description</h5>
+                                <p>Dans un immeuble en copropriété en pierre de taille, au bord de la Garonne, ancien chai vouté à usage de local commercial/bureau. 
+                                    <br/>Lot 1 : rez-de-chaussée de 258 m² et cave de 40 m².</p>
+
+                                <div class="bar-proposePrix">
+                                    <input type="text" id="prixUtilisateur3" class="browser-default proposePrix" placeholder="Proposez un prix">
+                                    <div class="proposePrix-button" onclick="openTwitter(3)">
+                                        <i class="material-icons">send</i>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+         </div>
+
+        </div>
+    </section>
+
     <div class="diagonal-splitter"></div>
+
+
+
+
 
 
 
@@ -280,7 +502,7 @@
 
     <!---------- FOOTER ---------->
 
-    <footer class="page-footer yellow">
+    <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l4 s12">
@@ -329,7 +551,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-copyright yellow">
+        <div class="footer-copyright">
             <div class="container">
                 <p class="black-text text-lighten-3">© 2018 Copyright Hyblab</p>
             </div>
@@ -345,9 +567,12 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="scripts/skel.min.js"></script>
+    <script src="https://unpkg.com/chart.js@2.7.3/dist/Chart.min.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="scripts/map.js"></script>
     <script src="scripts/funfact.js"></script>
-
+    <script src="scripts/tweetPart.js"></script>
+    <script src="scripts/graphStat.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 

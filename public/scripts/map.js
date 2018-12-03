@@ -27,7 +27,6 @@ var yellow2 = '#fbc02d';
 var $window = $(window);
 
 function fullSize() {
-    console.log($window.height());
     size = Math.min($window.height(), $window.width()) * 0.8;
 
     $('#map').css({
@@ -137,13 +136,13 @@ map.on('load', function() {
     // 'cluster' option to true. GL-JS will add the point_count property to your source data.
     map.addSource("patrimonyClustered", {
         type: "geojson",
-        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
+        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/public/data.geojson",
         cluster: true,
         clusterRadius: 30
     });
     map.addSource("patrimonyUnclustered", {
         type: "geojson",
-        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/data.geojson",
+        data: "https://raw.githubusercontent.com/JordhanMadec/hyblab/master/public/data.geojson",
         cluster: false
     });
 
@@ -267,6 +266,9 @@ map.on('load', function() {
                         "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
                         "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
                         "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
+                    "</div>" +
+                    "<div class='center-align' style='margin-top:10px;'>" +
+                        "<a class='waves-effect waves-light btn modal-trigger yellow' href='#modal1' style='color: black;'>Voir Statistiques</a>" +
                     "</div>" +
                 "</div>"
             )
