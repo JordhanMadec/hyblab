@@ -18,7 +18,20 @@ var blue3 = '#3f51b5';
 var yellow1 = '#ffeb3b';
 var yellow2 = '#fbc02d';
 
-
+var enseignement = '#f44336';
+var bureau = '#81d4fa';
+var amenage = '#9575cd';
+var monument = '#d84315';
+var agricole = '#2e7d32';
+var sanitaire = '#9fa8da';
+var commerce = '#757575';
+var naturel = '#4caf50';
+var voirie = '#2196f3';
+var culturel = '#ffeb3b';
+var technique = '#e91e63';
+var culte = '#eeff41';
+var logement = '#ff7043';
+var parcelle = '#009688';
 
 
 
