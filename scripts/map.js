@@ -27,7 +27,6 @@ var yellow2 = '#fbc02d';
 var $window = $(window);
 
 function fullSize() {
-    console.log($window.height());
     size = Math.min($window.height(), $window.width()) * 0.8;
 
     $('#map').css({
