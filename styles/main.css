@@ -193,3 +193,12 @@ in Fun Fact discovery feature
 End of style for carousel slider 
 in Fun Fact discovery feature 
 -------------------------------*/
+
+#biens-section img:hover{
+    filter: blur(1px);
+    cursor: pointer;
+}
+
+.infoBien{
+    display: none;
+}
