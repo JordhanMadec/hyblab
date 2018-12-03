@@ -220,6 +220,26 @@ map.on('load', function() {
         });
     });
 
+    var getPicto = function(nature) {
+        switch (nature) {
+            case "BATIMENT AGRICOLE OU D'ELEVAGE": return 'batiment-agricole';
+            case 'BATIMENT CULTUREL': return 'batiment-culturel';
+            case "BATIMENT D'ENSEIGNEMENT OU DE SPORT": return 'batiment-sport';
+            case 'BATIMENT SANITAIRE OU SOCIAL': return 'batiment-sanitaire';
+            case 'BATIMENT TECHNIQUE': return 'batiment-technique';
+            case 'BUREAU': return 'bureau';
+            case 'COMMERCE': return 'commerce';
+            case 'EDIFICE DE CULTE': return 'edifice-culte';
+            case 'ESPACE AMENAGE': 'espace-amenage';
+            case 'ESPACE NATUREL': return 'espace-naturel';
+            case 'LOGEMENT': return 'logement';
+            case 'MONUMENT ET MEMORIAL': return 'monument';
+            case 'RESEAUX ET VOIRIES': return 'reseaux-voiries';
+            case 'SUPPORT DE PARCELLE': 'support-parcelle';
+            default: return '';
+        }
+    }
+
     var displayIdCard = function (e) {
         var coordinates = e.features[0].geometry.coordinates.slice();
         var patrimony = e.features[0].properties;
@@ -244,7 +264,7 @@ map.on('load', function() {
         subtitle = patrimony.zipcode + ", " + patrimony.city
         description = patrimony.description.toLowerCase() != "null" ? patrimony.description : "Pas de description";
 
-        imgSource = 'assets/images/pictos/' + 'picto' + '.svg';
+        imgSource = 'assets/images/pictos/' + getPicto(patrimony.nature) + '.svg';
 
         new mapboxgl.Popup()
             .setLngLat(coordinates)
