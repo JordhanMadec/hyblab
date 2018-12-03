@@ -1,0 +1,117 @@
+.funfact-button {
+    bottom: 20px;
+    right: 20px;
+    z-index: 100000;
+}
+
+.funfact-wrapper {
+    background-color: var(--main-white);
+    border-radius: 20px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 20px;
+    width: 500px;
+    z-index: 10000;
+    transform: scale(0);
+    transform-origin: bottom right;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.funfact-wrapper.visible {
+    visibility: visible;
+    transform: scale(1);
+}
+
+.funfact-wrapper {
+    text-align: center;
+}
+
+/* --------------------------
+Style for carousel slider
+in Fun Fact discovery feature
+----------------------------*/
+#carousel {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    color: var(--main-black);
+}
+
+#slides {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#slides ul {
+    list-style: none;
+    width:100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#slides li {
+    width:100%;
+    height: 100%;
+    float:left;
+    text-align: center;
+    position: relative;
+}
+
+/* Styling for prev and next buttons */
+.funfact-control-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    color: var(--main-gray);
+    text-decoration:none;
+    transition: .3s;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: var(--main-white);
+}
+
+#previous-funfact {
+    left: 0;
+}
+
+#next-funfact {
+    right: 0;
+}
+
+.funfact-control-button i {
+    font-size: 35px;
+}
+
+
+.funfact-control-button:hover {
+    color: var(--main-black);
+}
+
+.quote-phrase {
+    font-weight:300;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px 40px;
+    text-align: left;
+    font-size:20px;
+}
+
+.quote-container, .author-container {
+    display: table;
+    width: 100%;
+}
+/* -----------------------------
+End of style for carousel slider
+in Fun Fact discovery feature
+-------------------------------*/
