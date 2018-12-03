@@ -133,3 +133,9 @@ footer.page-footer .footer-copyright {
 .carousel-item.active {
     transform: none !important;
 }
+
+
+.modal { 
+    width: 50% !important ; 
+    border-radius: 30px;
+  }
