@@ -186,18 +186,18 @@
     <!---------- Tweet Part Section ---------->
     <section id="biens-section">
          <h1 class="section-title">Choisissez un  bien </h1>
-         <div id="picture-biens" class="row">
+         <div id="picture-biens" class="row center-align">
                 <div id="bien1" class="col s4" onclick="displayInfo(1)">
-                    <img class="responsive-img" src="./assets/images/testBatTweet.jpg">
+                    <img class="responsive-img " width="80%" src="./assets/images/testBatTweet.jpg">
                 </div>
                 <div id="bien2" class="col s4" onclick="displayInfo(2)">
-                    <img  class="responsive-img" src="./assets/images/testBatTweet2.jpg">
+                    <img  class="responsive-img" width="80%"src="./assets/images/testBatTweet2.jpg">
                 </div>
                 <div id="bien3" class="col s4" onclick="displayInfo(3)">
-                    <img class="responsive-img" src="./assets/images/testBatTweet3.jpg">
+                    <img class="responsive-img" width="80%" src="./assets/images/testBatTweet3.jpg">
                 </div>
-
-                <div id="infoBien1" class="infoBien col s8">
+                
+                <div id="infoBien1" class="infoBien col s8 left-align">
                     <h5>Departement</h5>
                     <p>Mayenne</p>
                     <h5>Ville</h5>
@@ -209,7 +209,7 @@
                     <h5>Mise en vente</h5>
                     <p>2016</p>
                     <h5>Description</h5>
-                    <p>BDBCDKCD Scnjdcsc dkcndsckdsncs ckncsdkcsdc cdklncdskcs cdsnkcdsk</p>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                     <input type="text" placeholder="Proposer un Prix" text-color="white">
                     <a href="https://twitter.com/intent/tweet?button_hashtag=OnDenonce&ref_src=twsrc%5Etfw&text=Donnez nous le prix" class="twitter-hashtag-button" data-show-count="false">
                         Tweet
@@ -217,7 +217,7 @@
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
 
-                <div id="infoBien2" class="infoBien col s8">
+                <div id="infoBien2" class="infoBien col s8 left-align">
                     <h5>Departement</h5>
                     <p>Mayenne</p>
                     <h5>Ville</h5>
@@ -229,15 +229,19 @@
                     <h5>Mise en vente</h5>
                     <p>2016</p>
                     <h5>Description</h5>
-                    <p>BDBCDKCD Scnjdcsc dkcndsckdsncs ckncsdkcsdc cdklncdskcs cdsnkcdsk</p>
-                    <input type="text" placeholder="Proposer un Prix" text-color="white">
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                    <div class="">
+                            <input type="text" class="browser-default map-searchbar" placeholder="Proposer un prix" id="prixUtilisateur">
+                    </div>
+                    <button onclick="openTwitter()">Tweeter</button>
+
                     <a href="https://twitter.com/intent/tweet?button_hashtag=OnDenonce&ref_src=twsrc%5Etfw&text=Donnez nous le prix" class="twitter-hashtag-button" data-show-count="false">
                         Tweet
                     </a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
 
-                <div id="infoBien3" class="infoBien col s8">
+                <div id="infoBien3" class="infoBien col s8 left-align">
                     <h5>Departement</h5>
                     <p>Mayenne</p>
                     <h5>Ville</h5>
@@ -249,7 +253,7 @@
                     <h5>Mise en vente</h5>
                     <p>2016</p>
                     <h5>Description</h5>
-                    <p>BDBCDKCD Scnjdcsc dkcndsckdsncs ckncsdkcsdc cdklncdskcs cdsnkcdsk</p>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                     <input type="text" placeholder="Proposer un Prix" text-color="white">
                     <a href="https://twitter.com/intent/tweet?button_hashtag=OnDenonce&ref_src=twsrc%5Etfw&text=Donnez nous le prix" class="twitter-hashtag-button" data-show-count="false">
                         Tweet
@@ -395,7 +399,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="scripts/skel.min.js"></script>
     <script src="scripts/map.js"></script>
-
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/tweetPart.js"></script>
 </body>

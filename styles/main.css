@@ -194,9 +194,34 @@ End of style for carousel slider
 in Fun Fact discovery feature 
 -------------------------------*/
 
+#biens-section{
+    margin:0;
+    font-size:1rem;
+    font-weight:normal;
+    line-height:1.5;
+    background-color: var(--main-yellow);
+    overflow-x: hidden;
+    color: var(--main-black);
+    font-family: 'Raleway', sans-serif;
+}
+
+#biens-section h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cabin', sans-serif;
+    color: var(--main-black);
+    letter-spacing: 3px;
+}
+
 #biens-section img:hover{
     filter: blur(1px);
     cursor: pointer;
+}
+
+#biens-section img{
+    border-radius: 40px; 
+}
+
+#biens-section p{
+    font-size: 20px;
 }
 
 .infoBien{
