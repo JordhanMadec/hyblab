@@ -293,28 +293,28 @@ map.on('load', function() {
                 "</div>"
             )
             .addTo(map);
-
-        map.on('mouseenter', 'clusters', function () {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-        map.on('mouseleave', 'clusters', function () {
-            map.getCanvas().style.cursor = '';
-        });
-
-        map.on('mouseenter', 'point-unclustered', function () {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-        map.on('mouseleave', 'point-unclustered', function () {
-            map.getCanvas().style.cursor = '';
-        });
-
-        map.on('mouseenter', 'point-clustered', function () {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-        map.on('mouseleave', 'point-clustered', function () {
-            map.getCanvas().style.cursor = '';
-        });
     }
+
+    map.on('mouseenter', 'clusters', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'clusters', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter', 'point-unclustered', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'point-unclustered', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter', 'point-clustered', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'point-clustered', function () {
+        map.getCanvas().style.cursor = '';
+    });
 
     // Affiche la fiche du patrimoine
     map.on('click', 'point-unclustered', function (e) {

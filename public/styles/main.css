@@ -130,3 +130,6 @@ footer.page-footer .footer-copyright {
     text-align: center;
 }
 
+.carousel-item.active {
+    transform: none !important;
+}
