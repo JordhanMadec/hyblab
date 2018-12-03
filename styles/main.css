@@ -266,7 +266,7 @@ in Fun Fact discovery feature
     font-weight: bold;
 }
 
-.bar-proposePrix{
+#biens-section .bar-proposePrix{
     border-radius: 5px;
     width: 400px;
     height: 60px;
@@ -279,7 +279,7 @@ in Fun Fact discovery feature
     overflow: hidden;
 }
 
-.proposePrix {
+#biens-section .proposePrix {
     background: white;
     width: 100%;
     height: 60px;
@@ -291,7 +291,7 @@ in Fun Fact discovery feature
     font-weight: bold;
 }
 
-.proposePrix-button {
+#biens-section .proposePrix-button {
     background-color: var(--main-yellow);
     height: 60px;
     width: 60px;
