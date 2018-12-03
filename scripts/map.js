@@ -22,6 +22,31 @@ var yellow2 = 'rgb(255, 200, 0)';
 
 
 
+//---------- RESIZE MAP ----------
+
+var $window = $(window);
+
+function fullSize() {
+    console.log($window.height());
+    size = Math.min($window.height(), $window.width()) * 0.8;
+
+    $('#map').css({
+        width: size,
+        height: size
+    });
+}
+
+fullSize();
+$window.resize(fullSize);
+
+
+
+
+
+
+
+
+
 //---------- CREATE MAP ----------
 
 var map = new mapboxgl.Map({
@@ -34,12 +59,6 @@ var map = new mapboxgl.Map({
         [13.467531, 53.725433]
     ]
 });
-
-
-
-
-
-
 
 
 //---------- ZOOM ON ZIPCODE ----------
