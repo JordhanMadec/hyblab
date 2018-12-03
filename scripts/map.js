@@ -3,20 +3,20 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9yZGhhbiIsImEiOiJjaW4xZ3lxYzkwMG5qdzhseTN4e
 
 //----------  COLORS ----------
 
-var gray = 'rgb(135, 135, 135)';
-var green1 = 'rgb(115, 240, 180)';
-var green2 = 'rgb(139, 202, 27)';
-var green3 = 'rgb(10, 103, 64)';
-var red = 'rgb(255, 2, 1)';
-var pink = 'rgb(200, 0, 127)';
-var orange1 = 'rgb(255, 146, 2)';
-var orange2 = 'rgb(255, 100, 0)';
-var purple = 'rgb(94, 30, 132)';
-var blue1 = 'rgb(161, 210, 219)';
-var blue2 = 'rgb(61, 146, 181)';
-var blue3 = 'rgb(28, 42, 150)';
-var yellow1 = 'rgb(255, 255, 0)';
-var yellow2 = 'rgb(255, 200, 0)';
+var gray = '#9e9e9e';
+var green1 = '#69f0ae';
+var green2 = '#8bc34a';
+var green3 = '#558b2f';
+var red = '#e53935';
+var pink = '#f06292';
+var orange1 = '#ff9800';
+var orange2 = '#e65100';
+var purple = '#673ab7';
+var blue1 = '#bbdefb';
+var blue2 = '#90caf9';
+var blue3 = '#3f51b5';
+var yellow1 = '#ffeb3b';
+var yellow2 = '#fbc02d';
 
 
 
@@ -93,7 +93,7 @@ var getUnclusteredPointsLayer = function(id, clustered) {
                 "MONUMENT ET MEMORIAL", orange2,
                 "RESEAUX ET VOIRIES", blue3,
                 "SUPPORT DE PARCELLE", green3,
-                "#FFEB3B"
+                "#000"
             ],
             "circle-radius": 7,
             "circle-stroke-width": 2,
