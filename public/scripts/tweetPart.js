@@ -3,6 +3,12 @@ function displayInfo(nb){
     document.getElementById("bien"+nb).style.display = "block";
 }
 
+function backToChoice(){
+    document.getElementById("boites").style.display = "block";
+    for(var i=1; i <= 3; i++)
+        document.getElementById("bien"+i).style.display = "none";
+}
+
 function openTwitter(nb){
     let prix = document.getElementById("prixUtilisateur" + nb).value;
     let text = "Nous voulons savoir le prix du bien. Pour nous, il vaut " + prix + "€";
