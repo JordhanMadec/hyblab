@@ -239,7 +239,6 @@ map.on('load', function() {
                 "<div><div class='label'>Statut</div><div class='value'>" + patrimony.state + "</div></div>" +
                 "<div><div class='label'>Ministère</div><div class='value'>" + patrimony.ministry + "</div></div>" +
                 "<div><div class='label'>Procédure</div><div class='value'>" + patrimony.procedure + "</div></div>" +
-                "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
                 "<div><div class='label'>Mise en vente</div><div class='value'>" + patrimony.registration_year + "</div></div>" +
                 "<div><div class='label'>Vente</div><div class='value'>" + patrimony.disposal_year + "</div></div>" +
                 "<div><div class='label'>Acheteur</div><div class='value'>" + patrimony.buyer + "</div></div>" +
