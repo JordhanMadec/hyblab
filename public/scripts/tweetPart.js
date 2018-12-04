@@ -1,6 +1,22 @@
 function displayInfo(nb){
-    document.getElementById("boites").style.display = "none";
-    document.getElementById("bien"+nb).style.display = "block";
+    var detail;
+
+    switch ($(this).attr('id')) {
+        case 'box1':
+            detail = $('#bien1');
+            break;
+        case 'box2':
+            detail = $('#bien2');
+            break;
+        case 'box3':
+            detail = $('#bien3');
+            break;
+    }
+
+    detail.slideDown();
+
+    $('.mystery-box-container').removeClass('selected');
+    $(this).addClass('selected');
 }
 
 function backToChoice(){
@@ -45,7 +61,7 @@ var $window = $(window);
 
 function squareBoxes() {
 
-    $('#box1, #box2, #box3').css({
+    $('.mystery-box').css({
         height: $('#box1').width()
     });
 }
