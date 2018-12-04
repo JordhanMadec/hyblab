@@ -277,15 +277,17 @@
 }
 
 .patrimony-id-header-image {
-    height: 80px;
-    width: 80px;
+    max-height: 80px;
+    max-width: 80px;
+    width: auto;
+    height: auto;
     margin-right: 20px;
 }
 
 .patrimony-id-title {
     font-weight: bold;
     font-size: 17px;
-    font-family: 'Cabin';
+    font-family: 'Titillium Web';
     color: var(--main-black);
     text-transform: capitalize;
 }

@@ -16,6 +16,10 @@
     color: var(--main-yellow);
 }
 
+#biens-section .intro {
+    text-align: justify;
+}
+
 .mystery-box {
     height: 100px;
     border-radius: 100%;
@@ -86,7 +90,6 @@
 }
 
 #biens-section p{
-    font-size: 20px;
     color: white;
 }
 

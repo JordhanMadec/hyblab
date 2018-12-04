@@ -220,21 +220,21 @@ map.on('load', function() {
 
     var getPicto = function(nature) {
         switch (nature) {
-            case "BATIMENT AGRICOLE OU D'ELEVAGE": return 'batiment-agricole';
-            case 'BATIMENT CULTUREL': return 'batiment-culturel';
-            case "BATIMENT D'ENSEIGNEMENT OU DE SPORT": return 'batiment-sport';
-            case 'BATIMENT SANITAIRE OU SOCIAL': return 'batiment-sanitaire';
-            case 'BATIMENT TECHNIQUE': return 'batiment-technique';
-            case 'BUREAU': return 'bureau';
-            case 'COMMERCE': return 'commerce';
-            case 'EDIFICE DE CULTE': return 'edifice-culte';
-            case 'ESPACE AMENAGE': return 'espace-amenage';
-            case 'ESPACE NATUREL': return 'espace-naturel';
-            case 'LOGEMENT': return 'logement';
-            case 'MONUMENT ET MEMORIAL': return 'monument';
-            case 'RESEAUX ET VOIRIES': return 'reseaux-voiries';
-            case 'SUPPORT DE PARCELLE': return 'support-parcelle';
-            default: return 'unknown';
+            case "BATIMENT AGRICOLE OU D'ELEVAGE": return 'batiment-agricole.svg';
+            case 'BATIMENT CULTUREL': return 'batiment-culturel.svg';
+            case "BATIMENT D'ENSEIGNEMENT OU DE SPORT": return 'batiment-sport.svg';
+            case 'BATIMENT SANITAIRE OU SOCIAL': return 'batiment-sanitaire.svg';
+            case 'BATIMENT TECHNIQUE': return 'batiment-technique.svg';
+            case 'BUREAU': return 'bureau.svg';
+            case 'COMMERCE': return 'commerce.svg';
+            case 'EDIFICE DE CULTE': return 'edifice-culte.svg';
+            case 'ESPACE AMENAGE': return 'espace-amenage.svg';
+            case 'ESPACE NATUREL': return 'espace-naturel.svg';
+            case 'LOGEMENT': return 'logement.svg';
+            case 'MONUMENT ET MEMORIAL': return 'monument.svg';
+            case 'RESEAUX ET VOIRIES': return 'reseaux-voiries.svg';
+            case 'SUPPORT DE PARCELLE': return 'support-parcelle.svg';
+            default: return 'unknown.png';
         }
     }
 
@@ -264,7 +264,7 @@ map.on('load', function() {
         subtitle = patrimony.zipcode + ", " + patrimony.city
         description = patrimony.description.toLowerCase() != "null" ? patrimony.description : "Pas de description";
 
-        imgSource = 'assets/images/pictos/' + getPicto(patrimony.nature) + '.svg';
+        imgSource = 'assets/images/pictos/' + getPicto(patrimony.nature);
 
         new mapboxgl.Popup()
             .setLngLat(coordinates)
