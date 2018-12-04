@@ -22,7 +22,7 @@ function printGraphLocal(lat, long) {
       datasets: [
         {
             fill: true,
-            backgroundColor: [naturel, logement, bureau, amenage, technique, voirie, parcelle, enseignement, sanitaire, commerce, culturel, agricole, monument, culte],
+            backgroundColor: [green1, blue3,gray, purple, pink,blue1, green2, red, orange1, blue2, yellow1,green3,orange2, yellow2],
             data : dataLocl,
             // Notice the borderColor
             borderColor: ['white','white','white','white','white','white','white','white','white','white','white','white','white','white'],
@@ -34,7 +34,7 @@ function printGraphLocal(lat, long) {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
@@ -108,7 +108,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
@@ -174,7 +174,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
@@ -240,7 +240,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
