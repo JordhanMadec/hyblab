@@ -14,7 +14,7 @@ function initModal() {
 
 function printGraphLocal(lat, long) {
     var dataLocl = checkTypeDeBien(lat,long);
-    $("#typeBiensLocal").html("");
+    $("#typeBiensLocal").empty();
     var ctx = document.getElementById("typeBiensLocal").getContext('2d');
     var data = {
     labels: ["Espace naturel", "Logement", "Bureaux","Espace amenage", "Batiment technique", "Reseaux et voiries", "Support de parcelle", "Batiment enseignement ou sport", "Batiment sanitaire", "Commerce", "Batiment culturel", "Agricole ou elevage", "Monument et memorial", "Edifice de culte"],
@@ -44,7 +44,7 @@ function printGraphLocal(lat, long) {
         options: options
     });
 
-    $("#typeVenteLocal").html("");
+    $("#typeVenteLocal").empty();
     var dataLocl2 = checkTypeVentes(lat,long); 
     var ctx = document.getElementById("typeVenteLocal").getContext('2d');
     var data = {
@@ -75,7 +75,7 @@ function printGraphLocal(lat, long) {
         options: options
     });
 
-    $("#occupantsLocal").html("");
+    $("#occupantsLocal").empty();
     var ctx = document.getElementById("occupantsLocal").getContext('2d');
     var data = {
     labels: ["Ecologie", "Defense", "Agriculte et Peche","Comptes publics", "Intérieur", "Education nationale", "Justice", "Culture", "Economie", "Travail", "Office des forets", "Affaires etrangeres", "Sante", "Service du 1er ministre"],
@@ -105,7 +105,7 @@ function printGraphLocal(lat, long) {
         options: options
     });
 
-    $("#acquereursLocal").html("");
+    $("#acquereursLocal").empty();
 
     var ctx = document.getElementById("acquereursLocal").getContext('2d');
     var data = {
