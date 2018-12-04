@@ -204,3 +204,7 @@ footer .logo img {
 .textFunFact{
     font-size: 1.25rem;
 }
+
+.project-description {
+    text-align: justify;
+}
