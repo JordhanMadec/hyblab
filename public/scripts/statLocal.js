@@ -156,6 +156,88 @@ function checkTypeVentes(latPoint, longPoint){
     return res;
 }
 
+function occupantCheck(latPoint, longPoint){
+    //Occupant
+    let ecologieM = 0;
+    let defenseM = 0;
+    let agricultureM = 0;
+    let comptePubM = 0;
+    let interieurM = 0;
+    let educationM = 0;
+    let justiceM = 0;
+    let cultureM = 0;
+    let economieM = 0;
+    let travailM = 0;
+    let foretM = 0;
+    let affaireEtrangeresM = 0;
+    let santeM = 0;
+    let serviceMinistreM = 0;
+
+    let nbOccupant = 0;
+
+    for(var i=0;i<dataCSV.length;i++)
+    {
+
+        let latitude = dataCSV[i]["latitude"];
+        let longitude = dataCSV[i]["longitude"];
+
+        let distance = Math.sqrt(Math.pow((latPoint - latitude),2) + Math.pow((longPoint - longitude),2));
+        if(distance < 0.25){
+            //Occupant            
+            if(dataCSV[i]["ministry"] != null){
+                let occup = dataCSV[i]["ministry"].toLowerCase();
+                if(occup.includes("cologi")){
+                    ecologieM++;
+                    nbOccupant++;
+                }else if(occup.includes("agriculture")){
+                    agricultureM++;
+                    nbOccupant++;
+                }else if(occup.includes("comptes publics")){
+                    defenseM++;
+                    nbOccupant++;
+                }else if(occup.includes("budget")){
+                    comptePubM++;
+                    nbOccupant++;
+                }else if(occup.includes("conomie")){
+                    economieM++;
+                    nbOccupant++;
+                }else if(occup.includes("travail")){
+                    travailM;
+                    nbOccupant++;
+                }else if(occup.includes("justice")){
+                    justiceM++;
+                    nbOccupant++;
+                }else if(occup.includes("culture")){
+                    cultureM++;
+                    nbOccupant++;
+                }else if(occup.includes("forêt")){
+                    foretM++;
+                    nbOccupant++;
+                }else if(occup.includes("intérieur")){
+                    interieurM++;
+                    nbOccupant++;
+                }else if(occup.includes("ducation") || occup.includes("enseignement")){
+                    educationM++;
+                    nbOccupant++;
+                }else if(occup.includes("trangères")){
+                    affaireEtrangeresM++;
+                    nbOccupant++;
+                }else if(occup.includes("santé")){
+                    santeM++;
+                    nbOccupant++;
+                }else if(occup.includes("premier ministre")){
+                    serviceMinistreM++;
+                    nbOccupant++;
+                }
+        }
+    
+
+        }
+    }
+    let res = [ecologieM,defenseM, agricultureM, comptePubM, interieurM, educationM, justiceM, cultureM, economieM, travailM, foretM, affaireEtrangeresM, santeM, serviceMinistreM];
+    return res;
+}
+
 
 function checkStat(latPoint, longPoint) {
     //Type de biens
@@ -382,4 +464,3 @@ function checkStat(latPoint, longPoint) {
 }
 
 //checkStat(48.926296,2.222054);
-
