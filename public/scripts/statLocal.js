@@ -1,5 +1,98 @@
-function checkStat(latPoint, longPoint) {
+function checkTypeDeBien(latPoint, longPoint){
+     //Type de biens
+     let espaceNaturels = 0;
+     let logements = 0;
+     let bureaux = 0;
+     let espaceAmenage = 0;
+     let batTechnique = 0;
+     let voirie = 0;
+     let parcelles = 0;
+     let sport = 0;
+     let sanitaire = 0;
+     let commerce = 0;
+     let culturel = 0;
+     let agricole = 0;
+     let memorial = 0;
+     let culte = 0;
 
+     let nbTypeBiens = 0;
+
+     for(var i=0;i<dataCSV.length;i++)
+    {
+
+        let latitude = dataCSV[i]["latitude"];
+        let longitude = dataCSV[i]["longitude"];
+
+        let distance = Math.sqrt(Math.pow((latPoint - latitude),2) + Math.pow((longPoint - longitude),2));
+        if(distance < 0.25){
+            //Type de bien 
+            switch(dataCSV[i]["nature"]){
+                case "BATIMENT D'ENSEIGNEMENT OU DE SPORT":
+                    sport++;
+                    nbTypeBiens++;
+                    break;
+                case "BATIMENT SANITAIRE OU SOCIAL":
+                    sanitaire++;
+                    nbTypeBiens;
+                    break;
+                case "BATIMENT CULTUREL":
+                    culturel++;
+                    nbTypeBiens++;
+                    break;
+                case "COMMERCE":
+                    commerce++;
+                    nbTypeBiens++;
+                    break;
+                case "BUREAU":
+                    bureaux++;
+                    nbTypeBiens++;
+                    break;
+                case "EDIFICE DE CULTE":
+                    culte++;
+                    nbTypeBiens++;
+                    break;
+                case "LOGEMENT":
+                    logements++;
+                    nbTypeBiens++;
+                    break;
+                case "ESPACE NATUREL":
+                    espaceNaturels++;
+                    nbTypeBiens++;
+                    break;
+                case "BATIMENT AGRICOLE OU D'ELEVAGE":
+                    agricole++;
+                    nbTypeBiens++;
+                    break;
+                case "BATIMENT TECHNIQUE":
+                    batTechnique++;
+                    nbTypeBiens++;
+                    break;
+                case "SUPPORT DE PARCELLE":
+                    parcelles++
+                    nbTypeBiens++;
+                    break;
+                case "RESEAUX ET VOIRIES":
+                    voirie++;
+                    nbTypeBiens++;
+                    break;
+                case "MONUMENT ET MEMORIAL":
+                    memorial++;
+                    nbTypeBiens;
+                    break;
+                case "ESPACE AMENAGE":
+                    espaceAmenage++;
+                    nbTypeBiens++;
+                    break;
+                
+            }
+        }
+    }
+    
+    let res =  [espaceNaturels,logements,bureaux,espaceAmenage,batTechnique,voirie,parcelles,sport,sanitaire,commerce,culturel,agricole,memorial,culte]; 
+    return res;
+}
+
+function checkStat(latPoint, longPoint) {
     //Type de biens
     let espaceNaturels = 0;
     let logements = 0;
@@ -214,11 +307,6 @@ function checkStat(latPoint, longPoint) {
                     nbOccupant++;
                 }
             } 
-                
-                
-
-
-
 
         }//Fin if
     }//Fin For
@@ -228,5 +316,5 @@ function checkStat(latPoint, longPoint) {
     console.log("Adj " + adjujication);
 }
 
-checkStat(48.926296,2.222054);
+//checkStat(48.926296,2.222054);
 

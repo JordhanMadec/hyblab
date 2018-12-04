@@ -25,6 +25,40 @@ function initModal() {
     });
 }
 
+function printGraphLocal(lat, long) {
+    console.log("grs,dfckdlscnjs")
+    var dataLocl = checkTypeDeBien(lat,long);
+    $("#typeBiensLocal").html("");
+    var ctx = document.getElementById("typeBiensLocal").getContext('2d');
+    var data = {
+    labels: ["Espace naturel (54.7 %)", "Logement (15.2 %) ", "Bureaux (10.6 %) ","Espace amenage (6.6 %) ", "Batiment technique (6 %) ", "Reseaux et voiries (3 %) ", "Support de parcelle (1.6 %) ", "Batiment enseignement ou sport (0.74 %) ", "Batiment sanitaire (0.50 %) ", "Commerce (0.20 %) ", "Batiment culturel (0.18 %) ", "Agricole ou elevage (0.18 %) ", "Monument et memorial (0.10 %) ", "Edifice de culte (0.09 %) "],
+      datasets: [
+        {
+            fill: true,
+            backgroundColor: [naturel, logement, bureau, amenage, technique, voirie, parcelle, enseignement, sanitaire, commerce, culturel, agricole, monument, culte],
+            data : dataLocl,
+            // Notice the borderColor
+            borderColor: ['white','white','white','white','white','white','white','white','white','white','white','white','white','white'],
+            borderWidth: [2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+        }
+      ]
+    };
+
+    var options = {
+        legend: {
+            display: true,
+            position: 'right'
+        }
+    }
+
+    // Chart declaration:
+    var myBarChart2 = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: options
+    });
+}
+
 function initGraph() {
     /* ---------------
     GRAPH TYPE DE BIEN
@@ -58,34 +92,9 @@ function initGraph() {
         options: options
     });
 
-    var ctx = document.getElementById("typeBiensLocal").getContext('2d');
-    var data = {
-    labels: ["Espace naturel (54.7 %)", "Logement (15.2 %) ", "Bureaux (10.6 %) ","Espace amenage (6.6 %) ", "Batiment technique (6 %) ", "Reseaux et voiries (3 %) ", "Support de parcelle (1.6 %) ", "Batiment enseignement ou sport (0.74 %) ", "Batiment sanitaire (0.50 %) ", "Commerce (0.20 %) ", "Batiment culturel (0.18 %) ", "Agricole ou elevage (0.18 %) ", "Monument et memorial (0.10 %) ", "Edifice de culte (0.09 %) "],
-      datasets: [
-        {
-            fill: true,
-            backgroundColor: [naturel, logement, bureau, amenage, technique, voirie, parcelle, enseignement, sanitaire, commerce, culturel, agricole, monument, culte],
-            data: [2606, 723, 507, 317, 289, 142, 79, 35, 25, 10, 9, 9, 6, 4],
-            // Notice the borderColor
-            borderColor: ['white','white','white','white','white','white','white','white','white','white','white','white','white','white'],
-            borderWidth: [2,2,2,2,2,2,2,2,2,2,2,2,2,2]
-        }
-      ]
-    };
+    //Graph de base local
+    printGraphLocal(48.926296, 2.222054);
 
-    var options = {
-        legend: {
-            display: true,
-            position: 'right'
-        }
-    }
-
-    // Chart declaration:
-    var myBarChart = new Chart(ctx, {
-        type: 'pie',
-        data: data,
-        options: options
-    });
     /* ---------------
     FIN GRAPH TYPE DE BIEN
     ----------------- */
