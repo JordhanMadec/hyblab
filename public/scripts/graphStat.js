@@ -13,7 +13,6 @@ function initModal() {
 }
 
 function printGraphLocal(lat, long) {
-    console.log("grs,dfckdlscnjs")
     var dataLocl = checkTypeDeBien(lat,long);
     $("#typeBiensLocal").html("");
     var ctx = document.getElementById("typeBiensLocal").getContext('2d');
@@ -40,6 +39,36 @@ function printGraphLocal(lat, long) {
 
     // Chart declaration:
     var myBarChart2 = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: options
+    });
+
+    var dataLocl2 = checkTypeVentes(lat,long); 
+    var ctx = document.getElementById("typeVenteLocal").getContext('2d');
+    var data = {
+    labels: ["Gre a gre (38.70 %)", "Droit de priorite (28.36 %) ", "Appel d'offres (18 %) ","Adjudication (7.60 %) ", "Autres droits (6.20 %) ", "Echange (hors Etats) (0.50 %) ", "Recours a une agence (0.47 %) ", "VNI (0.16 %) "],
+      datasets: [
+        {
+            fill: true,
+            backgroundColor: [green1, blue3,gray, purple, pink,blue1, green2, red],
+            data: dataLocl2,
+            // Notice the borderColor
+            borderColor: ['black'],
+            borderWidth: [0]
+        }
+      ]
+    };
+
+    var options = {
+        legend: {
+            display: true,
+            position: 'bottom'
+        }
+    }
+
+    // Chart declaration:
+    var myBarChart = new Chart(ctx, {
         type: 'pie',
         data: data,
         options: options
@@ -119,34 +148,7 @@ function initGraph() {
         options: options
     });
 
-    var ctx = document.getElementById("typeVenteLocal").getContext('2d');
-    var data = {
-    labels: ["Gre a gre (38.70 %)", "Droit de priorite (28.36 %) ", "Appel d'offres (18 %) ","Adjudication (7.60 %) ", "Autres droits (6.20 %) ", "Echange (hors Etats) (0.50 %) ", "Recours a une agence (0.47 %) ", "VNI (0.16 %) "],
-      datasets: [
-        {
-            fill: true,
-            backgroundColor: [green1, blue3,gray, purple, pink,blue1, green2, red],
-            data: [1642, 1203, 762, 323, 262, 23, 20, 7],
-            // Notice the borderColor
-            borderColor: ['black'],
-            borderWidth: [0]
-        }
-      ]
-    };
-
-    var options = {
-        legend: {
-            display: true,
-            position: 'bottom'
-        }
-    }
-
-    // Chart declaration:
-    var myBarChart = new Chart(ctx, {
-        type: 'pie',
-        data: data,
-        options: options
-    });
+   
     /* ---------------
     FIN GRAPH TYPE DE VENTE
     ----------------- */

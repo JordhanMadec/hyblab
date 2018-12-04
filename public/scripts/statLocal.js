@@ -1,4 +1,5 @@
 function checkTypeDeBien(latPoint, longPoint){
+    console.log(latPoint + "   " + longPoint);
      //Type de biens
      let espaceNaturels = 0;
      let logements = 0;
@@ -23,8 +24,8 @@ function checkTypeDeBien(latPoint, longPoint){
         let latitude = dataCSV[i]["latitude"];
         let longitude = dataCSV[i]["longitude"];
 
-        let distance = Math.sqrt(Math.pow((latPoint - latitude),2) + Math.pow((longPoint - longitude),2));
-        if(distance < 0.25){
+        let distance = Math.abs(latPoint - latitude) + Math.abs(longPoint - longitude);
+        if(distance < 1){
             //Type de bien 
             switch(dataCSV[i]["nature"]){
                 case "BATIMENT D'ENSEIGNEMENT OU DE SPORT":
@@ -91,6 +92,70 @@ function checkTypeDeBien(latPoint, longPoint){
     let res =  [espaceNaturels,logements,bureaux,espaceAmenage,batTechnique,voirie,parcelles,sport,sanitaire,commerce,culturel,agricole,memorial,culte]; 
     return res;
 }
+
+
+function checkTypeVentes(latPoint, longPoint){
+     //Type de ventes
+     let greagre = 0;
+     let droitDePro = 0;
+     let appelDoffre = 0;
+     let adjujication = 0;
+     let autresDroit = 0;
+     let echange = 0;
+     let recoursAgence = 0;
+     let VNI = 0;
+
+     let nbVentes = 0;
+
+     for(var i=0;i<dataCSV.length;i++)
+     {
+         let latitude = dataCSV[i]["latitude"];
+         let longitude = dataCSV[i]["longitude"];
+ 
+         let distance = Math.abs(latPoint - latitude) + Math.abs(longPoint - longitude);
+         if(distance < 1){
+            //Type de ventes
+            switch(dataCSV[i]["procedure"]) {
+                case "Gré à gré":
+                    greagre++;
+                    nbVentes++;
+                    break;
+                case "Appel d'offres":
+                    appelDoffre++;
+                    nbVentes++;
+                    break;
+                case "Droit de priorité":
+                    droitDePro++;
+                    nbVentes++;
+                    break;
+                case "Adjudication":
+                    adjujication++;
+                    nbVentes++;
+                    break;
+                case "Autres droits":
+                    autresDroit++;
+                    nbVentes++;
+                    break;
+                case "Echange (Hors Etat)":
+                    echange++;
+                    nbVentes++;
+                    break;
+                case "Recours à une agence":
+                    recoursAgence++;
+                    nbVentes;
+                    break;
+                case "VNI":
+                    VNI++;
+                    nbVentes++;
+                    break;
+            }
+         }
+    }
+
+    let res = [greagre, droitDePro, appelDoffre, adjujication, autresDroit, echange, recoursAgence, VNI];
+    return res;
+}
+
 
 function checkStat(latPoint, longPoint) {
     //Type de biens
