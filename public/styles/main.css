@@ -187,9 +187,9 @@ footer .logo img {
 
 
 .modal { 
-    width: 100% !important ; 
-    height: 80% !important ; 
-    border-radius: 30px;
+    width: 90% !important;
+    height: auto !important;
+    border-radius: 20px;
   }
 
 .national h5 {

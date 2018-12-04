@@ -7,3 +7,25 @@
 #stats-section h1 {
     color: var(--main-black);
 }
+
+.tabs {
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.tabs .indicator {
+    background-color: var(--main-yellow);
+}
+
+.tabs .tab a, .tabs .tab a.active {
+    color: var(--main-black) !important;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: rgba(var(--main-yellow), .3);
+}
+
+.local, .national {
+    text-align: center;
+}
