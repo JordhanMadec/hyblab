@@ -31,549 +31,556 @@
 
 <body>
 
-    <!---------- MOTION DESIGN ---------->
+<!---------- MOTION DESIGN ---------->
 
-    <header>
-        <video class="motion-video" autoplay loop>
-            <source type="video/mp4" src="assets/videos/motion.mp4">
-        </video>
+<header>
+    <video class="motion-video" autoplay loop>
+        <source type="video/mp4" src="assets/videos/motion.mp4">
+    </video>
 
-        <a class="btn-floating btn-large waves-effect waves-light header-down-button" href="#map-section">
-            <i class="large material-icons" style="color: black;">arrow_downward</i>
-        </a>
-    </header>
-
-
+    <a class="btn-floating btn-large waves-effect waves-light header-down-button" href="#map-section">
+        <i class="large material-icons" style="color: black;">arrow_downward</i>
+    </a>
+</header>
 
 
 
 
-    <!---------- CARTE ---------->
 
-    <section id="map-section">
 
-        <h1 class="section-title">Le patrimoine de la France</h1>
+<!---------- CARTE ---------->
 
-        <div id="map"></div>
+<section id="map-section">
 
-        <div class="map-searchbar-container z-depth-2">
-            <input type="text" id="map-zipcode-input" class="browser-default map-searchbar" placeholder="Code postal" maxlength="5">
+    <h1 class="section-title">Le patrimoine de la France</h1>
 
-            <div id="map-search-button" class="map-search-button">
-                <i class="material-icons">search</i>
+    <div id="map"></div>
+
+    <div class="map-searchbar-container z-depth-2">
+        <input type="text" id="map-zipcode-input" class="browser-default map-searchbar" placeholder="Code postal" maxlength="5">
+
+        <div id="map-search-button" class="map-search-button">
+            <i class="material-icons">search</i>
+        </div>
+    </div>
+
+    <div class="map-filters-container container">
+        <h5>Filtrer par statut de la cession</h5>
+
+        <div class="row">
+            <div id="all-filters-state" class="col l3 m6 s12 map-filter-state selected">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Tout</span>
+            </div>
+
+            <div id="cession-a-venir" class="col l3 m6 s12 map-filter-state">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>A venir</span>
+            </div>
+
+            <div id="cession-en-cours" class="col l3 m6 s12 map-filter-state">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>En cours</span>
+            </div>
+
+            <div id="cession-realisee" class="col l3 m6 s12 map-filter-state">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Réalisée</span>
             </div>
         </div>
 
-        <div class="map-filters-container container">
-            <h5>Filtrer par statut de la cession</h5>
 
-            <div class="row">
-                <div id="all-filters-state" class="col l3 m6 s12 map-filter-state selected">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Tout</span>
+
+        <h5>Filtrer par type de patrimoine</h5>
+
+        <div class="row">
+            <div id="all-filters-nature" class="col l4 m6 s12 map-filter-nature selected">
+                <div class="map-filter-button">
+                    <div></div>
                 </div>
+                <span>Tout</span>
+            </div>
 
-                <div id="cession-a-venir" class="col l3 m6 s12 map-filter-state">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>A venir</span>
+            <div id="batiment-agricole" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
                 </div>
+                <span>Bâtiment agricole</span>
+            </div>
 
-                <div id="cession-en-cours" class="col l3 m6 s12 map-filter-state">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>En cours</span>
+            <div id="batiment-culturel" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
                 </div>
+                <span>Bâtiment culturel</span>
+            </div>
 
-                <div id="cession-realisee" class="col l3 m6 s12 map-filter-state">
-                    <div class="map-filter-button">
-                        <div></div>
+            <div id="batiment-sport" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Bâtiment d'enseignement/sport</span>
+            </div>
+
+            <div id="batiment-sanitaire" class="col l4 m6 s124 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Bâtiment sanitaire</span>
+            </div>
+
+            <div id="batiment-technique" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Bâtiment technique</span>
+            </div>
+
+            <div id="bureau" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Bureau</span>
+            </div>
+
+            <div id="commerce" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Commerce</span>
+            </div>
+
+            <div id="edifice-culte" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Edifice de culte</span>
+            </div>
+
+            <div id="espace-amenage" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Espace aménagé</span>
+            </div>
+
+            <div id="espace-naturel" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Espace naturel</span>
+            </div>
+
+            <div id="logement" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Logement</span>
+            </div>
+
+            <div id="monument" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Monument/mémorial</span>
+            </div>
+
+            <div id="reseaux-voiries" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Réseaux et voiries</span>
+            </div>
+
+            <div id="support-parcelle" class="col l4 m6 s12 map-filter-nature">
+                <div class="map-filter-button">
+                    <div></div>
+                </div>
+                <span>Support de parcelle</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="diagonal-splitter">
+    <img class="bidule-img" src="assets/images/bidule.svg">
+</div>
+
+
+<section id="articles-section">
+    <div class="container">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit posuere odio sed dictum. Maecenas malesuada enim ultrices, consequat neque in, consectetur sapien. Maecenas ultricies pretium metus, sit amet dictum nulla eleifend sit amet. Etiam dictum, massa at imperdiet lobortis, urna velit porta mi, sed dictum ante nulla eu augue. Aenean sodales eros non feugiat laoreet. In consectetur vitae metus ac pellentesque. Morbi blandit eros a eros mollis, nec ultrices neque finibus. Fusce sed metus vel nisl euismod eleifend. Vivamus pulvinar purus eget ante hendrerit faucibus. Aliquam erat volutpat. Curabitur consequat turpis quis varius ornare. Mauris cursus dictum massa quis aliquam.
+
+        Phasellus accumsan in orci ut eleifend. Quisque justo mi, pulvinar in volutpat at, sodales porttitor augue. Quisque vel magna euismod, vehicula quam a, tempor nulla. Curabitur a tristique massa. Duis vel scelerisque dolor, eget congue orci. Curabitur vitae ligula eu mauris fringilla congue. Proin dictum blandit tincidunt. Curabitur pellentesque velit ante, et sollicitudin urna suscipit quis. Vestibulum et orci varius, porta urna ac, consequat ex. Fusce congue, purus sit amet vulputate congue, dui mi rutrum lorem, at gravida elit nulla vel neque. Phasellus volutpat tortor condimentum ligula porttitor, quis pretium risus viverra.
+
+        Morbi sit amet dolor mi. Ut volutpat rhoncus eros quis lobortis. Suspendisse iaculis justo eros, ac euismod augue maximus sed. Cras gravida gravida accumsan. Vivamus imperdiet urna odio, ac ornare sem tempus id. Proin porttitor mauris eu ipsum tristique, at mattis ligula ultrices. Nulla in viverra ante. Phasellus libero erat, consequat quis consectetur sit amet, tincidunt non sem. Pellentesque scelerisque mi ac luctus convallis. Nam id dapibus mauris. Donec vestibulum, ante at pellentesque aliquam, elit nibh vehicula ante, quis vestibulum ante justo in libero.
+
+        Morbi nisi neque, fermentum et efficitur ac, dignissim sed mi. Pellentesque sed cursus sapien. Maecenas libero erat, suscipit ac tristique vel, varius ac enim. In rutrum ultrices varius. Suspendisse enim ligula, interdum a ante eu, ullamcorper dignissim tortor. Pellentesque in dignissim purus. Donec dignissim lacus ut accumsan tincidunt.
+
+        Mauris maximus et lacus sed pellentesque. Aliquam gravida urna id augue consequat, sit amet sagittis tortor maximus. Etiam ac augue in justo semper imperdiet quis non leo. Sed elementum vulputate eros, eu interdum ipsum ornare fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer a ipsum ligula. Aliquam consectetur congue sapien, ut feugiat erat molestie ut. Phasellus eleifend nibh nec orci sodales, sit amet malesuada ipsum feugiat. Nunc at nisl nec massa pulvinar tincidunt. Nulla lacus mauris, volutpat sit amet accumsan eu, congue sit amet quam. Sed gravida feugiat maximus.
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!---------- MODAL FOR STAT---------->
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <div class="center-align">
+            <h4 style="color: black">Statistiques</h4>
+        </div>
+        <ul id="tabs-swipe-demo" class="tabs">
+            <li class="tab col s3"><a href="#test-swipe-1">Type de biens</a></li>
+            <li class="tab col s3"><a href="#test-swipe-2">Type de ventes</a></li>
+            <li class="tab col s3"><a href="#test-swipe-3">Ministeres occupants</a></li>
+            <li class="tab col s3"><a href="#test-swipe-4">Acquereurs</a></li>
+            <li class="tab col s3"><a href="#test-swipe-5">Duree des ventes</a></li>
+        </ul>
+
+        <div id="test-swipe-1" class="col s12">
+            <div class="national">
+                <h5>- Statistiques nationales :</h5>
+                <canvas id="typeBiens"></canvas>
+            </div>
+            <div class="local">
+                <h5>- Statistiques locales (50KM de rayon) :</h5>
+
+            </div>
+        </div>
+
+        <div id="test-swipe-2" class="col s12">
+            <div class="national">
+                <h5>- Statistiques nationales :</h5>
+                <canvas id="typeVente"></canvas>
+            </div>
+            <div class="local">
+                <h5>- Statistiques locales (50KM de rayon) :</h5>
+
+            </div>
+        </div>
+
+        <div id="test-swipe-3" class="col s12">
+            <div class="national">
+                <h5>- Statistiques nationales :</h5>
+                <canvas id="occupants"></canvas>
+            </div>
+            <div class="local">
+                <h5>- Statistiques locales (50KM de rayon) :</h5>
+
+            </div>
+        </div>
+
+        <div id="test-swipe-4" class="col s12">
+            <div class="national">
+                <h5>- Statistiques nationales :</h5>
+                <canvas id="acquereurs"></canvas>
+            </div>
+            <div class="local">
+                <h5>- Statistiques locales (50KM de rayon) :</h5>
+
+            </div>
+        </div>
+
+        <div id="test-swipe-5" class="col s12">
+            <div class="national">
+                <h5>- Statistiques nationales :</h5>
+                <canvas id="duree"></canvas>
+            </div>
+            <div class="local">
+                <h5>- Statistiques locales (50KM de rayon) :</h5>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!---------- END MODAL FOR STAT---------->
+
+
+<div class="diagonal-splitter-bl"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---------- Tweet Part Section ---------->
+<section id="biens-section">
+
+    <div class="container">
+
+        <div id="boites" class="row center-align">
+            <h1 class="section-title">Estimez un  bien </h1>
+
+            <div id="box1" class="col l4 s12 mystery-box-container">
+                <div class="mystery-box"></div>
+                <img class="question-mark" src="assets/images/question-mark.svg"/>
+            </div>
+            <div id="box2" class="col l4 s12 mystery-box-container">
+                <div class="mystery-box"></div>
+                <img class="question-mark" src="assets/images/question-mark.svg"/>
+            </div>
+            <div id="box3" class="col l4 s12 mystery-box-container">
+                <div class="mystery-box"></div>
+                <img class="question-mark" src="assets/images/question-mark.svg"/>
+            </div>
+        </div>
+
+        <div id="picture-biens" class="row center-align">
+            <div class="infoBien" id="bien1">
+                <h3 class="section-title">Villa avec jardin</h3>
+                <div class="row">
+                    <div class="col s6 left-align">
+                        <h5>Adresse</h5>
+                        <p>14 chemin de Tanit</p>
+                        <h5>Ville</h5>
+                        <p>Antibes (Alpes-Maritimes)</p>
+                        <h5>Occupant actuel</h5>
+                        <p>Ministère de la Défense</p>
+                        <h5>Date de mise en vente</h5>
+                        <p>2016</p>
                     </div>
-                    <span>Réalisée</span>
+
+                    <div class="col s6 left-align">
+                        <h5>Description</h5>
+                        <p>
+                            Ancienne maison bourgeoise de 317,75 m² classée au PLU de la ville d'Antibes et bâtie sur un terrain de 1 198 m² cadastré BT 138.<br/>
+                            Elevée de 2 étages sur rez-de-chaussée avec cour intérieure et jardin, elle se situe  dans un quartier résidentiel calme non loin du boulevard du Président Wilson et du bord de mer.
+                            <br/>Travaux à prévoir.
+                            <br/>Libre de toute occupation.
+                        </p>
+                    </div>
+
+                    <div class="col s12">
+                        <div class="bar-proposePrix">
+                            <input type="text" id="prixUtilisateur1" class="browser-default proposePrix" placeholder="Proposez un prix et tweeter">
+                            <div class="proposePrix-button" onclick="openTwitter(1)">
+                                <i class="material-icons">send</i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-
-
-            <h5>Filtrer par type de patrimoine</h5>
-
-            <div class="row">
-                <div id="all-filters-nature" class="col l4 m6 s12 map-filter-nature selected">
-                    <div class="map-filter-button">
-                        <div></div>
+            <div class="infoBien" id="bien2">
+                <h3 class="section-title">Emplacement de stationnement</h3>
+                <div class="row">
+                    <div class="col s6 left-align">
+                        <h5>Adresse</h5>
+                        <p>30 rue des Planchettes</p>
+                        <h5>Ville</h5>
+                        <p>Clermont-Ferrand (Puy-de-Dôme)</p>
                     </div>
-                    <span>Tout</span>
+
+                    <div class="col s6 left-align">
+                        <h5>Description</h5>
+                        <p>Emplacement de stationnement n° 93 </p>
+                    </div>
+
+                    <div class="col s12">
+                        <div class="bar-proposePrix">
+                            <input type="text" id="prixUtilisateur2" class="browser-default proposePrix" placeholder="Proposez un prix et tweeter">
+                            <div class="proposePrix-button" onclick="openTwitter(2)">
+                                <i class="material-icons">send</i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div id="batiment-agricole" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
+            <div class="infoBien" id="bien3">
+                <h3 class="section-title">Local commercial</h3>
+                <div class="row">
+                    <div class="col s6 left-align">
+                        <h5>Adresse</h5>
+                        <p>38 quai des Chartrons</p>
+                        <h5>Ville</h5>
+                        <p>Bordeaux (Gironde)</p>
+                        <h5>Occupant actuel</h5>
+                        <p>Ministère de la Défense</p>
                     </div>
-                    <span>Bâtiment agricole</span>
-                </div>
 
-                <div id="batiment-culturel" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
+                    <div class="col s6 left-align">
+                        <h5>Description</h5>
+                        <p>Dans un immeuble en copropriété en pierre de taille, au bord de la Garonne, ancien chai vouté à usage de local commercial/bureau.
+                            <br/>Lot 1 : rez-de-chaussée de 258 m² et cave de 40 m².
+                        </p>
                     </div>
-                    <span>Bâtiment culturel</span>
-                </div>
 
-                <div id="batiment-sport" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
+                    <div class="col s12">
+                        <div class="bar-proposePrix">
+                            <input type="text" id="prixUtilisateur3" class="browser-default proposePrix" placeholder="Proposez un prix et tweeter">
+                            <div class="proposePrix-button" onclick="openTwitter(3)">
+                                <i class="material-icons">send</i>
+                            </div>
+                        </div>
                     </div>
-                    <span>Bâtiment d'enseignement/sport</span>
-                </div>
-
-                <div id="batiment-sanitaire" class="col l4 m6 s124 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Bâtiment sanitaire</span>
-                </div>
-
-                <div id="batiment-technique" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Bâtiment technique</span>
-                </div>
-
-                <div id="bureau" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Bureau</span>
-                </div>
-
-                <div id="commerce" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Commerce</span>
-                </div>
-
-                <div id="edifice-culte" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Edifice de culte</span>
-                </div>
-
-                <div id="espace-amenage" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Espace aménagé</span>
-                </div>
-
-                <div id="espace-naturel" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Espace naturel</span>
-                </div>
-
-                <div id="logement" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Logement</span>
-                </div>
-
-                <div id="monument" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Monument/mémorial</span>
-                </div>
-
-                <div id="reseaux-voiries" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Réseaux et voiries</span>
-                </div>
-
-                <div id="support-parcelle" class="col l4 m6 s12 map-filter-nature">
-                    <div class="map-filter-button">
-                        <div></div>
-                    </div>
-                    <span>Support de parcelle</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <div class="diagonal-splitter">
-        <img class="bidule-img" src="assets/images/bidule.svg">
     </div>
 
 
-    <section id="articles-section">
-        <div class="container">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit posuere odio sed dictum. Maecenas malesuada enim ultrices, consequat neque in, consectetur sapien. Maecenas ultricies pretium metus, sit amet dictum nulla eleifend sit amet. Etiam dictum, massa at imperdiet lobortis, urna velit porta mi, sed dictum ante nulla eu augue. Aenean sodales eros non feugiat laoreet. In consectetur vitae metus ac pellentesque. Morbi blandit eros a eros mollis, nec ultrices neque finibus. Fusce sed metus vel nisl euismod eleifend. Vivamus pulvinar purus eget ante hendrerit faucibus. Aliquam erat volutpat. Curabitur consequat turpis quis varius ornare. Mauris cursus dictum massa quis aliquam.
+</section>
 
-            Phasellus accumsan in orci ut eleifend. Quisque justo mi, pulvinar in volutpat at, sodales porttitor augue. Quisque vel magna euismod, vehicula quam a, tempor nulla. Curabitur a tristique massa. Duis vel scelerisque dolor, eget congue orci. Curabitur vitae ligula eu mauris fringilla congue. Proin dictum blandit tincidunt. Curabitur pellentesque velit ante, et sollicitudin urna suscipit quis. Vestibulum et orci varius, porta urna ac, consequat ex. Fusce congue, purus sit amet vulputate congue, dui mi rutrum lorem, at gravida elit nulla vel neque. Phasellus volutpat tortor condimentum ligula porttitor, quis pretium risus viverra.
-
-            Morbi sit amet dolor mi. Ut volutpat rhoncus eros quis lobortis. Suspendisse iaculis justo eros, ac euismod augue maximus sed. Cras gravida gravida accumsan. Vivamus imperdiet urna odio, ac ornare sem tempus id. Proin porttitor mauris eu ipsum tristique, at mattis ligula ultrices. Nulla in viverra ante. Phasellus libero erat, consequat quis consectetur sit amet, tincidunt non sem. Pellentesque scelerisque mi ac luctus convallis. Nam id dapibus mauris. Donec vestibulum, ante at pellentesque aliquam, elit nibh vehicula ante, quis vestibulum ante justo in libero.
-
-            Morbi nisi neque, fermentum et efficitur ac, dignissim sed mi. Pellentesque sed cursus sapien. Maecenas libero erat, suscipit ac tristique vel, varius ac enim. In rutrum ultrices varius. Suspendisse enim ligula, interdum a ante eu, ullamcorper dignissim tortor. Pellentesque in dignissim purus. Donec dignissim lacus ut accumsan tincidunt.
-
-            Mauris maximus et lacus sed pellentesque. Aliquam gravida urna id augue consequat, sit amet sagittis tortor maximus. Etiam ac augue in justo semper imperdiet quis non leo. Sed elementum vulputate eros, eu interdum ipsum ornare fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer a ipsum ligula. Aliquam consectetur congue sapien, ut feugiat erat molestie ut. Phasellus eleifend nibh nec orci sodales, sit amet malesuada ipsum feugiat. Nunc at nisl nec massa pulvinar tincidunt. Nulla lacus mauris, volutpat sit amet accumsan eu, congue sit amet quam. Sed gravida feugiat maximus.
-        </div>
-    </section>
+<div class="diagonal-splitter"></div>
 
 
+<!---------- FUN FACTS ---------->
 
+<div class="fixed-action-btn funfact-button" onclick="toggleFunfact()">
+    <a id="funfact-button" class="btn btn-floating btn-large btn-funfact">
+        <i class="large material-icons">tag_faces</i>
+    </a>
+</div>
 
-
-
-
-
-
-
-  <!---------- MODAL FOR STAT---------->
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-        <div class="modal-content">
-           <div class="center-align">
-              <h4 style="color: black">Statistiques</h4>
-           </div>
-           <ul id="tabs-swipe-demo" class="tabs">
-                <li class="tab col s3"><a href="#test-swipe-1">Type de biens</a></li>
-                <li class="tab col s3"><a href="#test-swipe-2">Type de ventes</a></li>
-                <li class="tab col s3"><a href="#test-swipe-3">Ministeres occupants</a></li>
-                <li class="tab col s3"><a href="#test-swipe-4">Acquereurs</a></li>
-                <li class="tab col s3"><a href="#test-swipe-5">Duree des ventes</a></li>
+<div class="funfact-wrapper z-depth-4">
+    <h5>Fun Facts !</h5>
+    <!-- Begin fun fact slider -->
+    <div id="carousel">
+        <div id="slides">
+            <ul>
+                <li class="slide">
+                    <div class="quote-container">
+                        <p class="quote-phrase">
+                            La tour Eiffel a ete vendue en 1905 par Joe la Carto... deux fois !
+                            <a href="funfacts.html?">Plus d'infos</a>
+                        </p>
+                    </div>
+                </li>
+                <li class="slide">
+                    <div class="quote-container">
+                        <p class="quote-phrase">
+                            Le stade de France en vente ! Les champions du monde n'ont plus besoin de pelouse...
+                            <a href="funfacts.html?#funfact2">Plus d'infos</a>
+                        </p>
+                    </div>
+                </li>
+                <li class="slide">
+                    <div class="quote-container">
+                        <p class="quote-phrase">
+                            Nous avons vendue nos autoroutes a VINCI, le regrettons nous ?
+                            <a href="funfacts.html?#funfact3">Plus d'infos</a>
+                        </p>
+                    </div>
+                </li>
             </ul>
-
-            <div id="test-swipe-1" class="col s12">
-                <div class="national">
-                    <h5>- Statistiques nationales :</h5>
-                    <canvas id="typeBiens"></canvas>
-                </div>
-                <div class="local">
-                    <h5>- Statistiques locales (50KM de rayon) :</h5>
-
-                </div>
-            </div>
-
-            <div id="test-swipe-2" class="col s12">
-                <div class="national">
-                    <h5>- Statistiques nationales :</h5>
-                    <canvas id="typeVente"></canvas>
-                </div>
-                <div class="local">
-                    <h5>- Statistiques locales (50KM de rayon) :</h5>
-
-                </div>
-            </div>
-
-            <div id="test-swipe-3" class="col s12">
-                <div class="national">
-                    <h5>- Statistiques nationales :</h5>
-                    <canvas id="occupants"></canvas>
-                </div>
-                <div class="local">
-                    <h5>- Statistiques locales (50KM de rayon) :</h5>
-
-                </div>
-            </div>
-
-            <div id="test-swipe-4" class="col s12">
-                <div class="national">
-                    <h5>- Statistiques nationales :</h5>
-                        <canvas id="acquereurs"></canvas>
-                    </div>
-                    <div class="local">
-                        <h5>- Statistiques locales (50KM de rayon) :</h5>
-
-                    </div>
-            </div>
-
-            <div id="test-swipe-5" class="col s12">
-                <div class="national">
-                    <h5>- Statistiques nationales :</h5>
-                        <canvas id="duree"></canvas>
-                    </div>
-                    <div class="local">
-                        <h5>- Statistiques locales (50KM de rayon) :</h5>
-
-                    </div>
-            </div>
-        </div>
-      </div>
-    <!---------- END MODAL FOR STAT---------->
-
-
-    <div class="diagonal-splitter-bl"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!---------- Tweet Part Section ---------->
-    <section id="biens-section">
-
-        <div class="container">
-
-         <div id="boites" class="row center-align">
-                <h1 class="section-title">Estimez un  bien </h1>
-
-                <div id="box1" class="col l4 s12 mystery-box-container" onclick="displayInfo(this)">
-                    <div class="mystery-box"></div>
-                    <div class="question-mark">?</div>
-                </div>
-                <div id="box2" class="col l4 s12 mystery-box-container" onclick="displayInfo(this)">
-                    <div class="mystery-box"></div>
-                    <div class="question-mark">?</div>
-                </div>
-                <div id="box3" class="col l4 s12 mystery-box-container" onclick="displayInfo(this)">
-                    <div class="mystery-box"></div>
-                    <div class="question-mark">?</div>
-                </div>
-         </div>
-
-         <div id="picture-biens" class="row center-align">
-                <div class="infoBien" id="bien1">
-
-                    <h1 class="section-title"><span class="baToCh" onclick="backToChoice()"><</span>  Villa avec jardin</h1>
-                    <div class="valign-wrapper">
-
-                    <div class="col s6">
-                            <img class="responsive-img " width="80%" src="./assets/images/testBatTweet.jpg">
-                        </div>
-                        <div class="col s6 left-align">
-                                <h5>Adresse</h5>
-                                <p>14 chemin de Tanit</p>
-                                <h5>Ville</h5>
-                                <p>Antibes (Alpes-Maritimes)</p>
-                                <h5>Occupant actuel</h5>
-                                <p>Ministère de la Défense</p>
-                                <h5>Date de mise en vente</h5>
-                                <p>2016</p>
-                                <h5>Description</h5>
-                                <p>
-                                    Ancienne maison bourgeoise de 317,75 m² classée au PLU de la ville d'Antibes et bâtie sur un terrain de 1 198 m² cadastré BT 138.<br/>
-                                    Elevée de 2 étages sur rez-de-chaussée avec cour intérieure et jardin, elle se situe  dans un quartier résidentiel calme non loin du boulevard du Président Wilson et du bord de mer.
-                                    <br/>Travaux à prévoir.
-                                    <br/>Libre de toute occupation.
-                                </p>
-                                <div class="bar-proposePrix">
-                                        <input type="text" id="prixUtilisateur1" class="browser-default proposePrix" placeholder="Proposez un prix et tweeter">
-                                        <div class="proposePrix-button" onclick="openTwitter(1)">
-                                            <i class="material-icons">send</i>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                </div>
-
-                <div class="infoBien" id="bien2">
-                    <h1 class="section-title"><span class="baToCh" onclick="backToChoice()"><</span>  Emplacement de stationnement</h1>
-                    <div class="valign-wrapper">
-                        <div class="col s6">
-                            <img  class="responsive-img" width="80%"src="./assets/images/testBatTweet2.jpg">
-                        </div>
-                        <div class="col s6 left-align">
-                                <h5>Adresse</h5>
-                                <p>30 rue des Planchettes</p>
-                                <h5>Ville</h5>
-                                <p>Clermont-Ferrand (Puy-de-Dôme)</p>
-                                <h5>Description</h5>
-                                <p>Emplacement de stationnement n° 93 </p>
-                                <div class="bar-proposePrix">
-                                        <input type="text" id="prixUtilisateur2" class="browser-default proposePrix" placeholder="Proposez un prix et tweeter">
-                                        <div class="proposePrix-button" onclick="openTwitter(2)">
-                                            <i class="material-icons">send</i>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                </div>
-
-                <div class="infoBien" id="bien3">
-                    <h1 class="section-title"><span class="baToCh" onclick="backToChoice()"><</span>  Local commercial</h1>
-                    <div class="valign-wrapper">
-                        <div class="col s6">
-                                <img class="responsive-img" width="90%" src="./assets/images/testBatTweet3.jpg">
-                        </div>
-                        <div class="col s6 left-align">
-                                <h5>Adresse</h5>
-                                <p>38 quai des Chartrons</p>
-                                <h5>Ville</h5>
-                                <p>Bordeaux (Gironde)</p>
-                                <h5>Occupant actuel</h5>
-                                <p>Ministère de la Défense</p>
-                                <h5>Description</h5>
-                                <p>Dans un immeuble en copropriété en pierre de taille, au bord de la Garonne, ancien chai vouté à usage de local commercial/bureau. 
-                                    <br/>Lot 1 : rez-de-chaussée de 258 m² et cave de 40 m².</p>
-
-                                <div class="bar-proposePrix">
-                                    <input type="text" id="prixUtilisateur3" class="browser-default proposePrix" placeholder="Proposez un prix et tweeter">
-                                    <div class="proposePrix-button" onclick="openTwitter(3)">
-                                        <i class="material-icons">send</i>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-         </div>
-
         </div>
 
+        <a id="previous-funfact" class="funfact-control-button" href="#">
+            <i class="material-icons">chevron_left</i>
+        </a>
 
-    </section>
-
-    <div class="diagonal-splitter"></div>
-
-
-    <!---------- FUN FACTS ---------->
-
-    <div class="fixed-action-btn funfact-button" onclick="toggleFunfact()">
-        <a id="funfact-button" class="btn btn-floating btn-large btn-funfact">
-            <i class="large material-icons">tag_faces</i>
+        <a id="next-funfact" class="funfact-control-button" href="#">
+            <i class="material-icons">chevron_right</i>
         </a>
     </div>
+    <!-- End fun fact slider -->
+</div>
 
-    <div class="funfact-wrapper z-depth-4">
-        <h5>Fun Facts !</h5>
-        <!-- Begin fun fact slider -->
-        <div id="carousel">
-            <div id="slides">
+
+
+
+
+<!---------- FOOTER ---------->
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l4 s12">
+                <h5 class="black-text">Projet Hyblab</h5>
+                <p class="black-text text-lighten-4">Projet de data-journalisme. Le sujet de ce projet est "Les cessions immobilières de l'Etat"</p>
+            </div>
+            <div class="col l4 s12">
+                <h5 class="black-text">Organisateurs</h5>
                 <ul>
-                    <li class="slide">
-                        <div class="quote-container">
-                            <p class="quote-phrase">
-                                La tour Eiffel a ete vendue en 1905 par Joe la Carto... deux fois !
-                                <a href="funfacts.html?">Plus d'infos</a>
-                            </p>
-                        </div>
+                    <li>
+                        <a class="black-text text-lighten-3" href="https://www.ouestmedias.com">Ouest Media</a>
                     </li>
-                    <li class="slide">
-                        <div class="quote-container">
-                            <p class="quote-phrase">
-                                Le stade de France en vente ! Les champions du monde n'ont plus besoin de pelouse...
-                                <a href="funfacts.html?#funfact2">Plus d'infos</a>
-                            </p>
-                        </div>
+                    <li>
+                        <a class="black-text text-lighten-3" href="https://www.mediacites.fr">Mediacités</a>
                     </li>
-                    <li class="slide">
-                        <div class="quote-container">
-                            <p class="quote-phrase">
-                                Nous avons vendue nos autoroutes a VINCI, le regrettons nous ?
-                                <a href="funfacts.html?#funfact3">Plus d'infos</a>
-                            </p>
-                        </div>
+                    <li>
+                        <a class="black-text text-lighten-3" href="https://www.insa-rennes.fr">INSA</a>
+                    </li>
+                    <li>
+                        <a class="black-text text-lighten-3" href="http://www.lisaa.com/fr/ecole/arts-appliques-rennes">LISAA</a>
+                    </li>
+                    <li>
+                        <a class="black-text text-lighten-3" href="http://www.sciencespo-rennes.fr/fr/accueil.html">Sciences Po</a>
                     </li>
                 </ul>
             </div>
-
-            <a id="previous-funfact" class="funfact-control-button" href="#">
-                <i class="material-icons">chevron_left</i>
-            </a>
-
-            <a id="next-funfact" class="funfact-control-button" href="#">
-                <i class="material-icons">chevron_right</i>
-            </a>
+            <div class="col l4 s12">
+                <h5 class="black-text">Membres</h5>
+                <ul>
+                    <li>
+                        <a class="black-text text-lighten-3" href="#!">Mathieu The - Maxime Cadiou</a>
+                    </li>
+                    <li>
+                        <a class="black-text text-lighten-3" href="#!">Arthur Provost - Jordhan Madec</a>
+                    </li>
+                    <li>
+                        <a class="black-text text-lighten-3" href="#!">Nolwenn Chrestian - Ambre Caldarulo</a>
+                    </li>
+                    <li>
+                        <a class="black-text text-lighten-3" href="#!">Typhenn Mesny - Marc Eudeline</a>
+                    </li>
+                    <li>
+                        <a class="black-text text-lighten-3" href="#!">Valentin Le Bossé - Fabien Passard</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <!-- End fun fact slider -->
     </div>
-
-
-
-
-
-    <!---------- FOOTER ---------->
-
-    <footer class="page-footer">
+    <div class="footer-copyright">
         <div class="container">
-            <div class="row">
-                <div class="col l4 s12">
-                    <h5 class="black-text">Projet Hyblab</h5>
-                    <p class="black-text text-lighten-4">Projet de data-journalisme. Le sujet de ce projet est "Les cessions immobilières de l'Etat"</p>
-                </div>
-                <div class="col l4 s12">
-                    <h5 class="black-text">Organisateurs</h5>
-                    <ul>
-                        <li>
-                            <a class="black-text text-lighten-3" href="https://www.ouestmedias.com">Ouest Media</a>
-                        </li>
-                        <li>
-                            <a class="black-text text-lighten-3" href="https://www.mediacites.fr">Mediacités</a>
-                        </li>
-                        <li>
-                            <a class="black-text text-lighten-3" href="https://www.insa-rennes.fr">INSA</a>
-                        </li>
-                        <li>
-                            <a class="black-text text-lighten-3" href="http://www.lisaa.com/fr/ecole/arts-appliques-rennes">LISAA</a>
-                        </li>
-                        <li>
-                            <a class="black-text text-lighten-3" href="http://www.sciencespo-rennes.fr/fr/accueil.html">Sciences Po</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col l4 s12">
-                    <h5 class="black-text">Membres</h5>
-                    <ul>
-                        <li>
-                            <a class="black-text text-lighten-3" href="#!">Mathieu The - Maxime Cadiou</a>
-                        </li>
-                        <li>
-                            <a class="black-text text-lighten-3" href="#!">Arthur Provost - Jordhan Madec</a>
-                        </li>
-                        <li>
-                            <a class="black-text text-lighten-3" href="#!">Nolwenn Chrestian - Ambre Caldarulo</a>
-                        </li>
-                        <li>
-                            <a class="black-text text-lighten-3" href="#!">Typhenn Mesny - Marc Eudeline</a>
-                        </li>
-                        <li>
-                            <a class="black-text text-lighten-3" href="#!">Valentin Le Bossé - Fabien Passard</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <p class="black-text text-lighten-3">© 2018 Copyright Hyblab</p>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                <p class="black-text text-lighten-3">© 2018 Copyright Hyblab</p>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
 
 
 
 
 
-    <!---------- SCRIPTS ---------->
+<!---------- SCRIPTS ---------->
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-language/v0.10.0/mapbox-gl-language.js'></script>
-    <script src='https://npmcdn.com/mapbox-gl-circle/dist/mapbox-gl-circle.min.js'></script>  <script src="scripts/skel.min.js"></script>
-    <script src="https://unpkg.com/chart.js@2.7.3/dist/Chart.min.js"></script>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script src="scripts/map.js"></script>
-    <script src="scripts/funfact.js"></script>
-    <script src="scripts/tweetPart.js"></script>
-    <script src="scripts/graphStat.js"></script>
-    <script src="scripts/main.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-language/v0.10.0/mapbox-gl-language.js'></script>
+<script src='https://npmcdn.com/mapbox-gl-circle/dist/mapbox-gl-circle.min.js'></script>  <script src="scripts/skel.min.js"></script>
+<script src="https://unpkg.com/chart.js@2.7.3/dist/Chart.min.js"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="scripts/map.js"></script>
+<script src="scripts/funfact.js"></script>
+<script src="scripts/tweetPart.js"></script>
+<script src="scripts/graphStat.js"></script>
+<script src="scripts/main.js"></script>
 </body>
 
 </html>

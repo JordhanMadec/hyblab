@@ -1,5 +1,12 @@
-function displayInfo(nb){
-    var detail;
+$('.mystery-box-container').click(function(e) {
+
+    if($(this).hasClass('selected')) {
+        $('.infoBien').slideUp();
+        $(this).removeClass('selected');
+        return;
+    }
+
+    var detail = $('#bien1');
 
     switch ($(this).attr('id')) {
         case 'box1':
@@ -13,20 +20,20 @@ function displayInfo(nb){
             break;
     }
 
+    $('.infoBien').slideUp();
     detail.slideDown();
 
     $('.mystery-box-container').removeClass('selected');
     $(this).addClass('selected');
-}
+});
 
-function backToChoice(){
-    document.getElementById("boites").style.display = "block";
-    for(var i=1; i <= 3; i++)
-        document.getElementById("bien"+i).style.display = "none";
-}
 
-function openTwitter(nb){
+
+function openTwitter(nb) {
     let prix = document.getElementById("prixUtilisateur" + nb).value;
+
+    if (prix.trim().length == 0) return;
+
     let text = "D'après moi, ce bien vaut " + prix + "€ mais l'état ne renseigne pas son prix.";
     let HashTag = "DonnezLePrix";
     var lien = "https://twitter.com/intent/tweet?button_hashtag=" + HashTag + "&ref_src=twsrc%5Etfw&text=" + text;
