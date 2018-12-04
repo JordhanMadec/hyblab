@@ -82,20 +82,28 @@ section {
 
 .diagonal-splitter {
     background: linear-gradient(to bottom right, #000 0%, #000 50%, var(--main-yellow) 50%, var(--main-yellow) 100%);
-    height: 200px;
+    height: 120px;
+}
+
+.diagonal-splitter.white-yellow {
+    background: linear-gradient(to bottom right, #fff 0%, #fff 50%, var(--main-yellow) 50%, var(--main-yellow) 100%);
 }
 
 .diagonal-splitter .bidule-img {
     position: relative;
     left: 0;
     bottom: 0;
-    width: 40%;
-    height: auto;
+    width: auto;
+    height: 150px;
 }
 
 .diagonal-splitter-bl {
     background: linear-gradient(to top left, #000 0%, #000 50%, var(--main-yellow) 50%, var(--main-yellow) 100%);
-    height: 200px;
+    height: 120px;
+}
+
+.diagonal-splitter-bl.black-white {
+    background: linear-gradient(to top left, var(--main-white) 0%, var(--main-white) 50%, #000 50%, #000 100%);
 }
 
 footer.page-footer,
