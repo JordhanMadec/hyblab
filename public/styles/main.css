@@ -70,6 +70,7 @@ section .section-title {
 
 .btn-floating {
     background-color: var(--main-yellow) !important;
+    z-index: 1000000;
 }
 
 .btn-floating i {

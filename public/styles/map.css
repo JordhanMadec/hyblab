@@ -4,14 +4,15 @@
     --searchbar-height: 60px;
 }
 
+
 #map {
     width: 800px;
     height: 800px;
     max-width: 100%;
-    border-radius: 100%;
     margin: auto;
     position: relative;
     z-index: 10;
+    border-radius: 100%;
     background-color: var(--main-dark-gray);
 }
 
