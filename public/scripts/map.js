@@ -3,35 +3,20 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9yZGhhbiIsImEiOiJjaW4xZ3lxYzkwMG5qdzhseTN4e
 
 //----------  COLORS ----------
 
-var gray = '#9e9e9e';
-var green1 = '#69f0ae';
+var gray = 'rgb(89, 89, 89)';
+var green1 = 'rgb(137, 214, 155)';
 var green2 = '#8bc34a';
 var green3 = '#558b2f';
-var red = '#e53935';
-var pink = '#f06292';
-var orange1 = '#ff9800';
+var red = 'rgb(151, 32, 23)';
+var pink = 'rgb(213, 125, 239)';
+var orange1 = 'rgb(243, 159, 58)';
 var orange2 = '#e65100';
-var purple = '#673ab7';
+var purple = 'rgb(120, 27, 86)';
 var blue1 = '#bbdefb';
 var blue2 = '#90caf9';
 var blue3 = '#3f51b5';
 var yellow1 = '#ffeb3b';
-var yellow2 = '#fbc02d';
-
-var enseignement = '#f44336';
-var bureau = '#81d4fa';
-var amenage = '#9575cd';
-var monument = '#d84315';
-var agricole = '#2e7d32';
-var sanitaire = '#9fa8da';
-var commerce = '#757575';
-var naturel = '#4caf50';
-var voirie = '#2196f3';
-var culturel = '#ffeb3b';
-var technique = '#e91e63';
-var culte = '#eeff41';
-var logement = '#ff7043';
-var parcelle = '#009688';
+var yellow2 = 'rgb(249, 212, 114)';
 
 
 
@@ -243,13 +228,13 @@ map.on('load', function() {
             case 'BUREAU': return 'bureau';
             case 'COMMERCE': return 'commerce';
             case 'EDIFICE DE CULTE': return 'edifice-culte';
-            case 'ESPACE AMENAGE': 'espace-amenage';
+            case 'ESPACE AMENAGE': return 'espace-amenage';
             case 'ESPACE NATUREL': return 'espace-naturel';
             case 'LOGEMENT': return 'logement';
             case 'MONUMENT ET MEMORIAL': return 'monument';
             case 'RESEAUX ET VOIRIES': return 'reseaux-voiries';
-            case 'SUPPORT DE PARCELLE': 'support-parcelle';
-            default: return '';
+            case 'SUPPORT DE PARCELLE': return 'support-parcelle';
+            default: return 'unknown';
         }
     }
 

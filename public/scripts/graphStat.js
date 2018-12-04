@@ -1,25 +1,12 @@
 //----------  STATS ----------
 
 function initModal() {
-    $('.modal').modal();
-
     $('.modal').modal({
         onOpenEnd: function(el) {
-            $('.tabs').tabs({
-                swipeable: true,
+            var $tabs = $('.tabs');
+            $tabs.tabs({
+                swipeable: false,
                 responsiveThreshold: Infinity
-            });
-
-            $('.tab a').click(function (event) {
-                console.log($(this));
-
-                if (!e) var e = window.event
-                e.cancelBubble = true;
-                if (e.stopPropagation) e.stopPropagation();
-
-                $('.tab a').removeClass('active');
-                $(this).addClass('active');
-                $('.tabs').tabs();
             });
         }
     });
@@ -69,7 +56,7 @@ function initGraph() {
       datasets: [
         {
             fill: true,
-            backgroundColor: [naturel, logement, bureau, amenage, technique, voirie, parcelle, enseignement, sanitaire, commerce, culturel, agricole, monument, culte],
+            backgroundColor: [green1, blue3,gray, purple, pink,blue1, green2, red, orange1, blue2, yellow1,green3,orange2, yellow2],
             data: [2606, 723, 507, 317, 289, 142, 79, 35, 25, 10, 9, 9, 6, 4],
             // Notice the borderColor
             borderColor: ['white','white','white','white','white','white','white','white','white','white','white','white','white','white'],
@@ -81,7 +68,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
@@ -150,7 +137,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
@@ -216,7 +203,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
@@ -282,7 +269,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
@@ -319,7 +306,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
