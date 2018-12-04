@@ -34,7 +34,16 @@
 
 .mystery-box-container:hover .question-mark {
     opacity: 0;
-    cursor: pointer;
+}
+
+.mystery-box-container.selected .mystery-box {
+    filter: blur(0);
+    opacity: 1;
+    border-radius: 10px;
+}
+
+.mystery-box-container.selected .question-mark {
+    opacity: 0;
 }
 
 .question-mark {
@@ -53,15 +62,15 @@
 }
 
 
-#box1 {
+#box1 .mystery-box {
     background-image: url("../assets/images/testBatTweet.jpg");
 }
 
-#box2 {
+#box2 .mystery-box {
     background-image: url("../assets/images/testBatTweet2.jpg");
 }
 
-#box3 {
+#box3 .mystery-box {
     background-image: url("../assets/images/testBatTweet3.jpg");
 }
 

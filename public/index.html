@@ -33,20 +33,14 @@
 
     <!---------- MOTION DESIGN ---------->
 
-    <header class="v-header">
-        <div class="fullscreen-video-wrap">
-            <video autoplay loop>
-                <source type="video/mp4" src="https://production.cdmycdn.com/assets/marketing-pages/intensives/bws/coding-scenes-9a2031e8142b40bdb5d936d5eef33dfa.mp4">
-            </video>
-        </div>
-        <div class="header-overlay"></div>
-        <div class="header-content container text-md-center">
-            <h1 class="header-title">Le patrimoine pour les nuls</h1>
-            <h3 class="header-subtitle">L'état est-il un bon agent immobilier ?</h3>
-            <a class="btn-floating btn-large waves-effect waves-light" href="#map-section">
-                <i class="large material-icons" style="color: black;">arrow_downward</i>
-            </a>
-        </div>
+    <header>
+        <video class="motion-video" autoplay loop>
+            <source type="video/mp4" src="assets/videos/motion.mp4">
+        </video>
+
+        <a class="btn-floating btn-large waves-effect waves-light header-down-button" href="#map-section">
+            <i class="large material-icons" style="color: black;">arrow_downward</i>
+        </a>
     </header>
 
 
@@ -340,16 +334,16 @@
          <div id="boites" class="row center-align">
                 <h1 class="section-title">Estimez un  bien </h1>
 
-                <div class="col l4 s12 mystery-box-container" onclick="displayInfo(1)">
-                    <div id="box1" class="mystery-box"></div>
+                <div id="box1" class="col l4 s12 mystery-box-container" onclick="displayInfo(this)">
+                    <div class="mystery-box"></div>
                     <div class="question-mark">?</div>
                 </div>
-                <div class="col l4 s12 mystery-box-container" onclick="displayInfo(2)">
-                    <div id="box2" class="mystery-box"></div>
+                <div id="box2" class="col l4 s12 mystery-box-container" onclick="displayInfo(this)">
+                    <div class="mystery-box"></div>
                     <div class="question-mark">?</div>
                 </div>
-                <div class="col l4 s12 mystery-box-container" onclick="displayInfo(3)">
-                    <div id="box3" class="mystery-box"></div>
+                <div id="box3" class="col l4 s12 mystery-box-container" onclick="displayInfo(this)">
+                    <div class="mystery-box"></div>
                     <div class="question-mark">?</div>
                 </div>
          </div>
