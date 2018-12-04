@@ -12,6 +12,13 @@ function initModal() {
     });
 }
 
+var options = {
+    legend: {
+        display: true,
+        position: 'bottom'
+    }
+}
+
 function printGraphLocal(lat, long) {
     var dataLocl = checkTypeDeBien(lat,long);
     $("#typeBiensLocal").empty();
@@ -30,16 +37,9 @@ function printGraphLocal(lat, long) {
       ]
     };
 
-    var options = {
-        legend: {
-            display: true,
-            position: 'bottom'
-        }
-    }
-
     // Chart declaration:
     var myBarChart2 = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: data,
         options: options
     });
@@ -61,16 +61,9 @@ function printGraphLocal(lat, long) {
       ]
     };
 
-    var options = {
-        legend: {
-            display: true,
-            position: 'bottom'
-        }
-    }
-
     // Chart declaration:
     var myBarChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: data,
         options: options
     });
@@ -91,16 +84,9 @@ function printGraphLocal(lat, long) {
       ]
     };
 
-    var options = {
-        legend: {
-            display: true,
-            position: 'bottom'
-        }
-    }
-
     // Chart declaration:
     var myBarChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: data,
         options: options
     });
@@ -122,16 +108,9 @@ function printGraphLocal(lat, long) {
       ]
     };
 
-    var options = {
-        legend: {
-            display: true,
-            position: 'bottom'
-        }
-    }
-
     // Chart declaration:
     var myBarChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: data,
         options: options
     });
@@ -139,9 +118,9 @@ function printGraphLocal(lat, long) {
 }
 
 /***********************************************
- * 
+ *
  * Init Graph National
- * 
+ *
  ***********************************************/
 
 function initGraph() {
@@ -163,16 +142,9 @@ function initGraph() {
       ]
     };
 
-    var options = {
-        legend: {
-            display: true,
-            position: 'bottom'
-        }
-    }
-
     // Chart declaration:
     var myBarChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: data,
         options: options
     });
@@ -200,21 +172,14 @@ function initGraph() {
       ]
     };
 
-    var options = {
-        legend: {
-            display: true,
-            position: 'bottom'
-        }
-    }
-
     // Chart declaration:
     var myBarChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: data,
         options: options
     });
 
-   
+
     /* ---------------
     FIN GRAPH TYPE DE VENTE
     ----------------- */
@@ -239,21 +204,14 @@ function initGraph() {
       ]
     };
 
-    var options = {
-        legend: {
-            display: true,
-            position: 'bottom'
-        }
-    }
-
     // Chart declaration:
     var myBarChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: data,
         options: options
     });
 
-    
+
     /* ----------------
     FIN GRAPH OCCUPANTS
     ----------------- */
@@ -278,21 +236,14 @@ function initGraph() {
       ]
     };
 
-    var options = {
-        legend: {
-            display: true,
-            position: 'bottom'
-        }
-    }
-
     // Chart declaration:
     var myBarChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: data,
         options: options
     });
 
-    
+
     /* ----------------
     FIN GRAPH ACQUEREURS
     ----------------- */
@@ -317,16 +268,9 @@ function initGraph() {
       ]
     };
 
-    var options = {
-        legend: {
-            display: true,
-            position: 'bottom'
-        }
-    }
-
     // Chart declaration:
     var myBarChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: data,
         options: options
     });
