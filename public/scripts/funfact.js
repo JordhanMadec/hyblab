@@ -7,8 +7,10 @@ function rotate() {
 toggleFunfact = function () {
     if ($(".funfact-wrapper").hasClass('visible')) {
         $(".funfact-wrapper").removeClass('visible');
+        $(".funfact-button .btn-floating").removeClass('selected');
     } else {
         $(".funfact-wrapper").addClass('visible')
+        $(".funfact-button .btn-floating").addClass('selected');
     }
 }
 
