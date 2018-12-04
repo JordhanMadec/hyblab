@@ -114,7 +114,7 @@ function printGraphLocal(lat, long) {
         {
             fill: true,
             backgroundColor: [green1, blue3,gray, purple, pink, blue1],
-            data: [1688, 1419, 707, 357, 48, 6],
+            data: checkAcquereur(lat, long),
             // Notice the borderColor
             borderColor: ['black'],
             borderWidth: [0]
@@ -135,7 +135,7 @@ function printGraphLocal(lat, long) {
         data: data,
         options: options
     });
-    
+    console.log("Local");
 }
 
 /***********************************************
@@ -176,9 +176,6 @@ function initGraph() {
         data: data,
         options: options
     });
-
-    //Graph de base local
-    printGraphLocal(48.926296, 2.222054);
 
     /* ---------------
     FIN GRAPH TYPE DE BIEN
