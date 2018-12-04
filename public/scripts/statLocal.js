@@ -1,4 +1,4 @@
-function checkStat(params) {
+function checkStat(latPoint, longPoint) {
 
     //Type de biens
     let espaceNaturels = 0;
@@ -55,11 +55,121 @@ function checkStat(params) {
     let entreUnetDe = 0;
     let plusDeDeux = 0;
 
+    let nbCorrect = 0;
+    let nbVentes = 0;
+    let nbTypeBiens = 0;
+
     for(var i=0;i<dataCSV.length;i++)
     {
-        let latitude = dataCsV[i]["latitude"];
-        let longitude = dataCsV[i]["longitude"];
-    
-    }
+
+        let latitude = dataCSV[i]["latitude"];
+        let longitude = dataCSV[i]["longitude"];
+
+        let distance = Math.sqrt(Math.pow((latPoint - latitude),2) + Math.pow((longPoint - longitude),2));
+        if(distance < 0.25){
+            nbCorrect++;
+
+            //Type de ventes
+            switch(dataCSV[i]["procedure"]) {
+                case "Gré à gré":
+                    greagre++;
+                    nbVentes++;
+                    break;
+                case "Appel d'offres":
+                    appelDoffre++;
+                    nbVentes++;
+                    break;
+                case "Droit de priorité":
+                    droitDePro++;
+                    nbVentes++;
+                    break;
+                case "Adjudication":
+                    adjujication++;
+                    nbVentes++;
+                    break;
+                case "Autres droits":
+                    autresDroit++;
+                    nbVentes++;
+                    break;
+                case "Echange (Hors Etat)":
+                    echange++;
+                    nbVentes++;
+                    break;
+                case "Recours à une agence":
+                    recoursAgence++;
+                    nbVentes;
+                    break;
+                case "VNI":
+                    VNI++;
+                    nbVentes++;
+                    break;
+            }
+
+            //Type de bien 
+            switch(dataCSV[i]["nature"]){
+                case "BATIMENT D'ENSEIGNEMENT OU DE SPORT":
+                    sport++;
+                    nbTypeBiens++;
+                    break;
+                case "BATIMENT SANITAIRE OU SOCIAL":
+                    sanitaire++;
+                    nbTypeBiens;
+                    break;
+                case "BATIMENT CULTUREL":
+                    culturel++;
+                    nbTypeBiens++;
+                    break;
+                case "COMMERCE":
+                    commerce++;
+                    nbTypeBiens++;
+                    break;
+                case "BUREAU":
+                    bureaux++;
+                    nbTypeBiens++;
+                    break;
+                case "EDIFICE DE CULTE":
+                    culte++;
+                    nbTypeBiens++;
+                    break;
+                case "LOGEMENT":
+                    logements++;
+                    nbTypeBiens++;
+                    break;
+                case "ESPACE NATUREL":
+                    espaceNaturels++;
+                    nbTypeBiens++;
+                    break;
+                case "BATIMENT AGRICOLE OU D'ELEVAGE":
+                    agricole++;
+                    nbTypeBiens++;
+                    break;
+                case "BATIMENT TECHNIQUE":
+                    batTechnique++;
+                    nbTypeBiens++;
+                    break;
+                case "SUPPORT DE PARCELLE":
+                    parcelles++
+                    nbTypeBiens++;
+                    break;
+                case "RESEAUX ET VOIRIES":
+                    voirie++;
+                    nbTypeBiens++;
+                    break;
+                case "MONUMENT ET MEMORIAL":
+                    memorial++;
+                    nbTypeBiens;
+                    break;
+                case "ESPACE AMENAGE":
+                    espaceAmenage++;
+                    nbTypeBiens++;
+                    break;
+                
+            }
+        }
+    }//Fin For
+    console.log(nbVentes);
+    console.log("Adj " + adjujication);
 }
+
+checkStat(48.926296,2.222054);
 
