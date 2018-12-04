@@ -25,6 +25,7 @@
     cursor: pointer;
     transition: .3s;
     position: relative;
+    overflow: hidden;
 }
 
 .mystery-box-container {
@@ -54,6 +55,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 100%;
 }
 
 

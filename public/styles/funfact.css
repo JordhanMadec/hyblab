@@ -19,6 +19,10 @@
     transition: .3s;
 }
 
+.funfact-wrapper h5 {
+    color: var(--main-yellow);
+}
+
 .funfact-wrapper.visible {
     visibility: visible;
     transform: scale(1);
@@ -115,3 +119,9 @@ in Fun Fact discovery feature
 End of style for carousel slider
 in Fun Fact discovery feature
 -------------------------------*/
+
+
+.return-button {
+    right: unset;
+    left: 23px;
+}
