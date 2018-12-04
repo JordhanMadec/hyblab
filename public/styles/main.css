@@ -15,7 +15,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Cabin', sans-serif;
-    color: var(--main-yellow);
+    color: var(--main-white);
     letter-spacing: 3px;
 }
 
@@ -111,6 +111,8 @@ footer.page-footer .footer-copyright {
     background-color: var(--main-yellow);
     text-align: center;
 }
+
+footer h1
 
 footer .logos-container {
     padding: 20px 0;
