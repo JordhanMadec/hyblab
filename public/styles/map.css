@@ -320,3 +320,12 @@
     background-color: var(--main-yellow) !important;
     box-shadow: none !important;
 }
+
+.mapboxgl-popup-content {
+    border-radius: 20px !important;
+}
+
+.mapboxgl-popup-close-button {
+    right: 5px !important;
+    top: 5px !important;
+}
