@@ -1,4 +1,4 @@
-var dataCsV = [
+var dataCSV = [
     {
       "id": 166609,
       "state": "Cession à venir",
