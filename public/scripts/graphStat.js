@@ -70,7 +70,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
@@ -107,7 +107,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
@@ -144,7 +144,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
@@ -181,7 +181,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
