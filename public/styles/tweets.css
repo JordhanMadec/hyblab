@@ -9,7 +9,10 @@
     font-family: 'Raleway', sans-serif;
 }
 
-#biens-section h1, h2, h3, h4, h5, h6 {
+#biens-section h2,
+#biens-section h3,
+#biens-section h4,
+#biens-section h5 {
     color: var(--main-yellow);
 }
 
@@ -18,18 +21,14 @@
     border-radius: 100%;
     background-position: center;
     background-size: cover;
-    filter: blur(4px);
     overflow: hidden;
     cursor: pointer;
     transition: .3s;
     position: relative;
-    opacity: .4;
 }
 
-.mystery-box-container:hover .mystery-box {
-    filter: blur(0);
-    opacity: .8;
-    cursor: pointer;
+.mystery-box-container {
+    position: relative;
 }
 
 .mystery-box-container:hover .question-mark {
@@ -47,16 +46,14 @@
 }
 
 .question-mark {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    margin: auto;
-    margin-top: -60px;
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    height: 100%;
     fill: var(--main-white);
     transition: .3s;
+    background-color: var(--main-yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
