@@ -29,7 +29,7 @@ ScrollReveal().reveal('.stat-wrapper', {
 });
 
 
-ScrollReveal().reveal('.map-filter-nature, .map-filter-state, .mystery-box, .team-profile, #articles-section div, .project-description', {
+ScrollReveal().reveal('.map-filter-nature, .map-filter-state, .mystery-box, .team-profile, #articles-section div, .project-description, .stats-container img', {
     delay: 200,
     duration: 1000
 });
