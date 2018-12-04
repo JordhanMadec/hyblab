@@ -6,20 +6,20 @@
     --main-yellow: #FFEB3B;
     --main-gray: #BBB;
 
-    --gray: #9e9e9e;
-    --green1: #69f0ae;
+    --gray: rgb(89, 89, 89);
+    --green1: rgb(137, 214, 155);
     --green2: #8bc34a;
     --green3: #558b2f;
-    --red: #e53935;
-    --pink: #f06292;
-    --orange1: #ff9800;
+    --red: rgb(151, 32, 23);
+    --pink: rgb(213, 125, 239);
+    --orange1: rgb(243, 159, 58);
     --orange2: #e65100;
-    --purple: #673ab7;
+    --purple: rgb(120, 27, 86);
     --blue1: #bbdefb;
     --blue2: #90caf9;
     --blue3: #3f51b5;
     --yellow1: #ffeb3b;
-    --yellow2: #fbc02d;
+    --yellow2: rgb(249, 212, 114);
 
     --border-radius: 5px;
 }
