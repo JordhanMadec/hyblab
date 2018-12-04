@@ -110,7 +110,8 @@ footer.page-footer .footer-copyright {
 
 
 .modal { 
-    width: 50% !important ; 
+    width: 100% !important ; 
+    height: 80% !important ; 
     border-radius: 30px;
   }
 

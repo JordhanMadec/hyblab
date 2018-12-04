@@ -1,25 +1,12 @@
 //----------  STATS ----------
 
 function initModal() {
-    $('.modal').modal();
-
     $('.modal').modal({
         onOpenEnd: function(el) {
-            $('.tabs').tabs({
-                swipeable: true,
+            var $tabs = $('.tabs');
+            $tabs.tabs({
+                swipeable: false,
                 responsiveThreshold: Infinity
-            });
-
-            $('.tab a').click(function (event) {
-                console.log($(this));
-
-                if (!e) var e = window.event
-                e.cancelBubble = true;
-                if (e.stopPropagation) e.stopPropagation();
-
-                $('.tab a').removeClass('active');
-                $(this).addClass('active');
-                $('.tabs').tabs();
             });
         }
     });
@@ -47,7 +34,7 @@ function initGraph() {
     var options = {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         }
     }
 
