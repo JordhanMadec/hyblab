@@ -11,8 +11,8 @@ function backToChoice(){
 
 function openTwitter(nb){
     let prix = document.getElementById("prixUtilisateur" + nb).value;
-    let text = "D'après moi, ce bien vaut " + prix + "€ mais l'état ne renseigne pas son prix.";
-    let HashTag = "DonnezLePrix";
+    let text = "J'ai estimé un bien de l'état à " + prix + "€ mais l'état ne renseigne pas son prix de vente.";
+    let HashTag = "BalanceTonPrix";
     var lien = "https://twitter.com/intent/tweet?button_hashtag=" + HashTag + "&ref_src=twsrc%5Etfw&text=" + text;
     window.open(lien);
 }
