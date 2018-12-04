@@ -58,6 +58,7 @@ function checkStat(latPoint, longPoint) {
     let nbCorrect = 0;
     let nbVentes = 0;
     let nbTypeBiens = 0;
+    let nbOccupant = 0;
 
     for(var i=0;i<dataCSV.length;i++)
     {
@@ -165,8 +166,64 @@ function checkStat(latPoint, longPoint) {
                     break;
                 
             }
-        }
+
+            //Occupant            
+            if(dataCSV[i]["ministry"] != null){
+                let occup = dataCSV[i]["ministry"].toLowerCase();
+                if(occup.includes("cologi")){
+                    ecologieM++;
+                    nbOccupant++;
+                }else if(occup.includes("agriculture")){
+                    agricultureM++;
+                    nbOccupant++;
+                }else if(occup.includes("comptes publics")){
+                    defenseM++;
+                    nbOccupant++;
+                }else if(occup.includes("budget")){
+                    comptePubM++;
+                    nbOccupant++;
+                }else if(occup.includes("conomie")){
+                    economieM++;
+                    nbOccupant++;
+                }else if(occup.includes("travail")){
+                    travailM;
+                    nbOccupant++;
+                }else if(occup.includes("justice")){
+                    justiceM++;
+                    nbOccupant++;
+                }else if(occup.includes("culture")){
+                    cultureM++;
+                    nbOccupant++;
+                }else if(occup.includes("forêt")){
+                    foretM++;
+                    nbOccupant++;
+                }else if(occup.includes("intérieur")){
+                    interieurM++;
+                    nbOccupant++;
+                }else if(occup.includes("ducation") || occup.includes("enseignement")){
+                    educationM++;
+                    nbOccupant++;
+                }else if(occup.includes("trangères")){
+                    affaireEtrangeresM++;
+                    nbOccupant++;
+                }else if(occup.includes("santé")){
+                    santeM++;
+                    nbOccupant++;
+                }else if(occup.includes("premier ministre")){
+                    serviceMinistreM++;
+                    nbOccupant++;
+                }
+            } 
+                
+                
+
+
+
+
+        }//Fin if
     }//Fin For
+    console.log(nbOccupant);
+
     console.log(nbVentes);
     console.log("Adj " + adjujication);
 }
