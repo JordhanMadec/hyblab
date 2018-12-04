@@ -320,35 +320,6 @@ function initGraph() {
         data: data,
         options: options
     });
-
-    var ctx = document.getElementById("dureeLocal").getContext('2d');
-    var data = {
-    labels: ["Moins de 1 an (48.80 %)", "Entre 1 et 2 ans (27 %) ", "Plus de 2 ans (24.2%) "],
-      datasets: [
-        {
-            fill: true,
-            backgroundColor: [green1, blue3, gray],
-            data: [1688, 1419, 707],
-            // Notice the borderColor
-            borderColor: ['black'],
-            borderWidth: [0]
-        }
-      ]
-    };
-
-    var options = {
-        legend: {
-            display: true,
-            position: 'right'
-        }
-    }
-
-    // Chart declaration:
-    var myBarChart = new Chart(ctx, {
-        type: 'pie',
-        data: data,
-        options: options
-    });
     /* ----------------
     FIN DUREE VENTES
     ----------------- */
