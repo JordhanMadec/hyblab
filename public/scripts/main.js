@@ -2,7 +2,7 @@ $(document).ready(function () {
     /**
     * Smooth scrolling to page anchor on click
     **/
-	 $('a[href^="#"]').click(function(){
+	$('a.header-down-button[href^="#"]').click(function(){
 		var the_id = $(this).attr("href");
 		if (the_id === '#') {
 			return;
