@@ -220,3 +220,8 @@ footer .logo img {
         width: 80% !important;
     }
 }
+
+.footer-copyright a {
+    color: inherit !important;
+    
+}
