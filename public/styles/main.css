@@ -130,3 +130,20 @@ footer.page-footer .footer-copyright {
     text-align: center;
 }
 
+.carousel-item.active {
+    transform: none !important;
+}
+
+
+.modal { 
+    width: 50% !important ; 
+    border-radius: 30px;
+  }
+
+.national h5 {
+      color: black;
+} 
+
+.local h5 {
+    color: black;
+} 

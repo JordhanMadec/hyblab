@@ -1,30 +1,31 @@
-//----------  COLORS ----------
-var gray = 'rgb(135, 135, 135)';
-var green1 = 'rgb(115, 240, 180)';
-var green2 = 'rgb(139, 202, 27)';
-var green3 = 'rgb(10, 103, 64)';
-var red = 'rgb(255, 2, 1)';
-var pink = 'rgb(200, 0, 127)';
-var orange1 = 'rgb(255, 146, 2)';
-var orange2 = 'rgb(255, 100, 0)';
-var purple = 'rgb(94, 30, 132)';
-var blue1 = 'rgb(161, 210, 219)';
-var blue2 = 'rgb(61, 146, 181)';
-var blue3 = 'rgb(28, 42, 150)';
-var yellow1 = 'rgb(255, 255, 0)';
-var yellow2 = 'rgb(255, 200, 0)';
-
-
 //----------  STATS ----------
-function initModalAndGraph() {
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.modal');
-        var instances = M.Modal.init(elems, options);
-    });
 
+function initModal() {
     $('.modal').modal();
 
+    $('.modal').modal({
+        onOpenEnd: function(el) {
+            $('.tabs').tabs({
+                swipeable: true,
+                responsiveThreshold: Infinity
+            });
 
+            $('.tab a').click(function (event) {
+                console.log($(this));
+
+                if (!e) var e = window.event
+                e.cancelBubble = true;
+                if (e.stopPropagation) e.stopPropagation();
+
+                $('.tab a').removeClass('active');
+                $(this).addClass('active');
+                $('.tabs').tabs();
+            });
+        }
+    });
+}
+
+function initGraph() {
     /* ---------------
     GRAPH TYPE DE BIEN
     ----------------- */
@@ -34,11 +35,11 @@ function initModalAndGraph() {
       datasets: [
         {
             fill: true,
-            backgroundColor: [green1, blue3,gray, purple, pink,blue1, green2, red, orange1, blue2, yellow1,green3,orange2, yellow2],
+            backgroundColor: [naturel, logement, bureau, amenage, technique, voirie, parcelle, enseignement, sanitaire, commerce, culturel, agricole, monument, culte],
             data: [2606, 723, 507, 317, 289, 142, 79, 35, 25, 10, 9, 9, 6, 4],
             // Notice the borderColor 
-            borderColor: ['black'],
-            borderWidth: [0]
+            borderColor: ['white','white','white','white','white','white','white','white','white','white','white','white','white','white'],
+            borderWidth: [2,2,2,2,2,2,2,2,2,2,2,2,2,2]
         }
       ]
     };
@@ -206,4 +207,5 @@ function initModalAndGraph() {
     /* ----------------
     FIN DUREE VENTES
     ----------------- */
+
   }

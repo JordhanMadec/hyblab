@@ -18,7 +18,20 @@ var blue3 = '#3f51b5';
 var yellow1 = '#ffeb3b';
 var yellow2 = '#fbc02d';
 
-
+var enseignement = '#f44336';
+var bureau = '#81d4fa';
+var amenage = '#9575cd';
+var monument = '#d84315';
+var agricole = '#2e7d32';
+var sanitaire = '#9fa8da';
+var commerce = '#757575';
+var naturel = '#4caf50';
+var voirie = '#2196f3';
+var culturel = '#ffeb3b';
+var technique = '#e91e63';
+var culte = '#eeff41';
+var logement = '#ff7043';
+var parcelle = '#009688';
 
 
 
@@ -288,33 +301,33 @@ map.on('load', function() {
                         "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
                     "</div>" +
                     "<div class='center-align' style='margin-top:10px;'>" +
-                        "<a class='waves-effect waves-light btn modal-trigger yellow' href='#modal1' style='color: black;'>Voir Statistiques</a>" +
+                        "<a class='waves-effect waves-light btn modal-trigger yellow more-stats-button' href='#modal1' style='color: black;'>Voir Statistiques</a>" +
                     "</div>" +
                 "</div>"
             )
             .addTo(map);
-
-        map.on('mouseenter', 'clusters', function () {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-        map.on('mouseleave', 'clusters', function () {
-            map.getCanvas().style.cursor = '';
-        });
-
-        map.on('mouseenter', 'point-unclustered', function () {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-        map.on('mouseleave', 'point-unclustered', function () {
-            map.getCanvas().style.cursor = '';
-        });
-
-        map.on('mouseenter', 'point-clustered', function () {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-        map.on('mouseleave', 'point-clustered', function () {
-            map.getCanvas().style.cursor = '';
-        });
     }
+
+    map.on('mouseenter', 'clusters', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'clusters', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter', 'point-unclustered', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'point-unclustered', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter', 'point-clustered', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'point-clustered', function () {
+        map.getCanvas().style.cursor = '';
+    });
 
     // Affiche la fiche du patrimoine
     map.on('click', 'point-unclustered', function (e) {

@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function () {
     /**
     * Smooth scrolling to page anchor on click
     **/
@@ -35,5 +35,7 @@ $(function() {
 		$body.removeClass('is-loading');
 	});
 
-	initModalAndGraph();
+	initFunfact();
+	initModal();
+	initGraph();
 });

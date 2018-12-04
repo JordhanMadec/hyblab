@@ -1,4 +1,18 @@
-$(document).ready(function () {
+//a simple function to click next link
+//a timer will call this function, and the rotation will begin
+function rotate() {
+    $('#next-funfact').click();
+}
+
+toggleFunfact = function () {
+    if ($(".funfact-wrapper").hasClass('visible')) {
+        $(".funfact-wrapper").removeClass('visible');
+    } else {
+        $(".funfact-wrapper").addClass('visible')
+    }
+}
+
+initFunfact = function() {
     //rotation speed and timer
     var speed = 7000;
 
@@ -62,18 +76,4 @@ $(document).ready(function () {
         });
     }
 
-});
-
-//a simple function to click next link
-//a timer will call this function, and the rotation will begin
-function rotate() {
-    $('#next-funfact').click();
-}
-
-toggleFunfact = function () {
-    if ($(".funfact-wrapper").hasClass('visible')) {
-        $(".funfact-wrapper").removeClass('visible');
-    } else {
-        $(".funfact-wrapper").addClass('visible')
-    }
-}
+};

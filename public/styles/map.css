@@ -314,3 +314,9 @@
     padding-right: 10px;
     display: inline-block;
 }
+
+.more-stats-button {
+    border-radius: 20px;
+    background-color: var(--main-yellow) !important;
+    box-shadow: none !important;
+}
