@@ -228,13 +228,13 @@ map.on('load', function() {
             case 'BUREAU': return 'bureau';
             case 'COMMERCE': return 'commerce';
             case 'EDIFICE DE CULTE': return 'edifice-culte';
-            case 'ESPACE AMENAGE': 'espace-amenage';
+            case 'ESPACE AMENAGE': return 'espace-amenage';
             case 'ESPACE NATUREL': return 'espace-naturel';
             case 'LOGEMENT': return 'logement';
             case 'MONUMENT ET MEMORIAL': return 'monument';
             case 'RESEAUX ET VOIRIES': return 'reseaux-voiries';
-            case 'SUPPORT DE PARCELLE': 'support-parcelle';
-            default: return '';
+            case 'SUPPORT DE PARCELLE': return 'support-parcelle';
+            default: return 'unknown';
         }
     }
 

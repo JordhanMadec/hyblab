@@ -1,0 +1,9 @@
+#stats-section {
+    background-color: var(--main-yellow);
+    color:  var(--main-black);
+    text-align: justify;
+}
+
+#stats-section h1 {
+    color: var(--main-black);
+}
