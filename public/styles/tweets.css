@@ -51,7 +51,7 @@
     height: 100%;
     fill: var(--main-white);
     transition: .3s;
-    background-color: var(--main-yellow);
+    background-color: var(--main-yellow-overlay);
     display: flex;
     justify-content: center;
     align-items: center;
