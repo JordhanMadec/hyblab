@@ -242,6 +242,8 @@ map.on('load', function() {
         var coordinates = e.features[0].geometry.coordinates.slice();
         var patrimony = e.features[0].properties;
 
+        printGraphLocal(coordinates[1], coordinates[0]);
+
         // Ensure that if the map is zoomed out such that multiple
         // copies of the feature are visible, the popup appears
         // over the copy being pointed to.
