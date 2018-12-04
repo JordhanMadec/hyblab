@@ -301,7 +301,7 @@ map.on('load', function() {
                         "<div><div class='label'>Description</div><div class='value'>" + description + "</div></div>" +
                     "</div>" +
                     "<div class='center-align' style='margin-top:10px;'>" +
-                        "<a class='waves-effect waves-light btn modal-trigger yellow' href='#modal1' style='color: black;'>Voir Statistiques</a>" +
+                        "<a class='waves-effect waves-light btn modal-trigger yellow more-stats-button' href='#modal1' style='color: black;'>Voir Statistiques</a>" +
                     "</div>" +
                 "</div>"
             )
