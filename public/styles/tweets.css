@@ -60,8 +60,15 @@
     justify-content: center;
     align-items: center;
     border-radius: 100%;
+    position: relative;
 }
 
+.question-mark img {
+    -webkit-animation:bounce 1s infinite;
+    height: 70px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
 
 #box1 .mystery-box {
     background-image: url("../assets/images/testBatTweet.jpg");

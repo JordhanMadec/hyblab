@@ -29,7 +29,7 @@ ScrollReveal().reveal('.stat-wrapper', {
 });
 
 
-ScrollReveal().reveal('.mystery-box, .team-profile', {
+ScrollReveal().reveal('.map-filter-nature, .map-filter-state, .mystery-box, .team-profile, #articles-section div, .project-description', {
     delay: 200,
     duration: 1000
 });
