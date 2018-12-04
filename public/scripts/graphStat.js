@@ -21,7 +21,7 @@ var options = {
 
 function printGraphLocal(lat, long) {
     var dataLocl = checkTypeDeBien(lat,long);
-    $("#typeBiensLocal").html("");
+    $("#typeBiensLocal").empty();
     var ctx = document.getElementById("typeBiensLocal").getContext('2d');
     var data = {
     labels: ["Espace naturel", "Logement", "Bureaux","Espace amenage", "Batiment technique", "Reseaux et voiries", "Support de parcelle", "Batiment enseignement ou sport", "Batiment sanitaire", "Commerce", "Batiment culturel", "Agricole ou elevage", "Monument et memorial", "Edifice de culte"],
@@ -44,8 +44,8 @@ function printGraphLocal(lat, long) {
         options: options
     });
 
-    $("#typeVenteLocal").html("");
-    var dataLocl2 = checkTypeVentes(lat,long);
+    $("#typeVenteLocal").empty();
+    var dataLocl2 = checkTypeVentes(lat,long); 
     var ctx = document.getElementById("typeVenteLocal").getContext('2d');
     var data = {
     labels: ["Gre a gre", "Droit de priorite", "Appel d'offres","Adjudication", "Autres droits", "Echange (hors Etats)", "Recours a une agence", "VNI"],
@@ -68,7 +68,7 @@ function printGraphLocal(lat, long) {
         options: options
     });
 
-    $("#occupantsLocal").html("");
+    $("#occupantsLocal").empty();
     var ctx = document.getElementById("occupantsLocal").getContext('2d');
     var data = {
     labels: ["Ecologie", "Defense", "Agriculte et Peche","Comptes publics", "Intérieur", "Education nationale", "Justice", "Culture", "Economie", "Travail", "Office des forets", "Affaires etrangeres", "Sante", "Service du 1er ministre"],
@@ -91,7 +91,7 @@ function printGraphLocal(lat, long) {
         options: options
     });
 
-    $("#acquereursLocal").html("");
+    $("#acquereursLocal").empty();
 
     var ctx = document.getElementById("acquereursLocal").getContext('2d');
     var data = {
